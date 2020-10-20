@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {View, Text} from 'react-native';
+import Body from './body/Body';
 
 class LoginPage extends Component{
     render(){
@@ -7,7 +8,7 @@ class LoginPage extends Component{
 
             <View>
 
-                <Text>안녕하세요</Text>
+                <Body/>
             </View>
 
         )
