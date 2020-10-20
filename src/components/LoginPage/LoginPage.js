@@ -9,6 +9,7 @@ class LoginPage extends Component{
             <View>
 
                 <Body/>
+                
             </View>
 
         )
