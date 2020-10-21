@@ -1,17 +1,31 @@
 import React from 'react';
-import {Text} from 'react-native'
+import {Text} from 'react-native';
 import Button from 'apsl-react-native-button';
 import auth from '@react-native-firebase/auth';
 
-const SignUp_Button = function ({email, password}) {
+const SignUp_Button = function ({
+  enickname,
+  email,
+  password,
+  pwdcheck,
+  isEmail,
+  isPassword,
+  isCheck,
+}) {
+  var isValid;
+  /* Firebase에 계정/비밀번호 추가 */
   async function CreateEmailAuth() {
+    if ((!isEmail)||(!isPassword)||(!isCheck)) { alert("nope"); return 0; }
+
     try {
       await auth().createUserWithEmailAndPassword(email, password);
+      console.log('created');
     } catch (e) {
       console.log(e);
     }
   }
 
+  /* 회원가입 버튼 */
   return (
     <Button
       onPress={() => CreateEmailAuth()}
