@@ -69,7 +69,7 @@ function SignUp() {
       setisPassword(false);
     }
     /* 비밀번호 확인도 같이 체크 */
-    if ((passwordValid === text) && (passwordReg.test(password))) {
+    if ((passwordValid === text) && (passwordReg.test(text))) {
       setpasswordValidIcon(require('../../assets/icons/o.png'));
       setisPasswordValid(true);
     } else {
