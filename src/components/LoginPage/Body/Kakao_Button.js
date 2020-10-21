@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import Button from 'apsl-react-native-button';
 import KakaoLogins, {KAKAO_AUTH_TYPES} from '@react-native-seoul/kakao-login';
+import auth from '@react-native-firebase/auth';
 
 const Kakao_Button = function () {
   const kakaoLogin = () => {
@@ -19,6 +20,33 @@ const Kakao_Button = function () {
 
         // 로그인 성공
         console.log('카카오 로그인 성공', result);
+      })
+      .then(() => {
+        // 여기서부터가 API 서버애서 verifyToken 불러오는 법.
+        // 밑 ip주소는 와이파이마다 달라짐. Firebase REST API 쓰려면 돈 내고 업로드해야함.
+        fetch('http://172.20.10.8:8000/'.concat('verifyToken?token=', token), {
+          method: 'POST'
+        })
+          .then((response) => {
+            response
+              .json()
+              .then((responseText) => {
+                console.log('입력받은 토큰을 넣기 시작');
+                auth()
+                  .signInWithCustomToken(responseText.firebase_token)
+                  .catch(function (error) {
+                    console.log('에러남.', error);
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // ...
+                  });
+              });
+            // console.log(response);
+          })
+          .catch((error) => {
+            console.log('에러', error);
+          });
       })
       .catch((err) => {
         if (err.code === 'E_CANCELLED_OPERATION') {

@@ -38,7 +38,6 @@ const Body = function() {
       <Google_Button/>
       <Kakao_Button/>
 
-
     </>
   );
 };
