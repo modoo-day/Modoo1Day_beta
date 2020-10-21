@@ -2,21 +2,21 @@ import * as React from 'react';
 import { View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import MarketPage from '../MarketPage';
+import MarketPage from './MarketPage';
 
 
 function LogoTitle() {
   return (
     <Image
       style={{ width: 50, height: 50 }}
-      source={require('../../../assets/icons/modoo.png')}
+      source={require('../../assets/icons/modoo.png')}
     />
   );
 }
 
 const Stack = createStackNavigator();
 
-const Head = function () {
+const MarketHeader = function () {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -30,4 +30,4 @@ const Head = function () {
   );
 }
 
-export default Head;
+export default MarketHeader;
