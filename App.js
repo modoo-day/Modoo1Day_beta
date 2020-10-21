@@ -4,14 +4,14 @@ import {
   
 } from 'react-native';
 import LoginPage from './src/components/LoginPage/LoginPage';
-import MarketHedaer from './src/components/MarketPage/MarketHeader';
+import TopNavigation from './src/components/Navigation/TopNavigation';
 
 const App: () => React$Node = () => {
   return (
     <>
 
-
-      <MarketHedaer/>
+      <TopNavigation/>
+      
       
     </>
   );
