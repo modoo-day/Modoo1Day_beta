@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import Button from 'apsl-react-native-button';
 
 
@@ -14,3 +14,10 @@ const Google_Button = function () {
 }
 
 export default Google_Button;
+
+const styles = StyleSheet.create({
+    container: {},
+    input: {},
+    inputext: {},
+  });
+  

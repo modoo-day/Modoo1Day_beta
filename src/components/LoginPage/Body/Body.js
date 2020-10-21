@@ -43,10 +43,11 @@ const Body = function() {
   );
 };
 
+
+export default Body;
+
 const styles = StyleSheet.create({
   container: {},
   input: {},
   inputext: {},
 });
-
-export default Body;
