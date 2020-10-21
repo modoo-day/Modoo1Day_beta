@@ -1,43 +1,92 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, StyleSheet, Image} from 'react-native';
+import {FlatList} from 'react-native-gesture-handler';
 
 import SignUp_Button from './SignUp_Button';
 
 function SignUp() {
-  var isEmail, isPassword, isCheck;
-  const [nicknameIcon, setnicknameIcon] = useState(require('../../assets/icons/blank.png'));
-  const [emailIcon, setemailIcon] = useState(require('../../assets/icons/blank.png'));
-  const [passwordIcon, setpasswordIcon] = useState(require('../../assets/icons/blank.png'));
-  const [pwdcheckIcon, setpwdcheckIcon] = useState(require('../../assets/icons/blank.png'));
-
   const [nickname, setNickname] = useState('');
-  const [email, setEmail] = useState(''); 
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [pwdcheck, setPwdcheck] = useState('');
+  const [passwordValid, setPasswordValid] = useState('');
 
-  function checkName(text) {
+  /* 정규 표현식 조건에 맞는지 확인하는 아이콘 */
+  const [nicknameIcon, setnicknameIcon] = useState(
+    require('../../assets/icons/x.png'),
+  );
+  const [emailIcon, setemailIcon] = useState(
+    require('../../assets/icons/x.png'),
+  );
+  const [passwordIcon, setpasswordIcon] = useState(
+    require('../../assets/icons/x.png'),
+  );
+  const [passwordValidIcon, setpasswordValidIcon] = useState(
+    require('../../assets/icons/x.png'),
+  );
+  
+  const [isNickname, setisNickname] = useState(false)
+  const [isEmail, setisEmail] = useState(false)
+  const [isPassword, setisPassword] = useState(false)
+  const [isPasswordValid, setisPasswordValid] = useState(false)
+
+
+  function checkNickname(text) {
     setNickname(text);
-    setnicknameIcon(require('../../assets/icons/modoo.png'));
+    /* 한글,영문 대소문자 2~15자리 */
+    const nameReg = /^[가-힣A-Za-z]{2,15}$/;
+    if (nameReg.test(text)) {
+      setnicknameIcon(require('../../assets/icons/o.png'));
+      setisNickname(true);
+    } else {
+      setnicknameIcon(require('../../assets/icons/x.png'));
+      setisNickname(false);
+    }
   }
 
   function checkEmail(text) {
-    const emailReg = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    isEmail = emailReg.test(text);
     setEmail(text);
-    isEmail ? setemailIcon(require('../../assets/icons/modoo.png')) : setemailIcon(require('../../assets/icons/blank.png'));
+    /* 이메일 형식 */
+    const emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    if (emailReg.test(text)) {
+      setemailIcon(require('../../assets/icons/o.png'));
+      setisEmail(true);
+    } else {
+      setemailIcon(require('../../assets/icons/x.png'));
+      setisEmail(false);
+    }
   }
 
   function checkPassword(text) {
-    const pwdReg = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
-    isPassword = pwdReg.test(text);
     setPassword(text);
-    isPassword ? setpasswordIcon(require('../../assets/icons/modoo.png')) : setpasswordIcon(require('../../assets/icons/blank.png'));
+    /* 최소 하나의 문자, 숫자, 특수문자(~!@#$%^&*) 8자 이상*/
+    const passwordReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[~!@#$%^&*])[A-Za-z\d~!@#$%^&*]{8,}$/;
+    if (passwordReg.test(text)) {
+      setpasswordIcon(require('../../assets/icons/o.png'));
+      setisPassword(true);
+    } else {
+      setpasswordIcon(require('../../assets/icons/x.png'));
+      setisPassword(false);
+    }
+    /* 비밀번호 확인도 같이 체크 */
+    if (passwordValid===text) {
+      setpasswordValidIcon(require('../../assets/icons/o.png'));
+      setisPasswordValid(true);
+    } else {
+      setpasswordValidIcon(require('../../assets/icons/x.png'));
+      setisPasswordValid(false);
+    }
+
   }
 
-  function checkPwdcheck(text) {
-    isCheck = (password===text);
-    setPwdcheck(text);
-    isCheck ? setpwdcheckIcon(require('../../assets/icons/modoo.png')) : setpwdcheckIcon(require('../../assets/icons/blank.png'));
+  function checkPasswordValid(text) {
+    setPasswordValid(text);
+    if (password===text) {
+      setpasswordValidIcon(require('../../assets/icons/o.png'));
+      setisPasswordValid(true);
+    } else {
+      setpasswordValidIcon(require('../../assets/icons/x.png'));
+      setisPasswordValid(false);
+    }
   }
 
   return (
@@ -47,44 +96,61 @@ function SignUp() {
       </View>
       <View style={styles.body}>
         <View style={styles.bodyView}>
+          {/* 이미지 먼저 들어가야 TextInput이 맨 앞으로 감 */}
+          <Image source={nicknameIcon} style={styles.bodyImage} />
           <TextInput
             style={styles.bodyTextInput}
             placeholder="닉네임"
-            onChangeText={(text) => checkName(text)}
+            maxLength={12}  // 최대 12자
+            onChangeText={(text) => checkNickname(text)}
             value={nickname}
           />
-          <Image source={nicknameIcon} style={styles.bodyImage} />
         </View>
         <View style={styles.bodyView}>
+          <Image source={emailIcon} style={styles.bodyImage} />
           <TextInput
             style={styles.bodyTextInput}
             placeholder="이메일"
             onChangeText={(text) => checkEmail(text)}
             value={email}
           />
-          <Image source={emailIcon} style={styles.bodyImage} />
         </View>
         <View style={styles.bodyView}>
+          <Image source={passwordIcon} style={styles.bodyImage} />
           <TextInput
             style={styles.bodyTextInput}
             placeholder="비밀번호"
+            secureTextEntry={true} // 비밀번호 **** 표시로 가려주는 Props
+            maxLength={15}  // 최대 15자
             onChangeText={(text) => checkPassword(text)}
             value={password}
           />
-          <Image source={passwordIcon} style={styles.bodyImage} />
         </View>
         <View style={styles.bodyView}>
+          <Image source={passwordValidIcon} style={styles.bodyImage} />
           <TextInput
             style={styles.bodyTextInput}
             placeholder="비밀번호 확인"
-            onChangeText={(text) => checkPwdcheck(text)}
-            value={pwdcheck}
+            secureTextEntry={true} // 비밀번호 **** 표시로 가려주는 Props
+            maxLength={15}  // 최대 15자
+            onChangeText={(text) => checkPasswordValid(text)}
+            value={passwordValid}
           />
-          <Image source={pwdcheckIcon} style={styles.bodyImage} />
         </View>
       </View>
       <View style={styles.footer}>
-        <SignUp_Button {...{nickname, email, password, pwdcheck, isEmail, isPassword, isCheck}} />
+        <SignUp_Button    // custom Button
+          {...{
+            nickname,     // props 전달
+            email,
+            password,
+            passwordValid,
+            isNickname,
+            isEmail,
+            isPassword,
+            isPasswordValid,
+          }}
+        />
       </View>
     </View>
   );
@@ -114,14 +180,16 @@ const styles = StyleSheet.create({
     marginVertical: '1%',
   },
   bodyTextInput: {
-    width: '85%',
+    width: '100%',
     fontSize: 15,
     paddingLeft: '5%',
   },
   bodyImage: {
+    position: 'absolute',
+    left: '85%',
     width: '10%',
     height: '10%',
-    padding: '5%',
+    padding: '50%',
   },
   footer: {
     flex: 3,

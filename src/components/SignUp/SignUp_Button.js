@@ -4,24 +4,27 @@ import Button from 'apsl-react-native-button';
 import auth from '@react-native-firebase/auth';
 
 const SignUp_Button = function ({
-  enickname,
+  nickname,
   email,
   password,
-  pwdcheck,
+  passwordValid,
+  isNickname,
   isEmail,
   isPassword,
-  isCheck,
+  isPasswordValid,
 }) {
-  var isValid;
   /* Firebase에 계정/비밀번호 추가 */
   async function CreateEmailAuth() {
-    if ((!isEmail)||(!isPassword)||(!isCheck)) { alert("nope"); return 0; }
-
-    try {
-      await auth().createUserWithEmailAndPassword(email, password);
-      console.log('created');
-    } catch (e) {
-      console.log(e);
+    if (!isNickname || !isEmail || !isPassword || !isPasswordValid) {
+      alert("양식이 맞지 않습니다")
+      return console.log('wrong format');
+    } else {
+      try {
+        await auth().createUserWithEmailAndPassword(email, password);
+        console.log('Success');
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 
