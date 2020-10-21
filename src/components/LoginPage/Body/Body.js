@@ -1,6 +1,8 @@
 import React, {Component, useState} from 'react';
-import {Text, Button, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import {TextInput} from 'react-native-paper';
+import Button from 'apsl-react-native-button'
+
 
 const Body = function() {
   const [id, setId] = useState('');
@@ -30,6 +32,20 @@ const Body = function() {
           //onPress={}
         />
       </View>
+
+      <Button style={{backgroundColor: 'blue'}}>
+  <View style={styles.nestedViewStyle}>
+    <Text style={styles.nestedTextStyle}>구글 로그인</Text>
+  </View>
+</Button>
+
+<Button style={{backgroundColor: 'blue'}}>
+  <View style={styles.nestedViewStyle}>
+    <Text style={styles.nestedTextStyle}>카카오톡 로그인</Text>
+  </View>
+</Button>
+
+
     </>
   );
 };
