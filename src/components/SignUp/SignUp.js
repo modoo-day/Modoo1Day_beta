@@ -80,7 +80,8 @@ function SignUp() {
 
   function checkPasswordValid(text) {
     setPasswordValid(text);
-    if (password === text) {
+    const passwordReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[~!@#$%^&*])[A-Za-z\d~!@#$%^&*]{8,}$/;
+    if ((password === text) && (passwordReg.test(password))) {
       setpasswordValidIcon(require('../../assets/icons/o.png'));
       setisPasswordValid(true);
     } else {
