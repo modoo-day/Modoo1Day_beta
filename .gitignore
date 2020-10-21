@@ -57,3 +57,6 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+#YH Custom
+./RUN-ANDROID nojet.lnk

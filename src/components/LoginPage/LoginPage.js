@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
-import Bottom from './Bottom';
+import Bottom from './Bottom/Bottom';
 
 class LoginPage extends Component {
   render() {
