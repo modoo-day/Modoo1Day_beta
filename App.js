@@ -1,21 +1,19 @@
 
 import React from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
+  
 } from 'react-native';
 import LoginPage from './src/components/LoginPage/LoginPage';
+import MarketPage from './src/components/MarketPage/MarketPage';
+import TopNavigation from './src/components/MarketPage/TopNavigation';
 
 const App: () => React$Node = () => {
   return (
     <>
 
-      <LoginPage />
 
+      <TopNavigation/>
+      
     </>
   );
 };
