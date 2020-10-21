@@ -2,6 +2,11 @@
   "name": "Modoo1Day_beta",
   "version": "0.0.1",
   "private": true,
+  "rnpm": {
+    "assets": [
+      "./assets/fonts"
+    ]
+  },
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -17,6 +22,7 @@
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-paper": "^4.2.0",
+    "react-native-swiper": "^1.6.0-rc.3",
     "react-native-vector-icons": "^7.1.0"
   },
   "devDependencies": {
