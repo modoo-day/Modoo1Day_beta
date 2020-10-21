@@ -1179,7 +1179,7 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-9.3.1.tgz#269d4755cb398e049b5014bf35adcc631a87d6d6"
   integrity sha512-TtCEwyO5+ZRvmlKMLz54qFshIWaDT9U162CjQX0mzybmogYKRM9UoB+mFnZLh7rKZQQgvVzzMfF+h2DUgN+9xQ==
 
-"@react-native-seoul/kakao-login@2.10.1":
+"@react-native-seoul/kakao-login@^2.10.1":
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/@react-native-seoul/kakao-login/-/kakao-login-2.10.1.tgz#46f510cc0cd51895acc02415591c35fa4ddb524b"
   integrity sha512-cviMHZ4I9BA/zYaDZdBK+paKvHl4sg43aoVwLkfriiaxH9Xc49942SO6v1IjnQISZX1SYbWw1f4uvNhHb9/XXA==
