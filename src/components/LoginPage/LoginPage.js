@@ -4,7 +4,7 @@ import {View, Text, TextInput, Button} from 'react-native';
 import Bottom from './Bottom/Bottom';
 import Body from './Body/Body';
 import Title from "./Title/Title";
-
+ 
 
 class LoginPage extends Component {
   render() {
