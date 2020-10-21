@@ -1,7 +1,9 @@
-import React, {Component, useState} from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import Button from 'apsl-react-native-button'
+import Kakao_Button from './Kakao_Button';
+import Google_Button from './Google_Button';
 
 
 const Body = function() {
@@ -33,17 +35,8 @@ const Body = function() {
         />
       </View>
 
-      <Button style={{backgroundColor: 'blue'}}>
-  <View style={styles.nestedViewStyle}>
-    <Text style={styles.nestedTextStyle}>구글 로그인</Text>
-  </View>
-</Button>
-
-<Button style={{backgroundColor: 'blue'}}>
-  <View style={styles.nestedViewStyle}>
-    <Text style={styles.nestedTextStyle}>카카오톡 로그인</Text>
-  </View>
-</Button>
+      <Google_Button/>
+      <Kakao_Button/>
 
 
     </>
