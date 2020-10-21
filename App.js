@@ -10,13 +10,11 @@ import {
 } from 'react-native';
 import LoginPage from './src/components/LoginPage/LoginPage';
 
-
-
 const App: () => React$Node = () => {
   return (
     <>
 
-      <LoginPage/>
+      <LoginPage />
 
     </>
   );

@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import {View, Text} from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, TextInput, Button} from 'react-native';
+import Bottom from './Bottom';
 
-class LoginPage extends Component{
-    render(){
-        return(
-
-            <View>
-
-                <Text>안녕하세요</Text>
-            </View>
-
-        )
-    }
+class LoginPage extends Component {
+  render() {
+    return (
+      <View>
+        <Bottom />
+      </View>
+    );
+  }
 }
 
 export default LoginPage;
