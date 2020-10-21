@@ -69,14 +69,14 @@ function SignUp() {
       setisPassword(false);
     }
     /* 비밀번호 확인도 같이 체크 */
-    if (passwordValid === text) {
+    if ((passwordValid === text) && (passwordReg.test(password))) {
       setpasswordValidIcon(require('../../assets/icons/o.png'));
       setisPasswordValid(true);
     } else {
       setpasswordValidIcon(require('../../assets/icons/x.png'));
       setisPasswordValid(false);
     }
-  }
+  } 
 
   function checkPasswordValid(text) {
     setPasswordValid(text);
