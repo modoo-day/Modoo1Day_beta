@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
-import Button from 'apsl-react-native-button';
-import CreateEmailAuth from './CreateEmailAuth';
+
+import SignUp_Button from './SignUp_Button';
 
 function SignUp() {
   const [email, setEmail] = useState('');
@@ -15,15 +15,23 @@ function SignUp() {
 
       <View style={styles.body}>
         <TextInput style={styles.bodyTextInput} placeholder="닉네임" />
-        <TextInput style={styles.bodyTextInput} placeholder="이메일" />
-        <TextInput style={styles.bodyTextInput} placeholder="비밀번호" />
+        <TextInput
+          style={styles.bodyTextInput}
+          placeholder="이메일"
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+        />
+        <TextInput
+          style={styles.bodyTextInput}
+          placeholder="비밀번호"
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+        />
         <TextInput style={styles.bodyTextInput} placeholder="비밀번호 확인" />
       </View>
 
       <View style={styles.footer}>
-        <Button style={styles.footerButton} onPress={CreateEmailAuth}>
-          회원가입
-        </Button>
+        <SignUp_Button {...{email, password}} />
       </View>
     </View>
   );

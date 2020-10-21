@@ -10,10 +10,7 @@ import TopNavigation from './src/components/MarketPage/TopNavigation';
 const App: () => React$Node = () => {
   return (
     <>
-
-
       <TopNavigation/>
-      
     </>
   );
 };
