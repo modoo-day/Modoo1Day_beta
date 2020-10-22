@@ -5,13 +5,14 @@ import Button from 'apsl-react-native-button';
 
 
 
-const EmailLogin_Button = () => {
+const EmailLogin_Button = ({navigation}) => {
     return(
         <View style={{flex:1}}>
             <View style={{alignSelf:'center' , marginTop:-100}}>
                 <Button 
                     style={{ height:65, width:350, backgroundColor:'#55acee', borderColor: '#2875af'}}
                     activeOpacity={1}
+                    onPress={()=>navigation.push('EmailLoginPage')}
                     >
                     <View style={{ alignItems:'center', flex:1, flexDirection:'row'}} >
                         <View style={{ marginRight:26, marginLeft:26,}}>

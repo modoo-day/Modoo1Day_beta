@@ -31,9 +31,6 @@ const Body = function() {
         
       </View>
 
-      <Google_Button/>
-      <Kakao_Button/>
-
     </>
   );
 };

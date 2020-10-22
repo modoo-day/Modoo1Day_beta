@@ -6,7 +6,7 @@ import Body from './Body/Body';
 import Title from "./Title/Title";
  
 
-const EmailLoginPage=()=> {
+const EmailLoginPage=({navigation, route})=> {
     return (
       <View style={{flex:1}}>
         <Title />
