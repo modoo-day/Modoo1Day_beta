@@ -5,7 +5,7 @@ import Button from 'apsl-react-native-button';
 
 
 
-const LocalLogin_Button = () => {
+const EmailLogin_Button = () => {
     return(
         <View style={{flex:1}}>
             <View style={{alignSelf:'center' , marginTop:-100}}>
@@ -32,4 +32,4 @@ const LocalLogin_Button = () => {
     )
 }
 
-export default LocalLogin_Button;
+export default EmailLogin_Button;

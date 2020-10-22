@@ -6,7 +6,7 @@ import Body from './Body/Body';
 import Title from "./Title/Title";
  
 
-const LocalLoginPage=()=> {
+const EmailLoginPage=()=> {
     return (
       <View style={{flex:1}}>
         <Title />
@@ -16,4 +16,4 @@ const LocalLoginPage=()=> {
     );
 }
 
-export default LocalLoginPage;
+export default EmailLoginPage;

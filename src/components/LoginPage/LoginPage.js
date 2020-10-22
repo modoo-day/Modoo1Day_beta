@@ -3,7 +3,7 @@ import {View, Text, Image, button} from 'react-native';
 import Google_Button from './Body/Google_Button';
 import Kakao_Button from './Body/Kakao_Button';
 import Button from 'apsl-react-native-button'
-import LocalLogin_Button from './Body/LocalLogin_Button';
+import EmailLogin_Button from './Body/EmailLogin_Button';
 
 
 
@@ -21,7 +21,7 @@ const LoginPage = () => {
             <View style={{flex:1, flexDirection:'column', top:30}}>
                 <Kakao_Button/>
                 <Google_Button/>
-                <LocalLogin_Button/>
+                <EmailLogin_Button/>
                     
             </View>
         </View>

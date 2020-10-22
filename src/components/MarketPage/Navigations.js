@@ -11,7 +11,7 @@ import Body from '../LoginPage/Body/Body';
 import MarketPage from './MarketPage';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import GrowPage from '../GrowPage/GrowPage';
-import LocalLoginPage from '../LoginPage/LocalLoginPage';
+import LocalLoginPage from '../LoginPage/EmailLoginPage';
 import LoginPage from '../LoginPage/LoginPage';
 
 
