@@ -1,22 +1,39 @@
 import React from 'react';
-import {Text} from 'react-native'
+import {Text} from 'react-native';
 import Button from 'apsl-react-native-button';
 import auth from '@react-native-firebase/auth';
 
-const SignUp_Button = function ({email, password}) {
+const SignUp_Button = function ({
+  nickname,
+  email,
+  password,
+  passwordValid,
+  isNickname,
+  isEmail,
+  isPassword,
+  isPasswordValid,
+  isSelected,
+}) {
+  /* Firebase에 계정/비밀번호 추가 */
   async function CreateEmailAuth() {
-    try {
-      await auth().createUserWithEmailAndPassword(email, password);
-    } catch (e) {
-      console.log(e);
+    if (!isNickname || !isEmail || !isPassword || !isPasswordValid || !isSelected) {
+      alert("양식이 맞지 않습니다");
+      return console.log('wrong format');
+    } else {
+      try {
+        await auth().createUserWithEmailAndPassword(email, password);
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 
+  /* 회원가입 버튼 */
   return (
     <Button
       onPress={() => CreateEmailAuth()}
-      style={{width: '25%', borderColor: 'lightgray'}}>
-      <Text>회원가입</Text>
+      style={{width: '100%', borderColor: 'lightgray', backgroundColor: 'paleturquoise'}}>
+      <Text style={{fontFamily: 'neodgm',}}>회원가입</Text>
     </Button>
   );
 };
