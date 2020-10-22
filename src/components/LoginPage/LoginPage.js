@@ -24,7 +24,10 @@ const LoginPage = ({navigation}) => {
             <View style={{flex:1, flexDirection:'column', top:30}}>
                 <Kakao_Button/>
                 <Google_Button/>
-                        <View style={{flex:1}}>
+
+
+                {/* 이메일 로그인 버튼 */}
+                <View style={{flex:1}}>
                     <View style={{alignSelf:'center' , marginTop:-100}}>
                         <Button 
                             style={{ height:65, width:350, backgroundColor:'#55acee', borderColor: '#2875af'}}
@@ -43,9 +46,8 @@ const LoginPage = ({navigation}) => {
                         </Button>
                         <View style={{marginTop:40,height:40, alignItems:'center'}}>
                                 <Text style={{fontFamily:'neodgm', color:'#a7a7a7'}}>로그인을 하시면 이용약관 동의로 간주합니다.</Text>
-                            </View>
+                        </View>
                     </View>
-                    
                 </View>
                     
             </View>
