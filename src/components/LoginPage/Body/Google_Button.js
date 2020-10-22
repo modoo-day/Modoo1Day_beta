@@ -18,7 +18,7 @@ const Google_Button = function () {
   function onAuthStateChanged(user) {
     console.log('로그인됐나', user);
   }
-  // 로그인 상태 변화 잡아내기. 근데 이거 필요 없을 것 같음.
+  // 로그인 상태 변화 잡아내기. Firebase Auth 수준에서 변화가 일어나면 실행된다.
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // Unmount시 Unsubscribe
