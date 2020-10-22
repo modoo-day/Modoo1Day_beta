@@ -12,19 +12,14 @@ function SignUp() {
 
   const [isSelected, setSelection] = useState(false);
 
+  const oIcon = require('../../assets/icons/o.png');
+  const xIcon = require('../../assets/icons/x.png');
+
   /* 정규 표현식 조건에 맞는지 확인하는 아이콘 */
-  const [nicknameIcon, setnicknameIcon] = useState(
-    require('../../assets/icons/x.png'),
-  );
-  const [emailIcon, setemailIcon] = useState(
-    require('../../assets/icons/x.png'),
-  );
-  const [passwordIcon, setpasswordIcon] = useState(
-    require('../../assets/icons/x.png'),
-  );
-  const [passwordValidIcon, setpasswordValidIcon] = useState(
-    require('../../assets/icons/x.png'),
-  );
+  const [nicknameIcon, setnicknameIcon] = useState(xIcon);
+  const [emailIcon, setemailIcon] = useState(xIcon);
+  const [passwordIcon, setpasswordIcon] = useState(xIcon);
+  const [passwordValidIcon, setpasswordValidIcon] = useState(xIcon);
 
   const [isNickname, setisNickname] = useState(false);
   const [isEmail, setisEmail] = useState(false);
@@ -35,13 +30,8 @@ function SignUp() {
     setNickname(text);
     /* 한글,영문 대소문자 2~15자리 */
     const nameReg = /^[가-힣A-Za-z]{2,15}$/;
-    if (nameReg.test(text)) {
-      setnicknameIcon(require('../../assets/icons/o.png'));
-      setisNickname(true);
-    } else {
-      setnicknameIcon(require('../../assets/icons/x.png'));
-      setisNickname(false);
-    }
+    setnicknameIcon(nameReg.test(text) ? oIcon : xIcon);
+    setisNickname(nameReg.test(text) ? true : false);
   }
 
   function checkEmail(text) {
@@ -49,10 +39,10 @@ function SignUp() {
     /* 이메일 형식 */
     const emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     if (emailReg.test(text)) {
-      setemailIcon(require('../../assets/icons/o.png'));
+      setemailIcon(oIcon);
       setisEmail(true);
     } else {
-      setemailIcon(require('../../assets/icons/x.png'));
+      setemailIcon(xIcon);
       setisEmail(false);
     }
   }
@@ -62,30 +52,30 @@ function SignUp() {
     /* 최소 하나의 문자, 숫자, 특수문자(~!@#$%^&*) 8자 이상*/
     const passwordReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[~!@#$%^&*])[A-Za-z\d~!@#$%^&*]{8,}$/;
     if (passwordReg.test(text)) {
-      setpasswordIcon(require('../../assets/icons/o.png'));
+      setpasswordIcon(oIcon);
       setisPassword(true);
     } else {
-      setpasswordIcon(require('../../assets/icons/x.png'));
+      setpasswordIcon(xIcon);
       setisPassword(false);
     }
     /* 비밀번호 확인도 같이 체크 */
-    if ((passwordValid === text) && (passwordReg.test(text))) {
-      setpasswordValidIcon(require('../../assets/icons/o.png'));
+    if (passwordValid === text && passwordReg.test(text)) {
+      setpasswordValidIcon(oIcon);
       setisPasswordValid(true);
     } else {
-      setpasswordValidIcon(require('../../assets/icons/x.png'));
+      setpasswordValidIcon(xIcon);
       setisPasswordValid(false);
     }
-  } 
+  }
 
   function checkPasswordValid(text) {
     setPasswordValid(text);
     const passwordReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[~!@#$%^&*])[A-Za-z\d~!@#$%^&*]{8,}$/;
-    if ((password === text) && (passwordReg.test(password))) {
-      setpasswordValidIcon(require('../../assets/icons/o.png'));
+    if (password === text && passwordReg.test(password)) {
+      setpasswordValidIcon(oIcon);
       setisPasswordValid(true);
     } else {
-      setpasswordValidIcon(require('../../assets/icons/x.png'));
+      setpasswordValidIcon(xIcon);
       setisPasswordValid(false);
     }
   }
