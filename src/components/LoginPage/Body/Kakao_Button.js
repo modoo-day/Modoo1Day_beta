@@ -1,8 +1,9 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import Button from 'apsl-react-native-button';
 import KakaoLogins, {KAKAO_AUTH_TYPES} from '@react-native-seoul/kakao-login';
 import auth from '@react-native-firebase/auth';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Kakao_Button = function () {
   const kakaoLogin = () => {
@@ -59,18 +60,30 @@ const Kakao_Button = function () {
   };
 
   return (
-    <Button style={{backgroundColor: 'skyblue'}} onPress={kakaoLogin}>
-      <View>
-        <Text>카카오 로그인</Text>
+    <View style={{flex:1}}>
+      <View style={{alignSelf:'center'}}>
+        <Button 
+          style={{ height:65, width:350, backgroundColor:'#ffdc00', borderColor: '#bfa500'}}
+          onPress={kakaoLogin}
+          activeOpacity={1}
+          
+          >
+          <View style={{ alignItems:'center', flex:1, flexDirection:'row'}} >
+            <View style={{ marginRight:26, marginLeft:26}}>
+              <Image source={require('../../../assets/icons/KakaoLogo.png')} style={{height:35, width:39}} />
+            </View>
+            <View style={{marginRight:30}}>
+              <Image source={require('../../../assets/icons/loginBorder.png')} style={{height:62}}/>
+            </View>
+              <Text style={{fontFamily:'NanumBarunGothicBold', fontSize:20}}>카카오 아이디로 로그인</Text>
+          </View>
+        </Button>
       </View>
-    </Button>
+      
+    </View>
+    
   );
 };
 
 export default Kakao_Button;
 
-const styles = StyleSheet.create({
-  container: {},
-  input: {},
-  inputext: {},
-});

@@ -1,11 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import LoginPage from '../LoginPage/LoginPage';
+import SignUp from '../SignUp/SignUp';
 
 const AccountPage = () =>{
     return(
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text style={{fontSize: 30}}>Account PAGE</Text>
-        </View>
+        
+        <LoginPage/>
     )
 }
 

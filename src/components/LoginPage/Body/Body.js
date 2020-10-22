@@ -28,11 +28,7 @@ const Body = function() {
           style={styles.input}
         />
 
-        <Button
-          title={'Login'}
-          style={styles.input}
-          //onPress={}
-        />
+        
       </View>
 
       <Google_Button/>
