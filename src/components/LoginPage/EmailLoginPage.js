@@ -1,58 +1,73 @@
 
 import React, {Component} from 'react';
-import {View, Text, TextInput, Button} from 'react-native';
+import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 import Bottom from './Bottom/Bottom';
 import Body from './Body/Body';
 import Title from "./Title/Title";
 import SignUp from '../SignUp/SignUp';
 import {createStackNavigator} from '@react-navigation/stack';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
  
 
 const EmailLoginPage=({navigation, route})=> {
     return (
-      <View style={{flex:1, justifyContent:'center'}}>
-        {/* <Title /> */}
-        <Body />
-        
-        
-        {/* 아래 */}
-        <View
-          style={{
-            
-            alignItems: 'center',
-            // backgroundColor: 'pink',
-            justifyContent: 'center',
-            height:100
-          }}>
-
-            {/* 회원가입 버튼 */}
-            <TouchableOpacity
-              onPress={()=>navigation.navigate('SignUp')}
-            >
-              <Text
-              style={{fontFamily:'neodgm'}}
-              >회원가입</Text>
-            </TouchableOpacity>
+      <ScrollView>
+        <View style={styles.container}>
+          {/* <Title /> */}
+          <Body />
           
-            <View style={{marginTop:20}}>
+          
+          {/* 아래 */}
+          <View style={styles.bottomButtonsContainer}>
+
+              {/* 회원가입 버튼 */}
               <TouchableOpacity
-                // onPress={()=>navigation.navigate('SignUp')}
+                onPress={()=>navigation.navigate('SignUp')}
               >
                 <Text
-                style={{fontFamily:'neodgm'}}
-                >아이디/비밀번호 찾기</Text>
+                style={styles.text}
+                >회원가입</Text>
               </TouchableOpacity>
-            </View>
+            
+              <View style={{marginTop:20}}>
+                <TouchableOpacity
+                  // onPress={()=>navigation.navigate('SignUp')}
+                >
+                  <Text
+                  style={styles.text}
+                  >아이디/비밀번호 찾기</Text>
+                </TouchableOpacity>
+              </View>
+          </View>
+
+
+
+
         </View>
-
-
-
-
-      </View>
+      </ScrollView>
     );
 }
+
+
+const styles = StyleSheet.create({
+  container:{
+    flex:1, 
+    justifyContent:'center',
+    marginTop:'40%'
+  },
+  bottomButtonsContainer:{
+    alignItems: 'center',
+    // backgroundColor: 'pink',
+    justifyContent: 'center',
+    height:100 ,
+  },
+  text:{
+    fontFamily:'neodgm'
+  },
+});
+
+
 
 
 
@@ -65,13 +80,15 @@ export default class EmailLoginRoute extends Component{
                 <Login.Screen
                 name='EmailLoginPage'
                 component={EmailLoginPage}
+                
                 />
                 <Login.Screen
                 name='SignUp'
                 component={SignUp}
-                
+                options={{ headerShown: false }}
                 />
             </Login.Navigator>           
         )
     }
 }
+
