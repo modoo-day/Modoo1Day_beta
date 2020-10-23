@@ -102,7 +102,6 @@ export default Google_Button;
 
 const styles = StyleSheet.create({
   ButtonContainer:{
-    marginTop:'2%'
   },
   Button: { 
     alignSelf:'center',
