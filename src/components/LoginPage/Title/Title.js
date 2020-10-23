@@ -17,7 +17,8 @@ function Title() {
 const styles = StyleSheet.create({
   LogoContainer: {
     alignItems:'center', 
-    marginBottom:20
+    marginBottom:20,
+    marginTop:'15%'
   },
   image:{
     width:160, 

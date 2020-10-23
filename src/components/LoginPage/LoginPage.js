@@ -21,7 +21,7 @@ const LoginPage = ({navigation}) => {
 
                 
                 {/* 이메일 로그인 버튼 */}
-                <View style={{ backgroundColor:'pink'}}>
+                <View>
                     <View style={styles.ButtonContainer}>
                         <TouchableOpacity
                         onPress={()=>navigation.push('EmailLoginPage')}

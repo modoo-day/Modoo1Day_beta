@@ -63,7 +63,7 @@ const Kakao_Button = function () {
   
 
   return (
-    <View style={{ backgroundColor:'pink'}}>
+    <View>
       <View style={styles.ButtonContainer}>
         <TouchableOpacity
         onPress={kakaoLogin}
