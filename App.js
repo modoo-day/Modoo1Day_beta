@@ -3,7 +3,7 @@ import React from 'react';
 import {
   
 } from 'react-native';
-import LoginPage from './src/components/LoginPage/LoginPage';
+import LoginPage from './src/components/LoginPage/EmailLoginPage';
 import Navigations from './src/components/MarketPage/Navigations';
 import MarketPage from './src/components/MarketPage/Navigations';
 

@@ -11,6 +11,8 @@ import Body from '../LoginPage/Body/Body';
 import MarketPage from './MarketPage';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import GrowPage from '../GrowPage/GrowPage';
+import LocalLoginPage from '../LoginPage/EmailLoginPage';
+import LoginPage from '../LoginPage/LoginPage';
 
 
 function LogoTitle() {
@@ -35,6 +37,18 @@ function Account({navigation}) {
   return (
     <AccountPage/>
   );
+}
+
+function LocalLogin({Navigation}) {
+  return(
+    <LocalLoginPage/>
+  )
+}
+
+function Login({Navigation}) {
+  return(
+    <LoginPage/>
+  )
 }
 
 // 아래 내비게이션 
@@ -149,6 +163,8 @@ function Navigations() {
         />
         <modal.Screen name="Search" component={Search} mode={modal} />
         <modal.Screen name="Account" component={Account} mode={modal} />
+        <modal.Screen name="LocalLogin" component={LocalLogin} mode={modal} />
+        <modal.Screen name="Login" component={Login} mode={modal} />
       </Stack.Navigator>
     </NavigationContainer>
   );

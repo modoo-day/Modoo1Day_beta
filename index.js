@@ -11,3 +11,7 @@ import MarketPage from './src/components/MarketPage/MarketPage';
 
 AppRegistry.registerComponent(appName, () => MarketPage);
 
+
+
+
+
