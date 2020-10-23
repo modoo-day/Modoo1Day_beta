@@ -1,10 +1,15 @@
 import React from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
 
 function Title() {
   return (
     <View style={styles.container}>
-      <View style={styles.logoContainer}>
+      <View>
+        
+      </View>
+      <View style={styles.imageContainer}>
           <Image source={require('../../../assets/icons/modoo.png')} style={styles.image}/>
       </View>
       <View style={styles.TextContainer}>
@@ -18,19 +23,20 @@ const styles = StyleSheet.create({
   container:{
   
   },
-  logoContainer: {
+  imageContainer: {
     alignItems:'center', 
-    marginBottom:'5%'
+    justifyContent:'flex-end'
   },
   image:{
-    width:160, 
-    height:123,
+    width:'35%', 
+    height:'70%',
   },
   TextContainer:{
     alignItems:'center',
+    
   },
   text: {
-    fontSize:48, 
+    fontSize: RFPercentage(6), 
     fontFamily:'neodgm', 
     color:'#ffce2c'
   },

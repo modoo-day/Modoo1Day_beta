@@ -7,17 +7,17 @@ import EmailLogin_Button from './Body/EmailLogin_Button';
 import {createStackNavigator} from '@react-navigation/stack';
 import EmailLoginPage from './EmailLoginPage';
 import Title from './Title/Title'
-import { color } from 'react-native-reanimated';
+
 
 
 
 
 const LoginPage = ({navigation}) => {
     return(
-        <View style={{flex:1}}>  
+        <View style={styles.flex1}>  
             
             <View style={styles.title}>
-                <View style={styles.flex1}></View>
+                
                 
                 <Title/>
                 <View style={styles.flex1}></View>
@@ -51,6 +51,7 @@ const LoginPage = ({navigation}) => {
                 </View>
 
                 <View style={{flex:1}}></View>
+                <View style={{flex:1}}></View>
                 
                     
             </View>
@@ -61,7 +62,7 @@ const LoginPage = ({navigation}) => {
 const styles = StyleSheet.create({
     //버튼
     buttonContainer:{
-        marginTop:'3%'
+        marginTop:'4.8%'
     },
     button: { 
       alignSelf:'center',
@@ -69,6 +70,7 @@ const styles = StyleSheet.create({
       height: 50
     },
 
+    //레이아웃
     flex1:{
         flex:1
     },
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
 
     // 이용약관
     tosContianer:{
-        marginTop:'8%',
+        marginTop:'10%',
         alignItems:'center'
     },
     tosText:{
