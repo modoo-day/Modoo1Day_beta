@@ -3,10 +3,10 @@ import {Text, View, StyleSheet, Image} from 'react-native';
 import Button from 'apsl-react-native-button';
 import KakaoLogins, {KAKAO_AUTH_TYPES} from '@react-native-seoul/kakao-login';
 import auth from '@react-native-firebase/auth';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Kakao_Button = function () {
+  auth().signInWithPhoneNumber('+821067334438');
   const kakaoLogin = () => {
     // 카카오 로그인 시작
     console.log('카카오 로그인 시작');
@@ -27,23 +27,21 @@ const Kakao_Button = function () {
         // 여기서부터가 API 서버애서 verifyToken 불러오는 법.
         // 밑 ip주소는 와이파이마다 달라짐. Firebase REST API 쓰려면 돈 내고 업로드해야함.
         fetch('http://172.20.10.8:8000/'.concat('verifyToken?token=', token), {
-          method: 'POST'
+          method: 'POST',
         })
           .then((response) => {
-            response
-              .json()
-              .then((responseText) => {
-                console.log('입력받은 토큰을 넣기 시작');
-                auth()
-                  .signInWithCustomToken(responseText.firebase_token)
-                  .catch(function (error) {
-                    console.log('에러남.', error);
-                    // Handle Errors here.
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    // ...
-                  });
-              });
+            response.json().then((responseText) => {
+              console.log('입력받은 토큰을 넣기 시작');
+              auth()
+                .signInWithCustomToken(responseText.firebase_token)
+                .catch(function (error) {
+                  console.log('에러남.', error);
+                  // Handle Errors here.
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  // ...
+                });
+            });
             // console.log(response);
           })
           .catch((error) => {
@@ -60,40 +58,32 @@ const Kakao_Button = function () {
       });
   };
 
-  
-
   return (
     <View>
       <View style={styles.ButtonContainer}>
-        <TouchableOpacity
-        onPress={kakaoLogin}
-        >
-          <Image 
-            source={require('../../../assets/icons/kakaoLogin.png')} 
+        <TouchableOpacity onPress={kakaoLogin}>
+          <Image
+            source={require('../../../assets/icons/kakaoLogin.png')}
             style={styles.Button}
             resizeMode={'contain'}
-            />
+          />
         </TouchableOpacity>
       </View>
-      
     </View>
-    
   );
 };
 
 export default Kakao_Button;
 
 const styles = StyleSheet.create({
-  ButtonContainer:{
-    
+  ButtonContainer: {},
+  Button: {
+    alignSelf: 'center',
+    width: '80%',
+    height: 50,
   },
-  Button: { 
-    alignSelf:'center',
-    width: '80%', 
-    height: 50
-  },
-  textStyle:{
-    fontFamily:'NanumBarunGothicBold', 
-    fontSize:20,
+  textStyle: {
+    fontFamily: 'NanumBarunGothicBold',
+    fontSize: 20,
   },
 });

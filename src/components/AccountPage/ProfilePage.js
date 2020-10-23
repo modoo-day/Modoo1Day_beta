@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
 const ProfilePage = () => {
   const [usrInfo, setUsrInfo] = useState([]);
+  
   const [loading, setLoading] = useState(true);
   const [nottriggered, setNottriggered] = useState(true);
 
@@ -34,6 +35,17 @@ const ProfilePage = () => {
       });
   };
 
+  const signOut = () => {
+    auth()
+      .signOut()
+      .then(() => {
+        console.log('로그아웃 완료.');
+      })
+      .catch((err) => {
+        console.log('로그아웃 에러', err);
+      });
+  };
+
   // 로딩이 안되었을시 로딩중 화면 띄우고, getUsrInfo 불러옴.
   if (loading) {
     console.log('로딩 안돼서 정보 불러옴.');
@@ -42,24 +54,29 @@ const ProfilePage = () => {
       getUsrInfo();
     }
     return (
-        /* 여기에 그냥 로딩하는 애니메이션 넣으면 될 것 같다. 아니면 로딩중... 넣든가 */
+      /* 여기에 그냥 로딩하는 애니메이션 넣으면 될 것 같다. 아니면 로딩중... 넣든가 */
       <View>
-        <Text>로딩중</Text>
+        <Text style={{fontSize: 27}}>
+          로딩중.{'\n'} 여기 View를 꾸미면 됨.{'\n'} Loading 화면은 인터넷에
+          많이 돌아다님.
+        </Text>
       </View>
     );
   }
 
   return (
-      // 꾸며주세용
+    // 꾸며주세용
     <View>
-      <Text>이름: {usrInfo.name}</Text>
-      <Text>전화번호: {usrInfo.PhoneNum}</Text>
-      <Text>이메일:</Text>
-      <Text>가입 시간: </Text>
-      <Text>레벨:</Text>
-      <Text>성별:</Text>
-      <Text>이름:</Text>
-      <Text>이름:</Text>
+      <Text style={{fontSize: 16}}>이름: {usrInfo.name}</Text>
+      <Text style={{fontSize: 16}}>전화번호: {usrInfo.PhoneNum}</Text>
+      <Text style={{fontSize: 16}}>이메일: {usrInfo.email}</Text>
+      <Text style={{fontSize: 16}}>
+        가입 시간: {usrInfo.SignUpTime.toDate().toString()}
+      </Text>
+      {/* 가입 시간 TimeStamp를 우리 눈으로 보이게 하는 변환 식은 다음과 같다. */}
+      <Text style={{fontSize: 16}}>레벨: {usrInfo.level}</Text>
+      <Text style={{fontSize: 16}}>성별: {usrInfo.gender}</Text>
+      <Button title={'로그아웃하기.'} onPress={signOut} />
     </View>
   );
 };
