@@ -25,24 +25,28 @@ class Body extends Component {
   componentDidMount() {
     var data = [
       {
+        id: '1',
         name: 'The Ballad Of Songbirds And Snakes',
         author: 'Suzanne ',
         img: require('../../../assets/img/night.png'),
         description: 'The Ballad of Songbirds and Snakes is an upcoming ',
       },
       {
+        id: '2',
         name: 'If It Bleeds',
         author: 'Stephen King',
         img: require('../../../assets/img/night.png'),
         description: 'From #1 New York Times bestselling author',
       },
       {
+        id: '3',
         name: 'The Book of Longings: A Novel',
         author: 'Sue Monk Kidd',
         img: require('../../../assets/img/night.png'),
         description: 'Named a Most Anticipated Book of 2020 by O,',
       },
       {
+        id: '4',
         name: 'Masked Prey',
         author: 'John Sandford',
         img: require('../../../assets/img/night.png'),
@@ -50,12 +54,14 @@ class Body extends Component {
           'Lucas Davenport investigates a vitriolig author John Sandfor',
       },
       {
+        id: '5',
         name: 'The Kennedy Curse',
         author: 'James Patterson',
         img: require('../../../assets/img/night.png'),
         description: 'd to take risks and excel, living by theis given,',
       },
       {
+        id: '6',
         name: 'Hidden Valley Road',
         author: 'Robert Kolker',
         img: require('../../../assets/img/night.png'),

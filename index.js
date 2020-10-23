@@ -9,7 +9,7 @@ import SignUp from './src/components/SignUp/SignUp';
 import LoginPage from './src/components/LoginPage/LoginPage';
 import MarketPage from './src/components/MarketPage/MarketPage';
 
-AppRegistry.registerComponent(appName, () => MarketPage);
+AppRegistry.registerComponent(appName, () => App);
 
 
 
