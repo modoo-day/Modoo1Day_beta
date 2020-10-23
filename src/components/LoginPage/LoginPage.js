@@ -68,10 +68,12 @@ export default class LoginRoute extends Component{
                 <Login.Screen
                 name='LoginPage'
                 component={LoginPage}
+                options={{ headerShown: false }}
                 />
                 <Login.Screen
                 name='EmailLoginPage'
                 component={EmailLoginPage}
+                options={{ headerShown: false }}
                 />
             </Login.Navigator>           
         )

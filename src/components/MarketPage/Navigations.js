@@ -130,8 +130,8 @@ function TopNavigation({navigation}) {
           fontSize:20
         },
         style: {
-          paddingBottom:15,
-          paddingHorizontal:70
+          paddingBottom:'4%',
+          paddingHorizontal:'14%'
           }
         }}
     >
@@ -163,8 +163,6 @@ function Navigations() {
         />
         <modal.Screen name="Search" component={Search} mode={modal} />
         <modal.Screen name="Account" component={Account} mode={modal} options={{ headerShown: false }} />
-        <modal.Screen name="LocalLogin" component={LocalLogin} mode={modal} />
-        <modal.Screen name="Login" component={Login} mode={modal} />
       </Stack.Navigator>
     </NavigationContainer>
   );
