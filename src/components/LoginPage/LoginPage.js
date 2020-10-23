@@ -68,6 +68,7 @@ export default class LoginRoute extends Component{
                 <Login.Screen
                 name='EmailLoginPage'
                 component={EmailLoginPage}
+                
                 />
             </Login.Navigator>           
         )

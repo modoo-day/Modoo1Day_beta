@@ -10,7 +10,7 @@ class Bottom extends Component {
           flex: 1,
           flexDirection: 'row',
           alignItems: 'center',
-          backgroundColor: 'black',
+          backgroundColor: 'pink',
           justifyContent: 'space-between',
         }}>
         <Button title={'회원가입'}></Button>
