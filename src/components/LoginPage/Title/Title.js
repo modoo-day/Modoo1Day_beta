@@ -3,34 +3,33 @@ import {View, Image, Text, StyleSheet} from 'react-native';
 
 function Title() {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require('../../../assets/icons/modoo.png')}
-        style={styles.image}
-      />
-      <Text style={styles.text}>모두의 하루</Text>
-    </View>
+    <>
+      <View style={styles.LogoContainer}>
+          <Image source={require('../../../assets/icons/modoo.png')} style={styles.image}/>
+      </View>
+      <View style={styles.TextContainer}>
+          <Text style={styles.text}>모두의 하루</Text>
+      </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-
+  LogoContainer: {
+    alignItems:'center', 
+    marginBottom:20
   },
-  image: {
-    width: '12%',
-    height: '12%',
-    padding: '10%',
-    marginHorizontal: '3%',
+  image:{
+    width:160, 
+    height:123,
+  },
+  TextContainer:{
+    alignItems:'center',
   },
   text: {
-    fontSize: 40,
-    marginHorizontal: '3%',
-    fontFamily:'neodgm'
+    fontSize:48, 
+    fontFamily:'neodgm', 
+    color:'#ffce2c'
   },
 });
 

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, Alert, Image} from 'react-native';
+import {Text, View, StyleSheet, Alert, Image, TouchableOpacity} from 'react-native';
 import Button from 'apsl-react-native-button';
 import auth from '@react-native-firebase/auth';
 import {
@@ -86,28 +86,22 @@ const Google_Button = function () {
       });
   };
 
+
   return (
-    <View style={{flex:1}}>
-    <View style={{alignSelf:'center', marginTop:-50}}>
-      <Button 
-        style={{ height:65, width:350, backgroundColor:'white', borderColor: '#cdcdcd'}}
-        Button onPress={() => googleSignIn()}
-        activeOpacity={1}
-        
+    <View style={{ backgroundColor:'pink'}}>
+      <View style={styles.ButtonContainer}>
+        <TouchableOpacity
+        onPress={() => googleSignIn()}
         >
-        <View style={{ alignItems:'center', flex:1, flexDirection:'row'}} >
-          <View style={{ marginRight:26, marginLeft:26}}>
-            <Image source={require('../../../assets/icons/GoogleLogo.png')} style={{height:40, width:39}} />
-          </View>
-          <View style={{marginRight:30}}>
-            <Image source={require('../../../assets/icons/loginBorder.png')} style={{height:62}}/>
-          </View>
-            <Text style={{fontFamily:'NanumBarunGothicBold', fontSize:20}}>  구글 아이디로 로그인</Text>
-        </View>
-      </Button>
+          <Image 
+            source={require('../../../assets/icons/googleLogin.png')} 
+            style={styles.Button}
+            resizeMode={'contain'}
+            />
+        </TouchableOpacity>
+      </View>
+      
     </View>
-    
-  </View>
 
   );
 };
@@ -115,7 +109,16 @@ const Google_Button = function () {
 export default Google_Button;
 
 const styles = StyleSheet.create({
-  container: {},
-  input: {},
-  inputext: {},
+  ButtonContainer:{
+    marginTop:'2%'
+  },
+  Button: { 
+    alignSelf:'center',
+    width: '80%', 
+    height: 50
+  },
+  textStyle:{
+    fontFamily:'NanumBarunGothicBold', 
+    fontSize:20,
+  },
 });
