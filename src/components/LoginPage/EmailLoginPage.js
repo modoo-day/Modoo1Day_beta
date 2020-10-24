@@ -12,58 +12,60 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 const EmailLoginPage=({navigation, route})=> {
     return (
-      <ScrollView>
         <View style={styles.container}>
           {/* <Title /> */}
-          <Body />
+          <View style={styles.flex1}>
+            
+            <View style={styles.flex1}></View>
+            <Body />
+          </View>
           
           
           {/* 아래 */}
+          
           <View style={styles.bottomButtonsContainer}>
-
-              {/* 회원가입 버튼 */}
+           
+            {/* 회원가입 버튼 */}
+            <TouchableOpacity
+              onPress={()=>navigation.navigate('SignUp')}
+            >
+              <Text style={styles.text}>회원가입</Text>
+            </TouchableOpacity>
+          
+            <View style={styles.idpwContainer}>
               <TouchableOpacity
-                onPress={()=>navigation.navigate('SignUp')}
+                // onPress={()=>navigation.navigate('SignUp')}
               >
-                <Text
-                style={styles.text}
-                >회원가입</Text>
+                <Text style={styles.text}>아이디/비밀번호 찾기</Text>
               </TouchableOpacity>
-            
-              <View style={{marginTop:20}}>
-                <TouchableOpacity
-                  // onPress={()=>navigation.navigate('SignUp')}
-                >
-                  <Text
-                  style={styles.text}
-                  >아이디/비밀번호 찾기</Text>
-                </TouchableOpacity>
-              </View>
+            </View>
           </View>
 
 
 
-
         </View>
-      </ScrollView>
     );
 }
 
 
 const styles = StyleSheet.create({
+  flex1:{
+    flex:1,
+  },
   container:{
     flex:1, 
-    justifyContent:'center',
-    marginTop:'40%'
   },
   bottomButtonsContainer:{
+    flex:1,
     alignItems: 'center',
-    // backgroundColor: 'pink',
-    justifyContent: 'center',
-    height:100 ,
+    backgroundColor: 'blue',
+   
   },
   text:{
     fontFamily:'neodgm'
+  },
+  idpwContainer:{
+    marginTop:'5%'
   },
 });
 

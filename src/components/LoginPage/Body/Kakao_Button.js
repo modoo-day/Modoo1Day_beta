@@ -64,13 +64,13 @@ const Kakao_Button = function () {
 
   return (
     <View>
-      <View style={styles.ButtonContainer}>
+      <View style={styles.buttonContainer}>
         <TouchableOpacity
         onPress={kakaoLogin}
         >
           <Image 
             source={require('../../../assets/icons/kakaoLogin.png')} 
-            style={styles.Button}
+            style={styles.button}
             resizeMode={'contain'}
             />
         </TouchableOpacity>
@@ -84,16 +84,15 @@ const Kakao_Button = function () {
 export default Kakao_Button;
 
 const styles = StyleSheet.create({
-  ButtonContainer:{
+  buttonContainer:{
     
   },
-  Button: { 
+  button: { 
     alignSelf:'center',
     width: '80%', 
     height: 50
   },
   textStyle:{
-    fontFamily:'NanumBarunGothicBold', 
-    fontSize:20,
+   
   },
 });
