@@ -5,7 +5,7 @@ import firestore from '@react-native-firebase/firestore';
 
 const ProfilePage = () => {
   const [usrInfo, setUsrInfo] = useState([]);
-  
+
   const [loading, setLoading] = useState(true);
   const [nottriggered, setNottriggered] = useState(true);
 
@@ -30,6 +30,7 @@ const ProfilePage = () => {
         console.log('불러온 유저 정보는:', usrInfo);
         setLoading(false);
       })
+
       .catch((error) => {
         console.log(error);
       });
@@ -48,8 +49,8 @@ const ProfilePage = () => {
 
   // 로딩이 안되었을시 로딩중 화면 띄우고, getUsrInfo 불러옴.
   if (loading) {
-    console.log('로딩 안돼서 정보 불러옴.');
     if (nottriggered) {
+      console.log('로딩 안돼서 정보 불러옴.');
       setNottriggered(false);
       getUsrInfo();
     }

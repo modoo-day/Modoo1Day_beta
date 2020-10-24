@@ -7,7 +7,7 @@ import auth from '@react-native-firebase/auth';
 // AccountPage - 현재 로그인 상태 확인하고, 로그인 상태 따라서 행동 바뀌어야 됨.
 
 const AccountPage = () => {
-  auth().signInWithPhoneNumber('+821076535075');
+  // auth().signInWithPhoneNumber('+821076535075');
   var user = auth().currentUser;
   // 로그인 되어있으면 프로필 페이지로 이동.
   if (user) {
