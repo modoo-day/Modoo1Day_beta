@@ -1,108 +1,85 @@
 import React, {useState} from 'react';
 import {Text, View, StyleSheet, Image, TextInput} from 'react-native';
-import Button from 'apsl-react-native-button'
+import Button from 'apsl-react-native-button';
 import Kakao_Button from './Kakao_Button';
 import Google_Button from './Google_Button';
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 
-
-const Body = function() {
+const Body = function () {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
 
   return (
-    
-      <View style={styles.container}>
-        
-        {/* 아이디 입력창 */}
-        <View style={styles.idContainer}>
-        
-          
-          <TextInput
-            textContentType='emailAddress'
-            value={id}
-            onChangeText={(username) => setId(username)}
-            placeholder={'아이디'}
-            style={styles.input}
-            />
-        </View>
-        
-        {/* 비밀번호 입력창 */}
-        <View style={styles.pwContainer}>
-          
-          <TextInput
-          
-            value={pw}
-            onChangeText={(password) => setPw(password)}
-            placeholder={'비밀번호'}
-            secureTextEntry={true}
-            style={styles.input}
-            
-            
-            />
-        </View>
-        
-        
-        {/* 시작 버튼 */}
-        <View style={styles.startContainer}>
-          <Button 
-          style={styles.startButton}
-          textStyle={styles.startText}
-          >
-            시작하기!
-          </Button>
-        </View>
-
-        
+    <View style={styles.container}>
+      {/* 아이디 입력창 */}
+      <View style={styles.idContainer}>
+        <TextInput
+          textContentType="emailAddress"
+          value={id}
+          onChangeText={(username) => setId(username)}
+          placeholder={'아이디'}
+          style={styles.input}
+        />
       </View>
 
+      {/* 비밀번호 입력창 */}
+      <View style={styles.pwContainer}>
+        <TextInput
+          value={pw}
+          onChangeText={(password) => setPw(password)}
+          placeholder={'비밀번호'}
+          secureTextEntry={true}
+          style={styles.input}
+        />
+      </View>
+
+      {/* 시작 버튼 */}
+      <View style={styles.startContainer}>
+        <Button style={styles.startButton} textStyle={styles.startText}>
+          시작하기!
+        </Button>
+      </View>
+    </View>
   );
 };
-
 
 export default Body;
 
 const styles = StyleSheet.create({
   container: {
-    alignItems:'center',
-    justifyContent:'center'
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  flex1:{
-    flex:1,
+  flex1: {
+    flex: 1,
   },
   idContainer: {
-    flexDirection:'row',
-    marginBottom:'5%'
+    flexDirection: 'row',
+    marginBottom: '5%',
   },
   pwContainer: {
-    flexDirection:'row', 
+    flexDirection: 'row',
   },
-  startContainer:{
-    
-  },
-  input:{
+  startContainer: {},
+  input: {
     fontSize: RFPercentage(2),
-    height:40,
-    width:'57%',
-    borderWidth:1,
-    borderRadius:50,
-    textAlign:'center',
+    height: 40,
+    width: '57%',
+    borderWidth: 1,
+    borderRadius: 50,
+    textAlign: 'center',
   },
-  inputTheme:{
-
+  inputTheme: {},
+  startButton: {
+    width: '70%',
+    backgroundColor: '#ffcd2c',
+    borderRadius: 50,
+    borderWidth: 2,
+    height: '35%',
+    marginTop: '11%',
   },
-  startButton:{
-    width:'70%',
-    backgroundColor:'#ffcd2c', 
-    borderRadius:50, 
-    borderWidth:2, 
-    height:'35%',
-    marginTop:'11%'
-  },
-  startText:{
-    fontFamily:'neodgm', 
+  startText: {
+    fontFamily: 'neodgm',
     fontSize: RFPercentage(3),
   },
-  
-  
-  });
+});

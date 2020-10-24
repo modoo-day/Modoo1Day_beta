@@ -6,7 +6,6 @@ import auth from '@react-native-firebase/auth';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Kakao_Button = function () {
-  auth().signInWithPhoneNumber('+821067334438');
   const kakaoLogin = () => {
     // 카카오 로그인 시작
     console.log('카카오 로그인 시작');
