@@ -101,102 +101,102 @@ class Body extends Component {
       
         <ScrollView>
           {/* 광고 배너 */}
-            <Swiper 
-            style={styles.wrapper} 
-            showsButtons={false}
-            height={160}
-          
-            >
+          <Swiper 
+          style={styles.wrapper} 
+          showsButtons={false}
+          height={160}
+        
+          >
+            
+            <View style={styles.slide1}>
+              <View style={styles.b_imageContainer}>
+                <Image
+                  source={require('../../../assets/img/night.png')}
+                  style={styles.b_image}
+                />
+              </View>
               
-              <View style={styles.slide1}>
-                <View style={styles.b_imageContainer}>
-                  <Image
-                    source={require('../../../assets/img/night.png')}
-                    style={styles.b_image}
-                  />
-                </View>
-                
-              </View>
-
-              <View style={styles.slide2}>
-                <View style={styles.b_imageContainer}>
-                  <Image
-                    source={require('../../../assets/img/night.png')}
-                    style={styles.b_image}
-                  />
-                </View>
-              </View>
-
-              <View style={styles.slide3}>
-                <View style={styles.b_imageContainer}>
-                  <Image
-                    source={require('../../../assets/img/night.png')}
-                    style={styles.b_image}
-                  />
-                </View>
-              </View>
-
-            </Swiper>
-            {/* 인기콘텐츠 */}
-            <View style={styles.category}>
-              <Text style={styles.categoryText}>
-                인기콘텐츠🔥
-              </Text>
             </View>
-            {/* 리스트 */}
-            <FlatList
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              style={styles.listStyle}
-              keyExtractor={(item) => item.id}
-              data={this.state.dataSource}
-              renderItem={({item, index}) => {
-                return (
-                  <View
-                    style={styles.listItemContainer}>
-                    <Image
-                      source={item.img}
-                      style={styles.listItemImage}
-                    />
-                    <View>
-                      <Text style={styles.listItemText1}>{item.name}</Text>
-                      <Text style={styles.listItemText2} numberOfLines={4}>{item.description}</Text>
-                      <Text style={styles.listItemText3}>{item.author}</Text>
-                    </View>
-                  </View>
-                );
-              }}
-            />
-            {/* 신규 콘텐츠 */}
-              <View style={styles.category}>
-                <Text style={styles.categoryText}>
-                  신규콘텐츠✨
-                </Text>
+
+            <View style={styles.slide2}>
+              <View style={styles.b_imageContainer}>
+                <Image
+                  source={require('../../../assets/img/night.png')}
+                  style={styles.b_image}
+                />
               </View>
-              {/* 리스트 */}
-              <FlatList
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                style={styles.listStyle}
-                keyExtractor={(item) => item.id}
-                data={this.state.dataSource}
-                renderItem={({item, index}) => {
-                  return (
-                    <View
-                      style={styles.listItemContainer}>
-                      <Image
-                        source={item.img}
-                        style={styles.listItemImage}
-                      />
-                      <View>
-                        <Text style={styles.listItemText1}>{item.name}</Text>
-                        <Text style={styles.listItemText2} numberOfLines={4}>{item.description}</Text>
-                        <Text style={styles.listItemText3}>{item.author}</Text>
-                      </View>
-                    </View>
-                  );
-                }}
-              />
+            </View>
+
+            <View style={styles.slide3}>
+              <View style={styles.b_imageContainer}>
+                <Image
+                  source={require('../../../assets/img/night.png')}
+                  style={styles.b_image}
+                />
+              </View>
+            </View>
+
+          </Swiper>
+          {/* 인기콘텐츠 */}
+          <View style={styles.category}>
+            <Text style={styles.categoryText}>
+              인기콘텐츠🔥
+            </Text>
+          </View>
+          {/* 리스트 */}
+          <FlatList
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.listStyle}
+            keyExtractor={(item) => item.id}
+            data={this.state.dataSource}
+            renderItem={({item, index}) => {
+              return (
+                <View
+                  style={styles.listItemContainer}>
+                  <Image
+                    source={item.img}
+                    style={styles.listItemImage}
+                  />
+                  <View>
+                    <Text style={styles.listItemText1}>{item.name}</Text>
+                    <Text style={styles.listItemText2} numberOfLines={4}>{item.description}</Text>
+                    <Text style={styles.listItemText3}>{item.author}</Text>
+                  </View>
+                </View>
+              );
+            }}
+          />
+          {/* 신규 콘텐츠 */}
+          <View style={styles.category}>
+            <Text style={styles.categoryText}>
+              신규콘텐츠✨
+            </Text>
+          </View>
+          {/* 리스트 */}
+          <FlatList
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.listStyle}
+            keyExtractor={(item) => item.id}
+            data={this.state.dataSource}
+            renderItem={({item, index}) => {
+              return (
+                <View
+                  style={styles.listItemContainer}>
+                  <Image
+                    source={item.img}
+                    style={styles.listItemImage}
+                  />
+                  <View>
+                    <Text style={styles.listItemText1}>{item.name}</Text>
+                    <Text style={styles.listItemText2} numberOfLines={4}>{item.description}</Text>
+                    <Text style={styles.listItemText3}>{item.author}</Text>
+                  </View>
+                </View>
+              );
+            }}
+          />
             
         </ScrollView>
       
