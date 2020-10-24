@@ -9,7 +9,7 @@ const SearchPage = () => {
       <AnimatedLoader
         visible={true}
         overlayColor="rgba(255,255,255,0.75)"
-        source={require("./40-loading.json")}
+        source={require("./req.json")}
         animationStyle={styles.lottie}
         speed={2}
       />
@@ -22,8 +22,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    flexDirection: 'column'                                                                                                                                                                                                                                                                                                                                                                                                
   },
-  lottie: {width: 100, height: 100},
+  lottie: {width: 800, height: 800},
 });
 
 export default SearchPage;
