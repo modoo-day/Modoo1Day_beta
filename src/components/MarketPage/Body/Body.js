@@ -9,6 +9,8 @@ import {
   StyleSheet,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
+import Content from './Content';
+
 const {width, height} = Dimensions.get('window');
 
 class Body extends Component {
@@ -26,30 +28,30 @@ class Body extends Component {
     var data = [
       {
         id: '1',
-        name: 'The Ballad Of Songbirds And Snakes',
+        name: '벤처관',
         author: 'Suzanne ',
-        img: require('../../../assets/img/night.png'),
-        description: 'The Ballad of Songbirds and Snakes is an upcoming ',
+        img: {uri: 'https://picsum.photos/99'},
+        description: '제일 많이 가는 곳',
       },
       {
         id: '2',
-        name: 'If It Bleeds',
+        name: '창신관',
         author: 'Stephen King',
-        img: require('../../../assets/img/night.png'),
-        description: 'From #1 New York Times bestselling author',
+        img: {uri: 'https://picsum.photos/88'},
+        description: '너무 높은 곳',
       },
       {
         id: '3',
-        name: 'The Book of Longings: A Novel',
+        name: '교육관',
         author: 'Sue Monk Kidd',
-        img: require('../../../assets/img/night.png'),
+        img: {uri: 'https://picsum.photos/98'},
         description: 'Named a Most Anticipated Book of 2020 by O,',
       },
       {
         id: '4',
-        name: 'Masked Prey',
+        name: '중앙 도서관',
         author: 'John Sandford',
-        img: require('../../../assets/img/night.png'),
+        img: {uri: 'https://picsum.photos/56'},
         description:
           'Lucas Davenport investigates a vitriolig author John Sandfor',
       },
@@ -57,7 +59,7 @@ class Body extends Component {
         id: '5',
         name: 'The Kennedy Curse',
         author: 'James Patterson',
-        img: require('../../../assets/img/night.png'),
+        img: {uri: 'https://picsum.photos/120'},
         description: 'd to take risks and excel, living by theis given,',
       },
       {
@@ -138,27 +140,7 @@ class Body extends Component {
             style={{flex: 1}}
             keyExtractor={(item) => item.id}
             data={this.state.dataSource}
-            renderItem={({item, index}) => {
-              return (
-                <View
-                  style={{
-                    width: 105,
-                    marginLeft: 20,
-                    marginTop: 15,
-                    alignItems: 'center',
-                  }}>
-                  <Image
-                    source={item.img}
-                    style={{height: 73, width: 73, marginBottom: 15}}
-                  />
-                  <View>
-                    <Text style={{fontWeight: 'bold'}}>{item.name}</Text>
-                    <Text numberOfLines={4}>{item.description}</Text>
-                    <Text>{item.author}</Text>
-                  </View>
-                </View>
-              );
-            }}
+            renderItem={({item}) => <Content {...item} />}
           />
 
           {/* 신규 콘텐츠 */}
@@ -170,33 +152,15 @@ class Body extends Component {
             </View>
 
             {/* 리스트 */}
-            <FlatList
-              horizontal={true}
-              style={{flex: 1}}
-              keyExtractor={(item) => item.id}
-              data={this.state.dataSource}
-              renderItem={({item, index}) => {
-                return (
-                  <View
-                    style={{
-                      width: 105,
-                      marginLeft: 20,
-                      marginTop: 15,
-                      alignItems: 'center',
-                    }}>
-                    <Image
-                      source={item.img}
-                      style={{height: 73, width: 73, marginBottom: 15}}
-                    />
-                    <View>
-                      <Text style={{fontWeight: 'bold'}}>{item.name}</Text>
-                      <Text numberOfLines={4}>{item.description}</Text>
-                      <Text>{item.author}</Text>
-                    </View>
-                  </View>
-                );
-              }}
-            />
+            
+              <FlatList
+                horizontal={true}
+                style={{flex: 1}}
+                keyExtractor={(item) => item.id}
+                data={this.state.dataSource}
+                renderItem={({item}) => <Content {...item} />}
+              />
+            
           </View>
         </ScrollView>
       </View>
