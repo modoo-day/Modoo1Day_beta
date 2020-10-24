@@ -104,7 +104,7 @@ class Body extends Component {
             <Swiper 
             style={styles.wrapper} 
             showsButtons={false}
-            height={170}
+            height={160}
           
             >
               
@@ -146,6 +146,7 @@ class Body extends Component {
             {/* 리스트 */}
             <FlatList
               horizontal={true}
+              showsHorizontalScrollIndicator={false}
               style={styles.listStyle}
               keyExtractor={(item) => item.id}
               data={this.state.dataSource}
@@ -175,6 +176,7 @@ class Body extends Component {
               {/* 리스트 */}
               <FlatList
                 horizontal={true}
+                showsHorizontalScrollIndicator={false}
                 style={styles.listStyle}
                 keyExtractor={(item) => item.id}
                 data={this.state.dataSource}
@@ -256,22 +258,22 @@ const styles = StyleSheet.create({
     marginBottom:'10%'
   },
   listItemImage:{
-    height: 73, 
-    width: 73, 
-    marginBottom: '11%'
+    height: 80, 
+    width: 80, 
+    marginBottom: '9%'
   },
   listItemText1:{
     fontWeight:'bold',
-    fontSize:RFPercentage(2)
+    fontSize:RFPercentage(2.6)
   },
   listItemText2:{
     fontWeight:'bold',
-    fontSize:RFPercentage(1.5),
+    fontSize:RFPercentage(2),
     textAlign:'center'
   },
   listItemText3:{
     fontWeight:'bold',
-    fontSize:RFPercentage(1.5),
+    fontSize:RFPercentage(2),
     textAlign:'center',
   },
 });
