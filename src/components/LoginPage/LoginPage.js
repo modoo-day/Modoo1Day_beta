@@ -14,25 +14,23 @@ import EmailLogin_Button from './Body/EmailLogin_Button';
 import {createStackNavigator} from '@react-navigation/stack';
 import EmailLoginPage from './EmailLoginPage';
 import Title from './Title/Title';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
 const LoginPage = ({navigation}) => {
   return (
-    <View style={styles.flex1}>
-      <View style={styles.title}>
-        <Title />
-        <View style={styles.flex1}></View>
+
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Title/>
       </View>
-      <View style={styles.buttons}>
-        <View style={styles.flex1}></View>
-        <View>
-          <Kakao_Button />
+      <View style={styles.middle}>
+        <View style={styles.buttonContainer}>
+          <Kakao_Button/>
         </View>
         <View style={styles.buttonContainer}>
-          <Google_Button />
+          <Google_Button/>
         </View>
-
-        {/* 이메일 로그인 버튼 */}
-
+      {/* 이메일 로그인 버튼 */}
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={() => navigation.push('EmailLoginPage')}>
             <Image
@@ -42,24 +40,51 @@ const LoginPage = ({navigation}) => {
             />
           </TouchableOpacity>
         </View>
+      </View>
 
-        <View style={styles.tosContianer}>
-          <Text style={styles.tosText}>
-            로그인을 하시면 이용약관 동의로 간주합니다.
-          </Text>
-        </View>
 
-        <View style={{flex: 1}}></View>
-        <View style={{flex: 1}}></View>
+      <View style={styles.footer}>
+        <Text style={styles.footText}>로그인을 하시면 이용약관 동의로 간주합니다.</Text>
       </View>
     </View>
-  );
+
+
+
+  )
+
+
+
 };
 
 const styles = StyleSheet.create({
+  container:{
+    flex:1
+  },
+  header:{
+    flex:2,
+    
+  },
+  middle:{
+    flex:2.4,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  footer:{
+    flex:1,
+  },
+  footText:{
+    fontFamily:'neodgm',
+    fontSize:RFPercentage(1.2),
+    textAlign:'center'
+  }, 
+  
+  
+  
+  
   //버튼
   buttonContainer: {
-    marginTop: '4.8%',
+    width:'70%',
+    marginTop:'2%'
   },
   button: {
     alignSelf: 'center',
@@ -67,29 +92,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
 
-  //레이아웃
-  flex1: {
-    flex: 1,
-  },
-  title: {
-    flex: 1,
-  },
-  buttons: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-  },
-
-  // 이용약관
-  tosContianer: {
-    marginTop: '10%',
-    alignItems: 'center',
-  },
-  tosText: {
-    fontFamily: 'neodgm',
-    color: 'gray',
-    fontSize: 10,
-  },
+  
 });
 
 const Login = createStackNavigator();
