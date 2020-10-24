@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
   
   //버튼
   buttonContainer: {
-    width:'70%',
-    marginTop:'2%'
+    width:RFPercentage(60),
+    marginTop:'4%'
   },
   button: {
     alignSelf: 'center',
