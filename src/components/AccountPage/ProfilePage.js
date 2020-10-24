@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, Button} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import Loader from './Loader';
 
 const ProfilePage = () => {
   const [usrInfo, setUsrInfo] = useState([]);
@@ -25,12 +26,9 @@ const ProfilePage = () => {
         snapshot.forEach((doc) => {
           setUsrInfo(doc._data);
         });
-      })
-      .then(() => {
-        console.log('불러온 유저 정보는:', usrInfo);
+
         setLoading(false);
       })
-
       .catch((error) => {
         console.log(error);
       });
@@ -57,17 +55,20 @@ const ProfilePage = () => {
     return (
       /* 여기에 그냥 로딩하는 애니메이션 넣으면 될 것 같다. 아니면 로딩중... 넣든가 */
       <View>
-        <Text style={{fontSize: 27}}>
+        
+        {/* <Text style={{fontSize: 27}}>
           로딩중.{'\n'} 여기 View를 꾸미면 됨.{'\n'} Loading 화면은 인터넷에
           많이 돌아다님.
-        </Text>
+        </Text> */}
       </View>
     );
   }
-
+  console.log('불러온 유저 정보는:', usrInfo);
   return (
     // 꾸며주세용
+    
     <View>
+    
       <Text style={{fontSize: 16}}>이름: {usrInfo.name}</Text>
       <Text style={{fontSize: 16}}>전화번호: {usrInfo.PhoneNum}</Text>
       <Text style={{fontSize: 16}}>이메일: {usrInfo.email}</Text>
