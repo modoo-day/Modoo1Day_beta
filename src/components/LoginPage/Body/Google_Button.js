@@ -49,23 +49,19 @@ const Google_Button = function () {
       );
     } catch (error) {
       console.log(error);
-      
+
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // 유저가 로그인 창을 닫음.
         console.log('유저가 로그인 창을 닫았습니다.');
-      
       } else if (error.code === statusCodes.IN_PROGRESS) {
         // 이미 로그인이 진행중임.
         console.log('이미 로그인이 진행 중입니다.');
-        
       } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
         // 구글 플레이 서비스가 낡았거나 안깔려있음.
         console.log('구글 플레이 서비스를 업데이트 해주세요.');
-        
       } else if (error.code === 7) {
         // 네트워크 오류.
         console.log('네트워크 오류입니다. 인터넷 연결 상태를 확인해 주세요.');
-        
       } else {
         // 이거는 제발 안떴으면 좋겠다.
         console.log('알 수 없는 오류:', error.code, error);
@@ -93,11 +89,9 @@ const Google_Button = function () {
   return (
     <View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-        onPress={() => googleSignIn()}
-        >
-          <Image 
-            source={require('../../../assets/icons/googleLogin.png')} 
+        <TouchableOpacity onPress={() => googleSignIn()}>
+          <Image
+            source={require('../../../assets/icons/googleLogin.png')}
             style={styles.button}
             resizeMode={'contain'}
           />
@@ -110,14 +104,11 @@ const Google_Button = function () {
 export default Google_Button;
 
 const styles = StyleSheet.create({
-  buttonContainer:{
+  buttonContainer: {},
+  button: {
+    alignSelf: 'center',
+    width: '80%',
+    height: 50,
   },
-  button: { 
-    alignSelf:'center',
-    width: '80%', 
-    height: 50
-  },
-  textStyle:{
-    
-  },
+  textStyle: {},
 });

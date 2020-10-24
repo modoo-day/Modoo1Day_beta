@@ -3,17 +3,25 @@ import {View, Text, Button} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
-const ProfilePage = () => {
+const ProfilePage = ({navigation}) => {
   const [usrInfo, setUsrInfo] = useState([]);
+  //const [usrRealInfo, setUsrRealInfo] = useState('');
 
   const [loading, setLoading] = useState(true);
   const [nottriggered, setNottriggered] = useState(true);
 
+  const [credential, setCredential] = useState();
+
   const USR_TB = firestore().collection('USR_TB');
+  const USR_UID_C = firestore().collection('USR_UID_C');
+
   const user = auth().currentUser;
+
+  var usrRealInfo;
+
   // 해당 uid 유저 정보 불러오기.
   const getUsrInfo = () => {
-    USR_TB.where('uid', '==', user.uid)
+    USR_UID_C.where('uid', '==', user.uid)
       .get()
       .then((snapshot) => {
         console.log('******* USR_TB Where 작동. *******');
@@ -23,10 +31,23 @@ const ProfilePage = () => {
           return;
         }
         snapshot.forEach((doc) => {
-          setUsrInfo(doc._data);
+          
+          // setUsrRealInfo(doc._data.usr_doc_id);
+          usrRealInfo = doc._data.usr_doc_id;
+          console.log('이거봐라', usrRealInfo);
         });
-
-        setLoading(false);
+      })
+      .then(() => {
+        USR_TB.doc(usrRealInfo)
+          .get()
+          .then((snapshot) => {
+            
+            setUsrInfo(snapshot._data);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -38,6 +59,7 @@ const ProfilePage = () => {
       .signOut()
       .then(() => {
         console.log('로그아웃 완료.');
+        console.log(navigation);
       })
       .catch((err) => {
         console.log('로그아웃 에러', err);
@@ -54,7 +76,6 @@ const ProfilePage = () => {
     return (
       /* 여기에 그냥 로딩하는 애니메이션 넣으면 될 것 같다. 아니면 로딩중... 넣든가 */
       <View>
-        
         {/* <Text style={{fontSize: 27}}>
           로딩중.{'\n'} 여기 View를 꾸미면 됨.{'\n'} Loading 화면은 인터넷에
           많이 돌아다님.
@@ -65,9 +86,8 @@ const ProfilePage = () => {
   console.log('불러온 유저 정보는:', usrInfo);
   return (
     // 꾸며주세용
-    
+
     <View>
-    
       <Text style={{fontSize: 16}}>이름: {usrInfo.name}</Text>
       <Text style={{fontSize: 16}}>전화번호: {usrInfo.PhoneNum}</Text>
       <Text style={{fontSize: 16}}>이메일: {usrInfo.email}</Text>

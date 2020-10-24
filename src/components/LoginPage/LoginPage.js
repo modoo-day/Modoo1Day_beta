@@ -27,6 +27,7 @@ const LoginPage = ({navigation}) => {
         <View>
           <Kakao_Button />
         </View>
+        
         <View style={styles.buttonContainer}>
           <Google_Button />
         </View>
