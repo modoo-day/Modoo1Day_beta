@@ -7,38 +7,33 @@ import Title from "./Title/Title";
 import SignUp from '../SignUp/SignUp';
 import {createStackNavigator} from '@react-navigation/stack';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
  
 
 const EmailLoginPage=({navigation, route})=> {
     return (
-        <View style={styles.container}>
+        <View style={styles.flex1}>
           {/* <Title /> */}
-          <View style={styles.flex1}>
-            
-            <View style={styles.flex1}></View>
+          <View style={styles.container}>
+                        
             <Body />
-          </View>
-          
-          
-          {/* 아래 */}
-          
-          <View style={styles.bottomButtonsContainer}>
-           
-            {/* 회원가입 버튼 */}
-            <TouchableOpacity
-              onPress={()=>navigation.navigate('SignUp')}
-            >
-              <Text style={styles.text}>회원가입</Text>
-            </TouchableOpacity>
-          
-            <View style={styles.idpwContainer}>
+            <View style={styles.bottomButtonsContainer}>
               <TouchableOpacity
-                // onPress={()=>navigation.navigate('SignUp')}
+                onPress={()=>navigation.navigate('SignUp')}
               >
-                <Text style={styles.text}>아이디/비밀번호 찾기</Text>
+                <Text style={styles.text}>회원가입</Text>
               </TouchableOpacity>
+            
+              <View style={styles.idpwContainer}>
+                <TouchableOpacity
+                  // onPress={()=>navigation.navigate('SignUp')}
+                >
+                  <Text style={styles.text}>아이디/비밀번호 찾기</Text>
+                </TouchableOpacity>
+              </View>
             </View>
+          
           </View>
 
 
@@ -53,19 +48,20 @@ const styles = StyleSheet.create({
     flex:1,
   },
   container:{
-    flex:1, 
+    flex:1,
+    justifyContent:'center'
   },
   bottomButtonsContainer:{
-    flex:1,
     alignItems: 'center',
-    backgroundColor: 'blue',
-   
+    marginTop:'-13%'
+    
   },
   text:{
-    fontFamily:'neodgm'
+    fontFamily:'neodgm',
+    fontSize:RFPercentage(1.8)
   },
   idpwContainer:{
-    marginTop:'5%'
+    marginTop:'3%',
   },
 });
 

@@ -64,9 +64,7 @@ export default Body;
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
     alignItems:'center',
-    backgroundColor:'pink',
     justifyContent:'center'
   },
   flex1:{
@@ -74,6 +72,7 @@ const styles = StyleSheet.create({
   },
   idContainer: {
     flexDirection:'row',
+    marginBottom:'5%'
   },
   pwContainer: {
     flexDirection:'row', 
@@ -97,11 +96,12 @@ const styles = StyleSheet.create({
     backgroundColor:'#ffcd2c', 
     borderRadius:50, 
     borderWidth:2, 
-    height:59
+    height:'35%',
+    marginTop:'11%'
   },
   startText:{
     fontFamily:'neodgm', 
-    fontSize:20,
+    fontSize: RFPercentage(3),
   },
   
   
