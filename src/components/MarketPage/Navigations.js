@@ -162,7 +162,7 @@ function Navigations() {
           })}
         />
         <modal.Screen name="Search" component={Search} mode={modal} />
-        <modal.Screen name="Account" component={Account} mode={modal} options={{ headerShown: false }} />
+        <modal.Screen name="Account" component={Account} mode={modal} />
       </Stack.Navigator>
     </NavigationContainer>
   );

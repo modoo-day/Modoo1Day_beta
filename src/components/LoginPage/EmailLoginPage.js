@@ -7,63 +7,61 @@ import Title from "./Title/Title";
 import SignUp from '../SignUp/SignUp';
 import {createStackNavigator} from '@react-navigation/stack';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
  
 
 const EmailLoginPage=({navigation, route})=> {
     return (
-      <ScrollView>
-        <View style={styles.container}>
+        <View style={styles.flex1}>
           {/* <Title /> */}
-          <Body />
-          
-          
-          {/* 아래 */}
-          <View style={styles.bottomButtonsContainer}>
-
-              {/* 회원가입 버튼 */}
+          <View style={styles.container}>
+                        
+            <Body />
+            <View style={styles.bottomButtonsContainer}>
               <TouchableOpacity
                 onPress={()=>navigation.navigate('SignUp')}
               >
-                <Text
-                style={styles.text}
-                >회원가입</Text>
+                <Text style={styles.text}>회원가입</Text>
               </TouchableOpacity>
             
-              <View style={{marginTop:20}}>
+              <View style={styles.idpwContainer}>
                 <TouchableOpacity
                   // onPress={()=>navigation.navigate('SignUp')}
                 >
-                  <Text
-                  style={styles.text}
-                  >아이디/비밀번호 찾기</Text>
+                  <Text style={styles.text}>아이디/비밀번호 찾기</Text>
                 </TouchableOpacity>
               </View>
+            </View>
+          
           </View>
 
 
 
-
         </View>
-      </ScrollView>
     );
 }
 
 
 const styles = StyleSheet.create({
+  flex1:{
+    flex:1,
+  },
   container:{
-    flex:1, 
-    justifyContent:'center',
-    marginTop:'40%'
+    flex:1,
+    justifyContent:'center'
   },
   bottomButtonsContainer:{
     alignItems: 'center',
-    // backgroundColor: 'pink',
-    justifyContent: 'center',
-    height:100 ,
+    marginTop:'-13%'
+    
   },
   text:{
-    fontFamily:'neodgm'
+    fontFamily:'neodgm',
+    fontSize:RFPercentage(1.8)
+  },
+  idpwContainer:{
+    marginTop:'3%',
   },
 });
 

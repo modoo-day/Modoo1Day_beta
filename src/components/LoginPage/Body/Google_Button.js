@@ -92,11 +92,13 @@ const Google_Button = function () {
 
   return (
     <View>
-      <View style={styles.ButtonContainer}>
-        <TouchableOpacity onPress={() => googleSignIn()}>
-          <Image
-            source={require('../../../assets/icons/googleLogin.png')}
-            style={styles.Button}
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+        onPress={() => googleSignIn()}
+        >
+          <Image 
+            source={require('../../../assets/icons/googleLogin.png')} 
+            style={styles.button}
             resizeMode={'contain'}
           />
         </TouchableOpacity>
@@ -108,16 +110,14 @@ const Google_Button = function () {
 export default Google_Button;
 
 const styles = StyleSheet.create({
-  ButtonContainer: {
-    marginTop: '2%',
+  buttonContainer:{
   },
-  Button: {
-    alignSelf: 'center',
-    width: '80%',
-    height: 50,
+  button: { 
+    alignSelf:'center',
+    width: '80%', 
+    height: 50
   },
-  textStyle: {
-    fontFamily: 'NanumBarunGothicBold',
-    fontSize: 20,
+  textStyle:{
+    
   },
 });
