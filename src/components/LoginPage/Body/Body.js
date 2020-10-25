@@ -9,31 +9,26 @@ import Navigations from '../../MarketPage/Navigations';
 import {createStackNavigator} from '@react-navigation/stack';
 import MarketPage from '../../MarketPage/MarketPage';
 
+/*
+state={
+  username :'',
+  password :'',
+  errMsg:'',
+}
 
-
-export default class Body extends Component{
-  state={
-    username :'',
-    password :'',
-    errMsg:'',
+onLogin = () =>{
+  if(this.state.username == 'test' && this.state.password == 'test'){
+    this.props.navigation.navigate('Home')
+  }else{
+    this.setState({errMsg:'Invalid login details.'})
   }
+}
+*/
 
-  onLogin = () =>{
-    if(this.state.username == 'test' && this.state.password == 'test'){
-      this.props.navigation.navigate('Home')
-    }else{
-      this.setState({errMsg:'Invalid login details.'})
-    }
-  }
-  render(){
-    
-  
-
+const Body = ()=> {
+{
   //const [id, setId] = useState('');
   //const [pw, setPw] = useState('');
-  
-
-  
 
   return (
     <View style={styles.container}>
@@ -44,7 +39,7 @@ export default class Body extends Component{
           textContentType="emailAddress"
         //value={id}
          // onChangeText={(username) => setId(username)}
-           onChangeText={(text) => this.setState({username:text})}
+         //  onChangeText={(text) => this.setState({username:text})}
 
           placeholder={'아이디'}
           style={styles.input}
@@ -61,7 +56,7 @@ export default class Body extends Component{
           mode='outlined'
         //value={pw}
           //onChangeText={(password) => setPw(password)}
-          onChangeText={(text) => this.setState({password:text})}
+         // onChangeText={(text) => this.setState({password:text})}
           placeholder={'비밀번호'}
           secureTextEntry={true}
           style={styles.input}
@@ -72,7 +67,7 @@ export default class Body extends Component{
         />
       </View>
 
-          <Text style={{color:'red',textAlign:'center'}}>{this.state.errMsg}</Text>
+         {/* <Text style={{color:'red',textAlign:'center'}}>{this.state.errMsg}</Text> */}
       {/* 시작 버튼 */}
       <View style={styles.startContainer}>
         <Button 
@@ -82,7 +77,7 @@ export default class Body extends Component{
         disabledStyle={{backgroundColor:'white'}}
         isDisabled={false}
         isLoading={false}
-        onPress={this.onLogin}
+        //onPress={this.onLogin}
         
         >
           시작하기!
@@ -93,7 +88,7 @@ export default class Body extends Component{
 }};
 
 
-
+export default Body;
 
 
 
