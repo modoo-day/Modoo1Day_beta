@@ -1,26 +1,15 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TextInput, Image} from 'react-native';
+import {StyleSheet, View, Text, TextInput} from 'react-native';
 import {RFPercentage} from 'react-native-responsive-fontsize';
 import {Button} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
-
-// var actionCodeSettings = {
-//   // URL you want to redirect back to. The domain (www.example.com) for this
-//   // URL must be whitelisted in the Firebase Console.
-//   url: 'noreply@modoo1daybeta.firebaseapp.com',
-//   handleCodeInApp: true, // This must be true.
-//   /* iOS: {
-//     bundleId: 'com.example.ios',
-//   }, */
-//   android: {
-//     packageName: 'com.modoo1day_beta',
-//     installApp: true,
-//     minimumVersion: '12',
-//   },
-//   /* dynamicLinkDomain: 'example.page.link', */
-// };
+import firestore from '@react-native-firebase/firestore';
+import AsyncStorage from '@react-native-community/async-storage';
 
 function EmailValid({navigation}) {
+  /* ------------------ */
+  /* Email Format Check */
+  /* ------------------ */
   const emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
   const [isEmail, setisEmail] = useState(false);
@@ -40,55 +29,76 @@ function EmailValid({navigation}) {
     }
   }
 
-  /* 
-  const USR_UID_C = firestore().collection('USR_UID_C');
-  USR_UID_C.where('uid', '==', 'test@test.com')
+  /* ----------------------- */
+  /* Email Format inspection */
+  /* ----------------------- */
+  const USR_TB = firestore().collection('USR_TB');
+
+  function inspectEmail() {
+    USR_TB.where('email', '==', email)
       .get()
       .then((snapshot) => {
-        console.log('******* USR_TB Where 작동. *******');
+        console.log('inspectation start');
         if (snapshot.empty) {
           // DB에 유저 정보 없으면
-          console.log('기존 회원이 아니다.');
+          console.log(email, ': DB empty');
+          sendEmail();
+          console.log('sending Success');
         }
         snapshot.forEach((doc) => {
-          console.log('기존 회원이다.');
+          // DB에 유저 정보 있으면
+          console.log(email, 'DB filled');
         });
-      }) */
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-  
-  // function sendEmail() {
-  //   try {
-  //     auth()
-  //       .sendSignInLinkToEmail(email, actionCodeSettings)
-  //       .then(function () {
-  //         // The link was successfully sent. Inform the user.
-  //         // Save the email locally so you don't need to ask the user for it again
-  //         // if they open the link on the same device.
-  //         window.localStorage.setItem('emailForSignIn', email);
-  //       })
-  //       .catch(function (error) {
-  //         // Some error occurred, you can inspect the code: error.code
-  //         console.log(error);
-  //       });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }
+  /* ------------- */
+  /* Sending Email */
+  /* ------------- */
+  const actionCodeSettings = {
+    // Firebase Hosting
+    url: 'https://modoo1daybeta.firebaseapp.com',
+    handleCodeInApp: true, // This must be true.
+    // iOS: {
+    // bundleId: 'com.example.ios',
+    // },
+    android: {
+      packageName: 'com.modoo1day_beta',
+      installApp: true,
+      minimumVersion: '12',
+    },
+    // Firebase Dynamic Link
+    dynamicLinkDomain: 'modoo1daybeta.page.link',
+  };
+
+  async function sendEmail() {
+    await auth()
+      .sendSignInLinkToEmail(email, actionCodeSettings)
+      .then(function () {
+        // 자바스크립트에서 이메일 로그인 정보를
+        // 로컬에 저장해서 계속 쓸 수 있게
+        AsyncStorage.setItem('emailForSignIn', email);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <>
       <View style={styles.container}>
-        {/* ------ */}
+
         {/* Header */}
-        {/* ------ */}
         <View style={styles.header}>
           <Text style={styles.h1}>행복은 습관이</Text>
           <Text style={styles.h1}>될 수 있습니다!</Text>
           <Text style={styles.h2}>먼저 로그인이 필요해요 ^^</Text>
         </View>
-        {/* ---- */}
+
         {/* Body */}
-        {/* ---- */}
         <View style={styles.body}>
           <View style={styles.bodyView}>
             <TextInput
@@ -98,21 +108,17 @@ function EmailValid({navigation}) {
               value={email}
             />
             <Button
-              onPress={() => sendEmail()}
+              onPress={() => inspectEmail()}
               compact={true}
               color={'black'}>
               <Text style={{fontFamily: 'neodgm'}}>이메일인증</Text>
             </Button>
           </View>
 
-          {/* -------------------- */}
           {/* Email Format Checker */}
-          {/* -------------------- */}
           <Text>{wrong}</Text>
 
-          {/* ----------------- */}
           {/* Keep going button */}
-          {/* ----------------- */}
           <View style={styles.bodyView}>
             <Button
               onPress={() =>

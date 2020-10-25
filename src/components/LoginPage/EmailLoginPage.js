@@ -60,21 +60,19 @@ const Login = createStackNavigator();
 export default class EmailLoginRoute extends Component {
   render() {
     return (
-      <NavigationContainer>
-        <Login.Navigator>
-          <Login.Screen name="EmailLoginPage" component={EmailLoginPage} />
-          <Login.Screen
-            name="EmailCheck"
-            component={EmailCheck}
-            options={{headerShown: false}}
-          />
-          <Login.Screen
-            name="PasswordCheck"
-            component={PasswordCheck}
-            options={{headerShown: false}}
-          />
-        </Login.Navigator>
-      </NavigationContainer>
+      <Login.Navigator>
+        <Login.Screen name="EmailLoginPage" component={EmailLoginPage} />
+        <Login.Screen
+          name="EmailCheck"
+          component={EmailCheck}
+          options={{headerShown: false}}
+        />
+        <Login.Screen
+          name="PasswordCheck"
+          component={PasswordCheck}
+          options={{headerShown: false}}
+        />
+      </Login.Navigator>
     );
   }
 }
