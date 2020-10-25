@@ -50,9 +50,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  flex1: {
-    flex: 1,
-  },
   idContainer: {
     flexDirection: 'row',
     marginBottom: '5%',
@@ -60,7 +57,6 @@ const styles = StyleSheet.create({
   pwContainer: {
     flexDirection: 'row',
   },
-  startContainer: {},
   input: {
     fontSize: RFPercentage(2),
     height: 40,

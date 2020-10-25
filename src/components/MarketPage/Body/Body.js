@@ -9,6 +9,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
+import Content from './Content';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
 const {width, height} = Dimensions.get('window');
 
 class Body extends Component {
@@ -26,47 +29,47 @@ class Body extends Component {
     var data = [
       {
         id: '1',
-        name: 'The Ballad Of Songbirds And Snakes',
-        author: 'Suzanne ',
+        name: 'test',
+        author: 'test',
         img: require('../../../assets/img/night.png'),
-        description: 'The Ballad of Songbirds and Snakes is an upcoming ',
+        description:'test'
+     
       },
       {
         id: '2',
-        name: 'If It Bleeds',
-        author: 'Stephen King',
+        name: 'test',
+        author: 'test',
         img: require('../../../assets/img/night.png'),
-        description: 'From #1 New York Times bestselling author',
+        description:'test'
       },
       {
         id: '3',
-        name: 'The Book of Longings: A Novel',
-        author: 'Sue Monk Kidd',
+        name: 'test',
+        author: 'test',
         img: require('../../../assets/img/night.png'),
-        description: 'Named a Most Anticipated Book of 2020 by O,',
-      },
+        description:'test'
+        },
       {
         id: '4',
-        name: 'Masked Prey',
-        author: 'John Sandford',
+        name: 'test',
+        author: 'test',
         img: require('../../../assets/img/night.png'),
-        description:
-          'Lucas Davenport investigates a vitriolig author John Sandfor',
-      },
+        description:'test'
+        },
       {
         id: '5',
-        name: 'The Kennedy Curse',
-        author: 'James Patterson',
+        name: 'test',
+        author: 'test',
         img: require('../../../assets/img/night.png'),
-        description: 'd to take risks and excel, living by theis given,',
-      },
+        description:'test'
+        },
       {
         id: '6',
-        name: 'Hidden Valley Road',
-        author: 'Robert Kolker',
+        name: 'test',
+        author: 'test',
         img: require('../../../assets/img/night.png'),
-        description: 'dAmerican Family is a 2020 non-fiction .',
-      },
+        description:'test'
+        },
     ];
 
     this.setState({
@@ -96,110 +99,108 @@ class Body extends Component {
 
   render() {
     return (
-      <View>
+      
         <ScrollView>
           {/* 광고 배너 */}
-          <View style={{height: 150}}>
-            <Swiper style={styles.wrapper} showsButtons={false}>
-              <View style={styles.slide1}>
-                <View style={{flexDirection: 'row', backgroundColor: 'pink'}}>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      flexWrap: 'wrap',
-                      backgroundColor: 'pink',
-                    }}>
-                    <Image
-                      source={require('../../../assets/img/night.png')}
-                      style={{width: 420}}
-                    />
-                  </View>
-                </View>
+          <Swiper 
+          style={styles.wrapper} 
+          showsButtons={false}
+          height={160}
+        
+          >
+            
+            <View style={styles.slide1}>
+              <View style={styles.b_imageContainer}>
+                <Image
+                  source={require('../../../assets/img/night.png')}
+                  style={styles.b_image}
+                />
               </View>
+              
+            </View>
 
-              <View style={styles.slide2}>
-                <Text style={styles.text}>Beautiful</Text>
+            <View style={styles.slide2}>
+              <View style={styles.b_imageContainer}>
+                <Image
+                  source={require('../../../assets/img/night.png')}
+                  style={styles.b_image}
+                />
               </View>
-              <View style={styles.slide3}>
-                <Text style={styles.text}>And simple</Text>
-              </View>
-            </Swiper>
-          </View>
+            </View>
 
+            <View style={styles.slide3}>
+              <View style={styles.b_imageContainer}>
+                <Image
+                  source={require('../../../assets/img/night.png')}
+                  style={styles.b_image}
+                />
+              </View>
+            </View>
+
+          </Swiper>
           {/* 인기콘텐츠 */}
-          <View style={{marginTop: 40, marginBottom: 10, marginLeft: 18}}>
-            <Text style={{fontFamily: 'neodgm', fontSize: 15}}>
+          <View style={styles.category}>
+            <Text style={styles.categoryText}>
               인기콘텐츠🔥
             </Text>
           </View>
           {/* 리스트 */}
           <FlatList
             horizontal={true}
-            style={{flex: 1}}
+            showsHorizontalScrollIndicator={false}
+            style={styles.listStyle}
             keyExtractor={(item) => item.id}
             data={this.state.dataSource}
             renderItem={({item, index}) => {
               return (
                 <View
-                  style={{
-                    width: 105,
-                    marginLeft: 20,
-                    marginTop: 15,
-                    alignItems: 'center',
-                  }}>
+                  style={styles.listItemContainer}>
                   <Image
                     source={item.img}
-                    style={{height: 73, width: 73, marginBottom: 15}}
+                    style={styles.listItemImage}
                   />
                   <View>
-                    <Text style={{fontWeight: 'bold'}}>{item.name}</Text>
-                    <Text numberOfLines={4}>{item.description}</Text>
-                    <Text>{item.author}</Text>
+                    <Text style={styles.listItemText1}>{item.name}</Text>
+                    <Text style={styles.listItemText2} numberOfLines={4}>{item.description}</Text>
+                    <Text style={styles.listItemText3}>{item.author}</Text>
                   </View>
                 </View>
               );
             }}
           />
-
           {/* 신규 콘텐츠 */}
-          <View style={{marginBottom: 100}}>
-            <View style={{marginTop: 40, marginBottom: 10, marginLeft: 18}}>
-              <Text style={{fontFamily: 'neodgm', fontSize: 15}}>
-                신규콘텐츠✨
-              </Text>
-            </View>
-
-            {/* 리스트 */}
-            <FlatList
-              horizontal={true}
-              style={{flex: 1}}
-              keyExtractor={(item) => item.id}
-              data={this.state.dataSource}
-              renderItem={({item, index}) => {
-                return (
-                  <View
-                    style={{
-                      width: 105,
-                      marginLeft: 20,
-                      marginTop: 15,
-                      alignItems: 'center',
-                    }}>
-                    <Image
-                      source={item.img}
-                      style={{height: 73, width: 73, marginBottom: 15}}
-                    />
-                    <View>
-                      <Text style={{fontWeight: 'bold'}}>{item.name}</Text>
-                      <Text numberOfLines={4}>{item.description}</Text>
-                      <Text>{item.author}</Text>
-                    </View>
-                  </View>
-                );
-              }}
-            />
+          <View style={styles.category}>
+            <Text style={styles.categoryText}>
+              신규콘텐츠✨
+            </Text>
           </View>
+          {/* 리스트 */}
+          <FlatList
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.listStyle}
+            keyExtractor={(item) => item.id}
+            data={this.state.dataSource}
+            renderItem={({item, index}) => {
+              return (
+                <View
+                  style={styles.listItemContainer}>
+                  <Image
+                    source={item.img}
+                    style={styles.listItemImage}
+                  />
+                  <View>
+                    <Text style={styles.listItemText1}>{item.name}</Text>
+                    <Text style={styles.listItemText2} numberOfLines={4}>{item.description}</Text>
+                    <Text style={styles.listItemText3}>{item.author}</Text>
+                  </View>
+                </View>
+              );
+            }}
+          />
+            
         </ScrollView>
-      </View>
+      
     );
   }
 }
@@ -207,28 +208,73 @@ class Body extends Component {
 export default Body;
 
 const styles = StyleSheet.create({
-  wrapper: {},
+  /* 배너 */
+  wrapper: {
+    height:'100%',
+  },
   slide1: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  b_imageContainer:{
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    backgroundColor: 'pink',
+  },
+  b_image:{
+    width:width,
+  },
   slide2: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#97CAE5',
   },
   slide3: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#92BBD9',
   },
-  text: {
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold',
+  //콘텐츠 카테고리
+  category:{
+    marginTop: '8%', 
+    marginBottom: '4%', 
+    marginLeft: '4%'
+  },
+  categoryText:{
+    fontFamily: 'neodgm', 
+    fontSize:RFPercentage(2)
+  },
+  newCon_container:{
+  },
+
+  //플랫리스트 디자인
+  listStyle:{
+    
+  },
+  listItemContainer:{
+    width: 105,
+    marginLeft: 4,
+    alignItems: 'center',
+    marginBottom:'10%'
+  },
+  listItemImage:{
+    height: 80, 
+    width: 80, 
+    marginBottom: '9%'
+  },
+  listItemText1:{
+    fontWeight:'bold',
+    fontSize:RFPercentage(2.6)
+  },
+  listItemText2:{
+    fontWeight:'bold',
+    fontSize:RFPercentage(2),
+    textAlign:'center'
+  },
+  listItemText3:{
+    fontWeight:'bold',
+    fontSize:RFPercentage(2),
+    textAlign:'center',
   },
 });

@@ -35,7 +35,7 @@ function Search({navigation}) {
 
 function Account({navigation}) {
   return (
-    <AccountPage/>
+    <AccountPage {...navigation}/>
   );
 }
 

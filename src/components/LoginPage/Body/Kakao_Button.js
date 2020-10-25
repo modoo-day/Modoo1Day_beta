@@ -17,15 +17,14 @@ const Kakao_Button = function () {
       .then((result) => {
         // 토큰 저장
         token = result.accessToken;
-        // setToken(result.accessToken);
-
+        
         // 로그인 성공
         console.log('카카오 로그인 성공', result);
       })
       .then(() => {
         // 여기서부터가 API 서버애서 verifyToken 불러오는 법.
         // 밑 ip주소는 와이파이마다 달라짐. Firebase REST API 쓰려면 돈 내고 업로드해야함.
-        fetch('http://172.20.10.8:8000/'.concat('verifyToken?token=', token), {
+        fetch('http://10.12.101.33:8000/'.concat('verifyToken?token=', token), {
           method: 'POST',
         })
           .then((response) => {
@@ -39,7 +38,9 @@ const Kakao_Button = function () {
                   var errorCode = error.code;
                   var errorMessage = error.message;
                   // ...
+                  return;
                 });
+              console.log('카카오 Firebase 로그인 완료.');
             });
             // console.log(response);
           })
@@ -60,11 +61,9 @@ const Kakao_Button = function () {
   return (
     <View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-        onPress={kakaoLogin}
-        >
-          <Image 
-            source={require('../../../assets/icons/kakaoLogin.png')} 
+        <TouchableOpacity onPress={kakaoLogin}>
+          <Image
+            source={require('../../../assets/icons/kakaoLogin.png')}
             style={styles.button}
             resizeMode={'contain'}
           />
@@ -77,15 +76,11 @@ const Kakao_Button = function () {
 export default Kakao_Button;
 
 const styles = StyleSheet.create({
-  buttonContainer:{
-    
+  buttonContainer: {},
+  button: {
+    alignSelf: 'center',
+    width: '80%',
+    height: 50,
   },
-  button: { 
-    alignSelf:'center',
-    width: '80%', 
-    height: 50
-  },
-  textStyle:{
-   
-  },
+  textStyle: {},
 });
