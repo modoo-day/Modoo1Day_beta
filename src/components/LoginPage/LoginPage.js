@@ -42,19 +42,11 @@ const LoginPage = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
-
-
       <View style={styles.footer}>
         <Text style={styles.footText}>로그인을 하시면 이용약관 동의로 간주합니다.</Text>
       </View>
     </View>
-
-
-
   )
-
-
-
 };
 
 const styles = StyleSheet.create({

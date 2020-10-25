@@ -31,7 +31,6 @@ const ProfilePage = ({navigation}) => {
           return;
         }
         snapshot.forEach((doc) => {
-          
           // setUsrRealInfo(doc._data.usr_doc_id);
           usrRealInfo = doc._data.usr_doc_id;
           console.log('이거봐라', usrRealInfo);
@@ -41,7 +40,6 @@ const ProfilePage = ({navigation}) => {
         USR_TB.doc(usrRealInfo)
           .get()
           .then((snapshot) => {
-            
             setUsrInfo(snapshot._data);
             setLoading(false);
           })
@@ -84,6 +82,10 @@ const ProfilePage = ({navigation}) => {
     );
   }
   console.log('불러온 유저 정보는:', usrInfo);
+  if (usrInfo === undefined) {
+    signOut();
+    return <Text>asdf</Text>;
+  }
   return (
     // 꾸며주세용
 

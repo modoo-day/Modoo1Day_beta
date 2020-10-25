@@ -3,6 +3,8 @@ import {View, Text} from 'react-native';
 import LoginPage from '../LoginPage/LoginPage';
 import ProfilePage from './ProfilePage';
 import auth from '@react-native-firebase/auth';
+import InterestPick from './InterestPick';
+
 
 // AccountPage - 현재 로그인 상태 확인하고, 로그인 상태 따라서 행동 바뀌어야 됨.
 
@@ -11,7 +13,9 @@ const AccountPage = ({navigation}) => {
   // 로그인 되어있으면 프로필 페이지로 이동.
   if (user) {
     console.log('프로필 페이지로 이동중');
-    return <ProfilePage {...navigation}/>;
+    return <InterestPick />;
+
+    /* return <ProfilePage />; */
   }
   console.log('로그인 페이지로 이동중');
   // 로그인 안되어 있으면 로그인 페이지 뜨기.
