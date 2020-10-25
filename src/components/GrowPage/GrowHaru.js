@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import TodayMissionPage from './TodayMissionPage'
+import SelfMissionPage from './SelfMissionPage';
 
 function TodayMission() {
     return (
@@ -14,9 +15,7 @@ function TodayMission() {
 
 function SelfMission() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Notifications!</Text>
-      </View>
+      <SelfMissionPage/>
     );
 }
   
