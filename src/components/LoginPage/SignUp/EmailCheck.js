@@ -39,6 +39,22 @@ function EmailValid({navigation}) {
       setWrong('이메일 형식 오류// 정규식 추후 수정필요');
     }
   }
+
+  /* 
+  const USR_UID_C = firestore().collection('USR_UID_C');
+  USR_UID_C.where('uid', '==', 'test@test.com')
+      .get()
+      .then((snapshot) => {
+        console.log('******* USR_TB Where 작동. *******');
+        if (snapshot.empty) {
+          // DB에 유저 정보 없으면
+          console.log('기존 회원이 아니다.');
+        }
+        snapshot.forEach((doc) => {
+          console.log('기존 회원이다.');
+        });
+      }) */
+
   
   // function sendEmail() {
   //   try {
