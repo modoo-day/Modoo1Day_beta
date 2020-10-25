@@ -8,6 +8,8 @@ import SignUp from '../SignUp/SignUp';
 import {createStackNavigator} from '@react-navigation/stack';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import Navigations from '../MarketPage/Navigations';
+import MarketPage from '../MarketPage/MarketPage';
 
  
 
@@ -78,11 +80,15 @@ export default class EmailLoginRoute extends Component{
                 <Login.Screen
                 name='EmailLoginPage'
                 component={EmailLoginPage}
-                
                 />
                 <Login.Screen
                 name='SignUp'
                 component={SignUp}
+                options={{ headerShown: false }}
+                />
+                <Login.Screen
+                name='Home'
+                component={MarketPage}
                 options={{ headerShown: false }}
                 />
             </Login.Navigator>           

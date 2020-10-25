@@ -16,6 +16,7 @@ import EmailLoginPage from './EmailLoginPage';
 import Title from './Title/Title';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import TosPage from './TosPage';
+import MarketPage from '../MarketPage/MarketPage';
 
 const LoginPage = ({navigation}) => {
   return (

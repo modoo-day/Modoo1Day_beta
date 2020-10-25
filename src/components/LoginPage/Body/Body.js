@@ -18,7 +18,7 @@ export default class Body extends Component{
     errMsg:'',
   }
 
-  onLogin = ({navigation}) =>{
+  onLogin = () =>{
     if(this.state.username == 'test' && this.state.password == 'test'){
       this.props.navigation.navigate('Home')
     }else{
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffcd2c',
     borderWidth: 2,
     height: '35%',
-    marginTop: '9%',
+    marginTop: '4%',
     borderRadius:50
   },
   startText: {
