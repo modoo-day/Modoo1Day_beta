@@ -1,16 +1,39 @@
-import React, {useState} from 'react';
+import React, {Component, useState} from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import Button from 'apsl-react-native-button';
 import Kakao_Button from './Kakao_Button';
 import Google_Button from './Google_Button';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import {TextInput} from 'react-native-paper';
+import Navigations from '../../MarketPage/Navigations';
+import {createStackNavigator} from '@react-navigation/stack';
+import MarketPage from '../../MarketPage/MarketPage';
 
 
 
-const Body = function () {
-  const [id, setId] = useState('');
-  const [pw, setPw] = useState('');
+export default class Body extends Component{
+  state={
+    username :'',
+    password :'',
+    errMsg:'',
+  }
+
+  onLogin = ({navigation}) =>{
+    if(this.state.username == 'test' && this.state.password == 'test'){
+      this.props.navigation.navigate('Home')
+    }else{
+      this.setState({errMsg:'Invalid login details.'})
+    }
+  }
+  render(){
+    
+  
+
+  //const [id, setId] = useState('');
+  //const [pw, setPw] = useState('');
+  
+
+  
 
   return (
     <View style={styles.container}>
@@ -19,8 +42,10 @@ const Body = function () {
         <TextInput
           mode='outlined'
           textContentType="emailAddress"
-          value={id}
-          onChangeText={(username) => setId(username)}
+        //value={id}
+         // onChangeText={(username) => setId(username)}
+           onChangeText={(text) => this.setState({username:text})}
+
           placeholder={'아이디'}
           style={styles.input}
           theme={{
@@ -34,8 +59,9 @@ const Body = function () {
       <View style={styles.pwContainer}>
         <TextInput
           mode='outlined'
-          value={pw}
-          onChangeText={(password) => setPw(password)}
+        //value={pw}
+          //onChangeText={(password) => setPw(password)}
+          onChangeText={(text) => this.setState({password:text})}
           placeholder={'비밀번호'}
           secureTextEntry={true}
           style={styles.input}
@@ -46,6 +72,7 @@ const Body = function () {
         />
       </View>
 
+          <Text style={{color:'red',textAlign:'center'}}>{this.state.errMsg}</Text>
       {/* 시작 버튼 */}
       <View style={styles.startContainer}>
         <Button 
@@ -53,8 +80,9 @@ const Body = function () {
         textStyle={styles.startText}
         activeOpacity={0.5}
         disabledStyle={{backgroundColor:'white'}}
-        isDisabled={true}
+        isDisabled={false}
         isLoading={false}
+        onPress={this.onLogin}
         
         >
           시작하기!
@@ -62,9 +90,12 @@ const Body = function () {
       </View>
     </View>
   );
-};
+}};
 
-export default Body;
+
+
+
+
 
 const styles = StyleSheet.create({
   container: {
