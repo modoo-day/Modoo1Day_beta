@@ -10,9 +10,12 @@ import HistoryPage from '../HistoryPage/HistoryPage';
 import Body from '../LoginPage/Body/Body';
 import MarketPage from './MarketPage';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import GrowPage from '../GrowPage/GrowPage';
+import GrowHomePage from '../GrowPage/GrowHomePage';
 import LocalLoginPage from '../LoginPage/EmailLoginPage';
 import LoginPage from '../LoginPage/LoginPage';
+import GrowHaru from '../GrowPage/GrowHaru';
+import GrowCoop from '../GrowPage/GrowCoop';
+import GrowRoute from '../GrowPage/GrowHomePage';
 
 
 function LogoTitle() {
@@ -73,7 +76,7 @@ function History({}) {
 
 function Grow() {
   return(
-    <GrowPage/>
+    <GrowRoute/>
   )
 }
 

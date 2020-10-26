@@ -15,6 +15,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import EmailLoginPage from './EmailLoginPage';
 import Title from './Title/Title';
 import { RFPercentage } from 'react-native-responsive-fontsize';
+import TosPage from './TosPage';
+import MarketPage from '../MarketPage/MarketPage';
 
 const LoginPage = ({navigation}) => {
   return (
@@ -43,7 +45,17 @@ const LoginPage = ({navigation}) => {
         </View>
       </View>
       <View style={styles.footer}>
-        <Text style={styles.footText}>로그인을 하시면 이용약관 동의로 간주합니다.</Text>
+        <Text style={styles.footText}>
+          <Text>로그인을 하시면 </Text>
+          <View style={styles.footer}>
+            <TouchableOpacity
+              onPress={()=>navigation.navigate('TosPage')}
+            >
+              <Text style={styles.tosText}>이용약관</Text>
+            </TouchableOpacity>
+          </View>
+          <Text> 동의로 간주합니다.</Text>
+        </Text>
       </View>
     </View>
   )
@@ -68,7 +80,15 @@ const styles = StyleSheet.create({
   footText:{
     fontFamily:'neodgm',
     fontSize:RFPercentage(1.2),
-    textAlign:'center'
+    textAlign:'center',
+  },
+  tosText:{
+    fontFamily:'neodgm',
+    textAlign:'center',
+    top:'20%',
+    fontSize:RFPercentage(1.3),
+    textDecorationLine:'underline'
+
   }, 
   
   
@@ -76,8 +96,8 @@ const styles = StyleSheet.create({
   
   //버튼
   buttonContainer: {
-    width:'70%',
-    marginTop:'2%'
+    width:RFPercentage(60),
+    marginTop:'4%'
   },
   button: {
     alignSelf: 'center',
@@ -102,6 +122,11 @@ export default class LoginRoute extends Component {
         <Login.Screen
           name="EmailLoginPage"
           component={EmailLoginPage}
+          options={{headerShown: false}}
+        />
+        <Login.Screen
+          name="TosPage"
+          component={TosPage}
           options={{headerShown: false}}
         />
       </Login.Navigator>

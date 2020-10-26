@@ -4,7 +4,9 @@ import Body from './/Body/Body';
 
 
 const MarketPage = () =>{
+    
     return(
+
         <Body/>
     )
 }
