@@ -139,13 +139,47 @@ class Body extends Component {
 
           </Swiper>
           {/* 인기콘텐츠 */}
-          <View style={styles.category}>
-            <Text style={styles.categoryText}>
-              인기콘텐츠🔥
-            </Text>
-          </View>
-          {/* 리스트 */}
-          <FlatList
+          <ScrollView>
+            <View style={styles.category}>
+              <Text style={styles.categoryText}>
+                인기 모두 🔥
+              </Text>
+            </View>
+            <View style={styles.listContainer}>
+              <Image style={styles.listImage} source={require('../../../assets/img/night.png')}/>
+              <View style={styles.listTextContainer}>
+                <View style={styles.listTitleContainer}>
+                  <Text style={styles.listTitle}>물 마시기</Text>
+                </View>
+                <View style={styles.listBottomTextContainer}>
+                  <View style={styles.profileContainer}>
+                    <Image style={styles.profileIcon} source={require('../../../assets/icons/profile.png')}/>
+                    <Text style={styles.author}>ㅂㅇㅅ</Text>
+                  </View>
+                  <Text style={styles.participants}>1000000만명 참여</Text>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.listContainer}>
+              <Image style={styles.listImage} source={require('../../../assets/img/night.png')}/>
+              <View style={styles.listTextContainer}>
+                <View style={styles.listTitleContainer}>
+                  <Text style={styles.listTitle}>물 마시기</Text>
+                </View>
+                <View style={styles.listBottomTextContainer}>
+                  <View style={styles.profileContainer}>
+                    <Image style={styles.profileIcon} source={require('../../../assets/icons/profile.png')}/>
+                    <Text style={styles.author}>ㅂㅇㅅ</Text>
+                  </View>
+                  <Text style={styles.participants}>1000000만명 참여</Text>
+                </View>
+              </View>
+            </View>
+
+          </ScrollView>
+          {/* 플랫리스트 */}
+          {/* <FlatList
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             style={styles.listStyle}
@@ -167,15 +201,50 @@ class Body extends Component {
                 </View>
               );
             }}
-          />
+          /> */}
           {/* 신규 콘텐츠 */}
           <View style={styles.category}>
             <Text style={styles.categoryText}>
-              신규콘텐츠✨
+              신규 모두 ✨
             </Text>
           </View>
-          {/* 리스트 */}
-          <FlatList
+          
+          <View style={styles.listContainer}>
+              <Image style={styles.listImage} source={require('../../../assets/img/night.png')}/>
+              <View style={styles.listTextContainer}>
+                <View style={styles.listTitleContainer}>
+                  <Text style={styles.listTitle}>물 마시기</Text>
+                </View>
+                <View style={styles.listBottomTextContainer}>
+                  <View style={styles.profileContainer}>
+                    <Image style={styles.profileIcon} source={require('../../../assets/icons/profile.png')}/>
+                    <Text style={styles.author}>ㅂㅇㅅ</Text>
+                  </View>
+                  <Text style={styles.participants}>1000000만명 참여</Text>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.listContainer}>
+              <Image style={styles.listImage} source={require('../../../assets/img/night.png')}/>
+              <View style={styles.listTextContainer}>
+                <View style={styles.listTitleContainer}>
+                  <Text style={styles.listTitle}>물 마시기</Text>
+                </View>
+                <View style={styles.listBottomTextContainer}>
+                  <View style={styles.profileContainer}>
+                    <Image style={styles.profileIcon} source={require('../../../assets/icons/profile.png')}/>
+                    <Text style={styles.author}>ㅂㅇㅅ</Text>
+                  </View>
+                  <Text style={styles.participants}>1000000만명 참여</Text>
+                </View>
+              </View>
+            </View>
+
+
+
+          {/* 플랫리스트 */}
+          {/* <FlatList
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             style={styles.listStyle}
@@ -197,7 +266,7 @@ class Body extends Component {
                 </View>
               );
             }}
-          />
+          /> */}
             
         </ScrollView>
       
@@ -247,34 +316,84 @@ const styles = StyleSheet.create({
   },
   newCon_container:{
   },
+  //스크롤 리스트
+  listContainer:{
+    // backgroundColor:'lightgreen',
+    flex:1,
+    flexDirection:'row',
+    marginBottom:'5%',
+    marginHorizontal:'5%'
+  },
+  listImage:{
+    width:120,
+    height:120
+  },
+  listTextContainer:{
+    flex:1,
+    paddingLeft:'5%'
+  },
+  listTitleContainer:{
+    flex:115,
+    justifyContent:'center'
+  },
+  listTitle:{
+    top:'5%',
+    fontFamily:'neodgm',
+    fontSize:18
+  },
+  listBottomTextContainer:{
+    // backgroundColor:'lightblue',
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center'
+  },
+  profileContainer:{
+    flex:1,
+    flexDirection:'row'
+  },
+  profileIcon:{
+    width:20,
+    height:20,
+    marginRight:'5%'
+  },
+  author:{
+    fontFamily:'neodgm',
+    fontSize:RFPercentage(1.7),
+    //컨테이너에서 center를 줬는데 안 되네요 ㅎㅎ 여기서 center 쓰니가 ㄱㅊ네요
+  },
+  participants:{
+    fontSize:RFPercentage(1.7),
+    fontFamily:'neodgm',
+  },
 
   //플랫리스트 디자인
-  listStyle:{
+  // listStyle:{
     
-  },
-  listItemContainer:{
-    width: 105,
-    marginLeft: 4,
-    alignItems: 'center',
-    marginBottom:'10%'
-  },
-  listItemImage:{
-    height: 80, 
-    width: 80, 
-    marginBottom: '9%'
-  },
-  listItemText1:{
-    fontWeight:'bold',
-    fontSize:RFPercentage(2.6)
-  },
-  listItemText2:{
-    fontWeight:'bold',
-    fontSize:RFPercentage(2),
-    textAlign:'center'
-  },
-  listItemText3:{
-    fontWeight:'bold',
-    fontSize:RFPercentage(2),
-    textAlign:'center',
-  },
+  // },
+  // listItemContainer:{
+  //   width: 105,
+  //   marginLeft: 4,
+  //   alignItems: 'center',
+  //   marginBottom:'10%'
+  // },
+  // listItemImage:{
+  //   height: 80, 
+  //   width: 80, 
+  //   marginBottom: '9%'
+  // },
+  // listItemText1:{
+  //   fontWeight:'bold',
+  //   fontSize:RFPercentage(2.6)
+  // },
+  // listItemText2:{
+  //   fontWeight:'bold',
+  //   fontSize:RFPercentage(2),
+  //   textAlign:'center'
+  // },
+  // listItemText3:{
+  //   fontWeight:'bold',
+  //   fontSize:RFPercentage(2),
+  //   textAlign:'center',
+  // },
 });
