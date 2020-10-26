@@ -12,6 +12,8 @@ import Swiper from 'react-native-swiper';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import ViewMoreText from 'react-native-view-more-text';
+
 
 
 
@@ -100,6 +102,18 @@ export default class CoopSelfiePage extends Component {
     }
   };
 
+  renderViewMore(onPress){
+    return(
+      <Text style={styles.more} onPress={onPress}>더보기 ▼</Text>
+    )
+  }
+  renderViewLess(onPress){
+    return(
+      <Text style={styles.less} onPress={onPress}>줄이기 ▲</Text>
+    )
+  }
+
+
   render() {
     return (
       
@@ -107,8 +121,8 @@ export default class CoopSelfiePage extends Component {
         contentContainerStyle={styles.position}
         >
          
-          <View style={styles.category}>
-            <Text style={styles.categoryText}>
+          <View style={styles.top}>
+            <Text style={styles.topText}>
               협동 ● 성장 피드 게시중
             </Text>
           </View>
@@ -127,7 +141,19 @@ export default class CoopSelfiePage extends Component {
                   />
                   <View style={styles.listTextContainer}>
                     <Text style={styles.listItemText1}>{item.name}</Text>
-                    <Text style={styles.listItemText2}>{item.description}</Text>
+
+
+                    <ViewMoreText
+                      numberOfLines={1}
+                      renderViewMore={this.renderViewMore}
+                      renderViewLess={this.renderViewLess}
+                      textStyle={{textAlign: 'center'}}
+                    >
+                       <Text style={styles.listItemText2}>{item.description}</Text>
+                    </ViewMoreText>
+
+
+                   
                   </View>
                 </View>
               );
@@ -148,15 +174,13 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
   
-  //콘텐츠 카테고리
-  category:{
-    marginTop: '8%', 
+  top:{
     marginBottom: '15%', 
     marginLeft: '4%'
   },
-  categoryText:{
+  topText:{
     fontFamily: 'neodgm', 
-    fontSize:20
+    fontSize:15
   },
   
 
@@ -166,13 +190,13 @@ const styles = StyleSheet.create({
   },
   listItemContainer:{
     width:240,
-    height:400,
+    height:350,
     marginLeft: 4,
    
     marginBottom:'10%'
   },
   listItemImage:{
-    height: '60%', 
+    height: '70%', 
     width: '80%', 
     marginBottom: '9%',
     alignSelf:'center'
@@ -181,6 +205,16 @@ const styles = StyleSheet.create({
     width:'80%',
     left:'10%'
   },
+  more:{
+    fontFamily:'neodgm',
+    fontSize:15,
+    textAlign:'right'
+  },
+  less:{
+    fontFamily:'neodgm',
+    fontSize:15,
+    textAlign:'right'
+  },
   listItemText1:{
     fontWeight:'bold',
     fontSize:18,
@@ -188,7 +222,7 @@ const styles = StyleSheet.create({
   },
   listItemText2:{
     fontWeight:'bold',
-    fontSize:RFPercentage(2),
+    fontSize:15,
     fontFamily:'neodgm',
   },
 });
