@@ -9,93 +9,92 @@ import {
   StyleSheet,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
-import Content from './Content';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const {width, height} = Dimensions.get('window');
 
-class Body extends Component {
-  /* flat리스트표 */
-  constructor() {
-    super();
-    this.state = {
-      query: null,
-      dataSource: [],
-      dataBackup: [],
-    };
-  }
+export default class MarketModu1Page extends Component {
+  // /* flat리스트표 */
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     query: null,
+  //     dataSource: [],
+  //     dataBackup: [],
+  //   };
+  // }
 
-  componentDidMount() {
-    var data = [
-      {
-        id: '1',
-        name: 'test',
-        author: 'test',
-        img: require('../../../assets/img/night.png'),
-        description:'test'
+  // componentDidMount() {
+  //   var data = [
+  //     {
+  //       id: '1',
+  //       name: 'test',
+  //       author: 'test',
+  //       img: require('../../assets/img/night.png'),
+  //       description:'test'
      
-      },
-      {
-        id: '2',
-        name: 'test',
-        author: 'test',
-        img: require('../../../assets/img/night.png'),
-        description:'test'
-      },
-      {
-        id: '3',
-        name: 'test',
-        author: 'test',
-        img: require('../../../assets/img/night.png'),
-        description:'test'
-        },
-      {
-        id: '4',
-        name: 'test',
-        author: 'test',
-        img: require('../../../assets/img/night.png'),
-        description:'test'
-        },
-      {
-        id: '5',
-        name: 'test',
-        author: 'test',
-        img: require('../../../assets/img/night.png'),
-        description:'test'
-        },
-      {
-        id: '6',
-        name: 'test',
-        author: 'test',
-        img: require('../../../assets/img/night.png'),
-        description:'test'
-        },
-    ];
+  //     },
+  //     {
+  //       id: '2',
+  //       name: 'test',
+  //       author: 'test',
+  //       img: require('../../assets/img/night.png'),
+  //       description:'test'
+  //     },
+  //     {
+  //       id: '3',
+  //       name: 'test',
+  //       author: 'test',
+  //       img: require('../../assets/img/night.png'),
+  //       description:'test'
+  //       },
+  //     {
+  //       id: '4',
+  //       name: 'test',
+  //       author: 'test',
+  //       img: require('../../assets/img/night.png'),
+  //       description:'test'
+  //       },
+  //     {
+  //       id: '5',
+  //       name: 'test',
+  //       author: 'test',
+  //       img: require('../../assets/img/night.png'),
+  //       description:'test'
+  //       },
+  //     {
+  //       id: '6',
+  //       name: 'test',
+  //       author: 'test',
+  //       img: require('../../assets/img/night.png'),
+  //       description:'test'
+  //       },
+  //   ];
 
-    this.setState({
-      dataBackup: data,
-      dataSource: data,
-    });
-  }
+  //   this.setState({
+  //     dataBackup: data,
+  //     dataSource: data,
+  //   });
+  // }
 
-  filterItem = (event) => {
-    var query = event.nativeEvent.text;
-    this.setState({
-      query: query,
-    });
-    if (query == '') {
-      this.setState({
-        dataSource: this.state.dataBackup,
-      });
-    } else {
-      var data = this.state.dataBackup;
-      query = query.toLowerCase();
-      data = data.filter((l) => l.name.toLowerCase().match(query));
-      this.setState({
-        dataSource: data,
-      });
-    }
-  };
+  // filterItem = (event) => {
+  //   var query = event.nativeEvent.text;
+  //   this.setState({
+  //     query: query,
+  //   });
+  //   if (query == '') {
+  //     this.setState({
+  //       dataSource: this.state.dataBackup,
+  //     });
+  //   } else {
+  //     var data = this.state.dataBackup;
+  //     query = query.toLowerCase();
+  //     data = data.filter((l) => l.name.toLowerCase().match(query));
+  //     this.setState({
+  //       dataSource: data,
+  //     });
+  //   }
+  // };
 
   render() {
     return (
@@ -112,7 +111,7 @@ class Body extends Component {
             <View style={styles.slide1}>
               <View style={styles.b_imageContainer}>
                 <Image
-                  source={require('../../../assets/img/night.png')}
+                  source={require('../../assets/img/night.png')}
                   style={styles.b_image}
                 />
               </View>
@@ -122,7 +121,7 @@ class Body extends Component {
             <View style={styles.slide2}>
               <View style={styles.b_imageContainer}>
                 <Image
-                  source={require('../../../assets/img/night.png')}
+                  source={require('../../assets/img/night.png')}
                   style={styles.b_image}
                 />
               </View>
@@ -131,7 +130,7 @@ class Body extends Component {
             <View style={styles.slide3}>
               <View style={styles.b_imageContainer}>
                 <Image
-                  source={require('../../../assets/img/night.png')}
+                  source={require('../../assets/img/night.png')}
                   style={styles.b_image}
                 />
               </View>
@@ -146,14 +145,14 @@ class Body extends Component {
               </Text>
             </View>
             <View style={styles.listContainer}>
-              <Image style={styles.listImage} source={require('../../../assets/img/night.png')}/>
+              <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
               <View style={styles.listTextContainer}>
                 <View style={styles.listTitleContainer}>
                   <Text style={styles.listTitle}>물 마시기</Text>
                 </View>
                 <View style={styles.listBottomTextContainer}>
                   <View style={styles.profileContainer}>
-                    <Image style={styles.profileIcon} source={require('../../../assets/icons/profile.png')}/>
+                    <Image style={styles.profileIcon} source={require('../../assets/icons/profile.png')}/>
                     <Text style={styles.author}>ㅂㅇㅅ</Text>
                   </View>
                   <Text style={styles.participants}>1000000만명 참여</Text>
@@ -162,14 +161,14 @@ class Body extends Component {
             </View>
 
             <View style={styles.listContainer}>
-              <Image style={styles.listImage} source={require('../../../assets/img/night.png')}/>
+              <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
               <View style={styles.listTextContainer}>
                 <View style={styles.listTitleContainer}>
                   <Text style={styles.listTitle}>물 마시기</Text>
                 </View>
                 <View style={styles.listBottomTextContainer}>
                   <View style={styles.profileContainer}>
-                    <Image style={styles.profileIcon} source={require('../../../assets/icons/profile.png')}/>
+                    <Image style={styles.profileIcon} source={require('../../assets/icons/profile.png')}/>
                     <Text style={styles.author}>ㅂㅇㅅ</Text>
                   </View>
                   <Text style={styles.participants}>1000000만명 참여</Text>
@@ -210,14 +209,14 @@ class Body extends Component {
           </View>
           
           <View style={styles.listContainer}>
-              <Image style={styles.listImage} source={require('../../../assets/img/night.png')}/>
+              <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
               <View style={styles.listTextContainer}>
                 <View style={styles.listTitleContainer}>
                   <Text style={styles.listTitle}>물 마시기</Text>
                 </View>
                 <View style={styles.listBottomTextContainer}>
                   <View style={styles.profileContainer}>
-                    <Image style={styles.profileIcon} source={require('../../../assets/icons/profile.png')}/>
+                    <Image style={styles.profileIcon} source={require('../../assets/icons/profile.png')}/>
                     <Text style={styles.author}>ㅂㅇㅅ</Text>
                   </View>
                   <Text style={styles.participants}>1000000만명 참여</Text>
@@ -226,14 +225,14 @@ class Body extends Component {
             </View>
 
             <View style={styles.listContainer}>
-              <Image style={styles.listImage} source={require('../../../assets/img/night.png')}/>
+              <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
               <View style={styles.listTextContainer}>
                 <View style={styles.listTitleContainer}>
                   <Text style={styles.listTitle}>물 마시기</Text>
                 </View>
                 <View style={styles.listBottomTextContainer}>
                   <View style={styles.profileContainer}>
-                    <Image style={styles.profileIcon} source={require('../../../assets/icons/profile.png')}/>
+                    <Image style={styles.profileIcon} source={require('../../assets/icons/profile.png')}/>
                     <Text style={styles.author}>ㅂㅇㅅ</Text>
                   </View>
                   <Text style={styles.participants}>1000000만명 참여</Text>
@@ -274,7 +273,6 @@ class Body extends Component {
   }
 }
 
-export default Body;
 
 const styles = StyleSheet.create({
   /* 배너 */
@@ -360,7 +358,6 @@ const styles = StyleSheet.create({
   author:{
     fontFamily:'neodgm',
     fontSize:RFPercentage(1.7),
-    //컨테이너에서 center를 줬는데 안 되네요 ㅎㅎ 여기서 center 쓰니가 ㄱㅊ네요
   },
   participants:{
     fontSize:RFPercentage(1.7),

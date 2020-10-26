@@ -8,7 +8,6 @@ import AccountPage from '../AccountPage/AccountPage';
 import FeedPage from '../FeedPage/FeedPage';
 import HistoryPage from '../HistoryPage/HistoryPage';
 import Body from '../LoginPage/Body/Body';
-import MarketPage from './MarketPage';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import GrowHomePage from '../GrowPage/GrowHomePage';
 import LocalLoginPage from '../LoginPage/EmailLoginPage';
@@ -16,7 +15,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import GrowHaru from '../GrowPage/GrowHaru';
 import GrowCoop from '../GrowPage/GrowCoop';
 import GrowRoute from '../GrowPage/GrowHomePage';
-
+import MarketRoute from './MarketRoute';
 
 function LogoTitle() {
   return (
@@ -58,7 +57,7 @@ function Login({Navigation}) {
 
 function Market() {
   return(
-    <MarketPage/>
+    <MarketRoute/>
   )
 }
 
