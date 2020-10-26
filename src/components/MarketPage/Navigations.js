@@ -14,6 +14,7 @@ import GrowHomePage from '../GrowPage/GrowHomePage';
 import LocalLoginPage from '../LoginPage/EmailLoginPage';
 import LoginPage from '../LoginPage/LoginPage';
 import GrowHaru from '../GrowPage/GrowHaru';
+import GrowCoop from '../GrowPage/GrowCoop';
 
 
 function LogoTitle() {
@@ -74,7 +75,7 @@ function History({}) {
 
 function Grow() {
   return(
-    <GrowHaru/>
+    <GrowCoop/>
   )
 }
 

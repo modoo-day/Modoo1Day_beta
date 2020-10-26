@@ -2,34 +2,42 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import HaruTodayMissionPage from './HaruTodayMissionPage'
-import HaruSelfMissionPage from './HaruSelfMissionPage';
-import HaruRefMissionPage from './HaruRefMissionPage';
+import CoopTodayMissionPage from './CoopTodayMission';
+import GrowReviewPage from './GrowReviewPage';
 
-function HaruTodayMission() {
+
+function CoopTodayMission() {
     return (
-        
-        <HaruTodayMissionPage/>
-      
+        <CoopTodayMissionPage/>
     );
 }
 
-function HaruSelfMission() {
+function CoopSelfie() {
     return (
-      <HaruSelfMissionPage/>
+        <View>
+            <Text>인증샷</Text>
+        </View>
     );
 }
   
-function HaruRefMission() {
+function CoopReview() {
     return (
-        <HaruRefMissionPage/>
+        <GrowReviewPage/>
+    );
+}
+
+function CoopAsk() {
+    return (
+        <View>
+            <Text>문의사항</Text>
+        </View>
     );
 }
   
 
 const Tab = createMaterialTopTabNavigator();
 
-function GrowHaru() {
+function GrowCoop() {
     return (
         <Tab.Navigator
             initialRouteName="Grow"
@@ -45,18 +53,23 @@ function GrowHaru() {
             
             <Tab.Screen
                 name="오늘 미션"
-                component={HaruTodayMission}
+                component={CoopTodayMission}
                 options={{ tabBarLabel: '오늘 미션' }}
             />
             <Tab.Screen
-                name="셀프 추가"
-                component={HaruSelfMission}
-                options={{ tabBarLabel: '셀프 추가' }}
+                name="인증샷"
+                component={CoopSelfie}
+                options={{ tabBarLabel: '인증샷' }}
             />
             <Tab.Screen
-                name="다른 사람들은?"
-                component={HaruRefMission}
-                options={{ tabBarLabel: '다른 사람들은?' }}
+                name="리뷰"
+                component={CoopReview}
+                options={{ tabBarLabel: '리뷰' }}
+            />
+            <Tab.Screen
+                name="문의사항"
+                component={CoopAsk}
+                options={{ tabBarLabel: '문의사항' }}
             />
         </Tab.Navigator>
     );
@@ -65,4 +78,4 @@ function GrowHaru() {
 
 
 
-export default GrowHaru;
+export default GrowCoop;

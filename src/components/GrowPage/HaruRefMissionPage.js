@@ -1,35 +1,42 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, ScrollView,  Dimensions,} from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {View, Text, Image, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import Button from 'apsl-react-native-button';
 import Swiper from 'react-native-swiper';
-
 
 const {width, height} = Dimensions.get('window');
 
 
-const TodayMissionPage = () => {
+const HaruRefMissionPage =()=>{
     return(
         <ScrollView>
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Image 
-                    source={require('../../assets/img/night.png')}
-                    style={styles.topImage}
-                    />
-                    <Text style={styles.topText1}>유의 사항. 유의하라고요 좀. dk wlsWk wha..</Text>
-                    <Text style={styles.topText2}>미션에 대한 설명. 내가 왜 설명해야해?</Text>
+                    <Text style={styles.topText1}>참고하기</Text>
+                    <View style={styles.contentsContainer}>
+                        <Text style={styles.topText2}>내용</Text>
+                    </View>
+                    <View style={styles.contentsContainer}>
+                        <Text style={styles.topText2}>내용</Text>
+                    </View>
+                    <View style={styles.contentsContainer}>
+                        <Text style={styles.topText2}>내용</Text>
+                    </View>
+                    <View style={styles.contentsContainer}>
+                        <Text style={styles.topText2}>내용</Text>
+                    </View>
+                    <View style={styles.refreshContainer}>
+                        <TouchableOpacity>
+                            <Image style={styles.refresh} source={require('../../assets/icons/refresh.png')}/>
+                        </TouchableOpacity>
+                        <Text style={styles.refreshText}> 0 / 2 </Text>
+                    </View>
                 </View>
-                <View style={styles.mid}>
-                    <Text style={styles.midText}>할 일 좀 하고 놀아 게으른 놈아</Text>
-                    <TouchableOpacity>
-                        <Image style={styles.midImage} source={require('../../assets/icons/camera.png')} />
-                    </TouchableOpacity>
-                </View>
+                <View style={styles.mid}></View>
                 <View style={styles.bottom}>
                     <Swiper 
-                    style={styles.wrapper} 
-                    showsButtons={false}
-                    autoplay
+                        style={styles.wrapper} 
+                        showsButtons={false}
+                        autoplay
                     >
                         <View style={styles.slide1}>
                             <View style={styles.b_imageContainer}>
@@ -66,70 +73,73 @@ const TodayMissionPage = () => {
     )
 }
 
-export default TodayMissionPage;
+export default HaruRefMissionPage;
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        //backgroundColor:'lightgreen'
+        //backgroundColor:'lightgreen',
+        flex:1
     },
     top:{
-        marginTop:'8%',
         //backgroundColor:'pink',
-        width:'75%',
-        height:360,
         alignItems:'center',
+        marginTop:'8%',
+        borderWidth:2,
+        borderRadius:10,
+        width:'75%',
         alignSelf:'center',
-        justifyContent:'center',
-        borderWidth:2.1,
-        borderRadius:10
-    },
-    topImage:{
-        width:180,
-        height:180
     },
     topText1:{
-        width:180,
-        marginTop:'10%',
-        fontSize:15,
-        alignSelf:'center',
         textAlign:'center',
+        fontSize:15,
+        marginTop:'8%',
+        fontFamily:'neodgm',
+        fontSize:16
     },
     topText2:{
-        width:180,
-        marginTop:'10%',
-        fontSize:15,
-        alignSelf:'center',
-        textAlign:'center'
+        textAlign:'center',
+        fontSize:18
     },
-    mid:{
-        //backgroundColor:'lightblue',
-        marginTop:'2%',
+    contentsContainer:{
+        marginTop:'10%',
+        width:'80%',
+        backgroundColor:'pink'
+    },
+    topImage:{
+        width:'80%',
+        height:80,
+        marginTop:'10%'
+    },
+    refreshContainer:{
         flex:1,
         flexDirection:'row',
-        width:'100%',
+        marginTop:'10%',
         justifyContent:'center',
         alignItems:'center',
-        height:80,
+        marginBottom:'10%'
+    },
+    refresh:{
+        width:40,
+        height:40,
+        marginRight:'6%'
+    },
+    refreshText:{
+        fontFamily:'neodgm',
+        fontSize: 17
+    },
+    mid:{
+        height:50,
         borderBottomWidth:1.3
     },
-    midText:{
-        fontSize:15,
-        textAlign:'center',
-        marginRight:'5%',
-        width:'58%'
-    },
-    midImage:{
-        width:30,
-        height:30
-    },
     bottom:{
-        //backgroundColor:'lightyellow',
-        width:'80%',
+        //backgroundColor:'lightblue',
         alignSelf:'center',
-        marginTop:'5%',
-        marginBottom:'5%'
+        marginTop:'10%',
+        marginBottom:'5%',
+        width:'80%',
+        
     },
+
     /* 배너 */
     wrapper: {
         height:130,

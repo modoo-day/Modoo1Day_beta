@@ -1,42 +1,35 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
-import Button from 'apsl-react-native-button';
+import {View, Text, StyleSheet, Image, ScrollView,  Dimensions,} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Swiper from 'react-native-swiper';
+
 
 const {width, height} = Dimensions.get('window');
 
 
-const RefMissionPage =()=>{
+const CoopTodayMissionPage = () => {
     return(
         <ScrollView>
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Text style={styles.topText1}>참고하기</Text>
-                    <View style={styles.contentsContainer}>
-                        <Text style={styles.topText2}>내용</Text>
-                    </View>
-                    <View style={styles.contentsContainer}>
-                        <Text style={styles.topText2}>내용</Text>
-                    </View>
-                    <View style={styles.contentsContainer}>
-                        <Text style={styles.topText2}>내용</Text>
-                    </View>
-                    <View style={styles.contentsContainer}>
-                        <Text style={styles.topText2}>내용</Text>
-                    </View>
-                    <View style={styles.refreshContainer}>
-                        <TouchableOpacity>
-                            <Image style={styles.refresh} source={require('../../assets/icons/refresh.png')}/>
-                        </TouchableOpacity>
-                        <Text style={styles.refreshText}> 0 / 2 </Text>
-                    </View>
+                    <Image 
+                    source={require('../../assets/img/night.png')}
+                    style={styles.topImage}
+                    />
+                    <Text style={styles.topText1}>유의 사항. 유의하라고요 좀. dk wlsWk wha..</Text>
+                    <Text style={styles.topText2}>미션에 대한 설명. 내가 왜 설명해야해?</Text>
                 </View>
-                <View style={styles.mid}></View>
+                <View style={styles.mid}>
+                    <Text style={styles.midText}>할 일 좀 하고 놀아 게으른 놈아</Text>
+                    <TouchableOpacity>
+                        <Image style={styles.midImage} source={require('../../assets/icons/camera.png')} />
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.bottom}>
                     <Swiper 
-                        style={styles.wrapper} 
-                        showsButtons={false}
-                        autoplay
+                    style={styles.wrapper} 
+                    showsButtons={false}
+                    autoplay
                     >
                         <View style={styles.slide1}>
                             <View style={styles.b_imageContainer}>
@@ -73,73 +66,70 @@ const RefMissionPage =()=>{
     )
 }
 
-export default RefMissionPage;
+export default CoopTodayMissionPage;
 
 const styles = StyleSheet.create({
     container:{
-        //backgroundColor:'lightgreen',
-        flex:1
+        flex:1,
+        //backgroundColor:'lightgreen'
     },
     top:{
+        marginTop:'8%',
         //backgroundColor:'pink',
-        alignItems:'center',
-        marginTop:'8%',
-        borderWidth:2,
-        borderRadius:10,
         width:'75%',
+        height:360,
+        alignItems:'center',
         alignSelf:'center',
-    },
-    topText1:{
-        textAlign:'center',
-        fontSize:15,
-        marginTop:'8%',
-        fontFamily:'neodgm',
-        fontSize:16
-    },
-    topText2:{
-        textAlign:'center',
-        fontSize:18
-    },
-    contentsContainer:{
-        marginTop:'10%',
-        width:'80%',
-        backgroundColor:'pink'
+        justifyContent:'center',
+        borderWidth:2.1,
+        borderRadius:10
     },
     topImage:{
-        width:'80%',
-        height:80,
-        marginTop:'10%'
+        width:180,
+        height:180
     },
-    refreshContainer:{
-        flex:1,
-        flexDirection:'row',
+    topText1:{
+        width:180,
         marginTop:'10%',
-        justifyContent:'center',
-        alignItems:'center',
-        marginBottom:'10%'
+        fontSize:15,
+        alignSelf:'center',
+        textAlign:'center',
     },
-    refresh:{
-        width:40,
-        height:40,
-        marginRight:'6%'
-    },
-    refreshText:{
-        fontFamily:'neodgm',
-        fontSize: 17
+    topText2:{
+        width:180,
+        marginTop:'10%',
+        fontSize:15,
+        alignSelf:'center',
+        textAlign:'center'
     },
     mid:{
-        height:50,
+        //backgroundColor:'lightblue',
+        marginTop:'2%',
+        flex:1,
+        flexDirection:'row',
+        width:'100%',
+        justifyContent:'center',
+        alignItems:'center',
+        height:80,
         borderBottomWidth:1.3
     },
-    bottom:{
-        //backgroundColor:'lightblue',
-        alignSelf:'center',
-        marginTop:'10%',
-        marginBottom:'5%',
-        width:'80%',
-        
+    midText:{
+        fontSize:15,
+        textAlign:'center',
+        marginRight:'5%',
+        width:'58%'
     },
-
+    midImage:{
+        width:30,
+        height:30
+    },
+    bottom:{
+        //backgroundColor:'lightyellow',
+        width:'80%',
+        alignSelf:'center',
+        marginTop:'5%',
+        marginBottom:'5%'
+    },
     /* 배너 */
     wrapper: {
         height:130,
