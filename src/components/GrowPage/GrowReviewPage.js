@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   
   buttonContainer:{
     marginTop: '8%', 
-    marginLeft: '4%'
+    
   },
   button: {
     width: '70%',
@@ -167,10 +167,11 @@ const styles = StyleSheet.create({
   buttonText: {
     fontFamily: 'neodgm',
     fontSize: RFPercentage(3),
+    textAlign:'center'
   },
   //플랫리스트 디자인
   listStyle:{
-    width:'80%',
+    width:'90%',
     borderWidth:2,
     // backgroundColor:'pink'
   },
