@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import TodayMissionPage from './TodayMissionPage'
 import SelfMissionPage from './SelfMissionPage';
+import RefMissionPage from './RefMissionPage';
 
 function TodayMission() {
     return (
@@ -21,9 +22,7 @@ function SelfMission() {
   
 function RefMission() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Profile!</Text>
-      </View>
+        <RefMissionPage/>
     );
 }
   
@@ -33,11 +32,14 @@ const Tab = createMaterialTopTabNavigator();
 function GrowHaru() {
     return (
         <Tab.Navigator
-            initialRouteName="Feed"
+            initialRouteName="Grow"
             tabBarOptions={{
-            activeTintColor: '#e91e63',
-            labelStyle: { fontSize: 12 },
-            style: { backgroundColor: 'powderblue' },
+            activeTintColor: 'black',
+            labelStyle: { fontSize: 14, fontFamily:'neodgm',justifyContent: 'center',
+            alignItems: 'center' },
+            indicatorStyle:{backgroundColor:'#fdd835'},
+            // indicatorContainerStyle:{width:'70%', left:'5%'},
+            style: { backgroundColor: 'white'},
             }}
         >
             
