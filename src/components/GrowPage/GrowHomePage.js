@@ -11,6 +11,12 @@ import {
 import Swiper from 'react-native-swiper';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import GrowHaru from './GrowHaru';
+import GrowCoop from './GrowCoop';
+
+
 const {width, height} = Dimensions.get('window');
 
 class GrowHomePage extends Component {
@@ -137,7 +143,52 @@ class GrowHomePage extends Component {
   }
 }
 
-export default GrowHomePage;
+//export default GrowHomePage;
+
+
+const Tabs = createMaterialTopTabNavigator();
+
+function GrowRoute() {
+  return (
+      <Tabs.Navigator
+          initialRouteName="GrowRoute"
+          tabBarOptions={{
+          activeTintColor: 'black',
+          labelStyle: { fontSize: 14, fontFamily:'neodgm',justifyContent: 'center',
+          alignItems: 'center' },
+          indicatorStyle:{backgroundColor:'#fdd835'},
+          // indicatorContainerStyle:{width:'70%', left:'5%'},
+          style: { backgroundColor: 'white'},
+          }}
+      >
+          
+          <Tabs.Screen
+              name="홈"
+              component={GrowHomePage}
+              options={{ tabBarLabel: '홈' }}
+          />
+          <Tabs.Screen
+              name="하루"
+              component={GrowHaru}
+              options={{ tabBarLabel: '하루' }}
+          />
+          <Tabs.Screen
+              name="협동"
+              component={GrowCoop}
+              options={{ tabBarLabel: '협동' }}
+          />
+          
+      </Tabs.Navigator>
+  );
+}
+
+
+
+
+export default GrowRoute;
+
+
+
 
 const styles = StyleSheet.create({
     position:{
