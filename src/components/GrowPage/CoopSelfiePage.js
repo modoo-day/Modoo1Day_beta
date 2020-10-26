@@ -203,7 +203,8 @@ const styles = StyleSheet.create({
   },
   listTextContainer:{
     width:'80%',
-    left:'10%'
+    left:'10%',
+    alignItems:'flex-start' //listItemText2가 왼쪽 정렬이 안 돼서 사용.
   },
   more:{
     fontFamily:'neodgm',
@@ -223,6 +224,6 @@ const styles = StyleSheet.create({
   listItemText2:{
     fontWeight:'bold',
     fontSize:15,
-    fontFamily:'neodgm',
+    textAlign:'left'
   },
 });
