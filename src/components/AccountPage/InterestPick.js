@@ -3,7 +3,6 @@ import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import LoginPage from '../LoginPage/LoginPage';
 import ProfilePage from './ProfilePage';
 import auth from '@react-native-firebase/auth';
-import {RFPercentage} from 'react-native-responsive-fontsize';
 import Button from 'apsl-react-native-button';
 import InterestPick_btn from './InterestPick_btn';
 
@@ -181,11 +180,6 @@ const styles = StyleSheet.create({
   },
   inText: {
     fontSize: 14,
-  },
-  footText: {
-    fontFamily: 'neodgm',
-    fontSize: RFPercentage(1.2),
-    textAlign: 'center',
   },
   //버튼
   intBtn: {
