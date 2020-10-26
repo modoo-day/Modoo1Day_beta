@@ -53,26 +53,9 @@ const LoginPage = ({navigation}) => {
   )
 };
 
-const Login = createStackNavigator();
 
-export default class LoginRoute extends Component {
-  render() {
-    return (
-      <Login.Navigator>
-        <Login.Screen
-          name="LoginPage"
-          component={LoginPage}
-          options={{headerShown: false}}
-        />
-        <Login.Screen
-          name="EmailLoginPage"
-          component={EmailLoginPage}
-          options={{headerShown: false}}
-        />
-      </Login.Navigator>
-    );
-  }
-}
+
+
 
 const styles = StyleSheet.create({
   container:{

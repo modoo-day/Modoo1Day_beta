@@ -3,19 +3,11 @@ import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 import Bottom from './Bottom/Bottom';
 import Body from './Body/Body';
 import Title from "./Title/Title";
-import SignUp from '../SignUp/SignUp';
 import {createStackNavigator} from '@react-navigation/stack';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Navigations from '../MarketPage/Navigations';
 import MarketPage from '../MarketPage/MarketPage';
-
-import {createStackNavigator} from '@react-navigation/stack';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
-import {NavigationContainer} from '@react-navigation/native';
-
-import Body from './Body/Body';
 import EmailCheck from './SignUp/EmailCheck';
 import PasswordCheck from './SignUp/PasswordCheck';
 
