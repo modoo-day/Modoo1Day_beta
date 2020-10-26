@@ -5,6 +5,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import CoopTodayMissionPage from './CoopTodayMission';
 import CoopReviewPage from './CoopReviewPage';
 import CoopAskPage from './CoopAskPage';
+import CoopSelfiePage from './CoopSelfiePage';
 
 function CoopTodayMission() {
     return (
@@ -14,9 +15,7 @@ function CoopTodayMission() {
 
 function CoopSelfie() {
     return (
-        <View>
-            <Text>인증샷</Text>
-        </View>
+        <CoopSelfiePage/>
     );
 }
   

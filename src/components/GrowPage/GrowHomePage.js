@@ -109,10 +109,9 @@ class GrowHomePage extends Component {
         contentContainerStyle={styles.position}
         >
          
-          {/* 인기콘텐츠 */}
           <View style={styles.category}>
             <Text style={styles.categoryText}>
-              진행 중인 하루
+              진행 중인 하루 / 협동
             </Text>
           </View>
           {/* 리스트 */}

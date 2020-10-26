@@ -103,7 +103,6 @@ class CoopAskPage extends Component {
         contentContainerStyle={styles.position}
         >
          
-          {/* 인기콘텐츠 */}
           <View style={styles.buttonContainer}>
             <Button 
                 style={styles.button} 

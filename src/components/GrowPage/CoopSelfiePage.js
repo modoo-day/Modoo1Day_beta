@@ -8,13 +8,16 @@ import {
   Dimensions,
   StyleSheet,
 } from 'react-native';
+import Swiper from 'react-native-swiper';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import Button from 'apsl-react-native-button';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
 
 
 const {width, height} = Dimensions.get('window');
 
-class CoopReviewPage extends Component {
+export default class CoopSelfiePage extends Component {
   /* flat리스트표 */
   constructor() {
     super();
@@ -30,45 +33,45 @@ class CoopReviewPage extends Component {
       {
         id: '1',
         name: 'ㅇㅇㅈ씨의 독재정권',
-        time: 'test',
+        author: 'test',
         img: require('../../assets/img/night.png'),
-        author:'test'
+        description:'동해물과백두산이마르고닳도로고오고하느님이보우하사길이 보전하세'
      
       },
       {
         id: '2',
         name: 'test',
-        time: 'test',
+        author: 'test',
         img: require('../../assets/img/night.png'),
-        author:'test'
+        description:'test'
       },
       {
         id: '3',
         name: 'test',
-        time: 'test',
+        author: 'test',
         img: require('../../assets/img/night.png'),
-        author:'test'
+        description:'test'
         },
       {
         id: '4',
         name: 'test',
-        time: 'test',
+        author: 'test',
         img: require('../../assets/img/night.png'),
-        author:'test'
+        description:'test'
         },
       {
         id: '5',
         name: 'test',
-        time: 'test',
+        author: 'test',
         img: require('../../assets/img/night.png'),
-        author:'test'
+        description:'test'
         },
       {
         id: '6',
         name: 'test',
-        time: 'test',
+        author: 'test',
         img: require('../../assets/img/night.png'),
-        author:'test'
+        description:'test'
         },
     ];
 
@@ -99,23 +102,15 @@ class CoopReviewPage extends Component {
 
   render() {
     return (
+      
         <ScrollView
         contentContainerStyle={styles.position}
         >
          
-          <View style={styles.buttonContainer}>
-            <Button 
-                style={styles.button} 
-                textStyle={styles.buttonText}
-                activeOpacity={0.5}
-                disabledStyle={{backgroundColor:'white'}}
-                isDisabled={false}
-                isLoading={false}
-                //onPress={this.onLogin}
-                
-            >
-            리뷰 쓰기!
-            </Button>
+          <View style={styles.category}>
+            <Text style={styles.categoryText}>
+              협동 ● 성장 피드 게시중
+            </Text>
           </View>
           {/* 리스트 */}
           <FlatList
@@ -126,12 +121,13 @@ class CoopReviewPage extends Component {
               return (
                 <View
                   style={styles.listItemContainer}>
-                  <View>
-                    <Text style={styles.listItemName}>{item.name}</Text>
-                    <View style={styles.timetimeContainer}>
-                        <Text style={styles.listItemText1}>{item.time}</Text>
-                        <Text style={styles.listItemText2}>{item.author}</Text>
-                    </View>
+                  <Image
+                    source={item.img}
+                    style={styles.listItemImage}
+                  />
+                  <View style={styles.listTextContainer}>
+                    <Text style={styles.listItemText1}>{item.name}</Text>
+                    <Text style={styles.listItemText2}>{item.description}</Text>
                   </View>
                 </View>
               );
@@ -145,58 +141,54 @@ class CoopReviewPage extends Component {
   }
 }
 
-export default CoopReviewPage;
+
 
 const styles = StyleSheet.create({
     position:{
         alignItems:'center',
     },
   
-  buttonContainer:{
+  //콘텐츠 카테고리
+  category:{
     marginTop: '8%', 
-    
+    marginBottom: '15%', 
+    marginLeft: '4%'
   },
-  button: {
-    width: '70%',
-    // backgroundColor: '#ffcd2c',
-    borderWidth: 2,
-    // height: '35%',
-    borderRadius:2
+  categoryText:{
+    fontFamily: 'neodgm', 
+    fontSize:20
   },
-  buttonText: {
-    fontFamily: 'neodgm',
-    fontSize: RFPercentage(3),
-    textAlign:'center'
-  },
+  
+
   //플랫리스트 디자인
   listStyle:{
-    width:'90%',
-    borderWidth:2,
-    // backgroundColor:'pink'
+    
   },
   listItemContainer:{
-    // backgroundColor:'lightyellow',
-    padding: '6%',
-    borderWidth:0.35
-    // alignItems: 'center',
-    // marginBottom:'1%'
+    width:240,
+    height:400,
+    marginLeft: 4,
+   
+    marginBottom:'10%'
   },
-  timetimeContainer:{
-    flexDirection:'row',
+  listItemImage:{
+    height: '60%', 
+    width: '80%', 
+    marginBottom: '9%',
+    alignSelf:'center'
   },
-  listItemName:{
-    fontWeight:'bold',
-    fontSize:20,
+  listTextContainer:{
+    width:'80%',
+    left:'10%'
   },
   listItemText1:{
     fontWeight:'bold',
     fontSize:18,
+    fontFamily:'neodgm',
   },
   listItemText2:{
     fontWeight:'bold',
-    fontSize:18,
-    marginLeft:'5%'
+    fontSize:RFPercentage(2),
+    fontFamily:'neodgm',
   },
-  
-  
 });
