@@ -3,8 +3,8 @@ import {View, Text} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import CoopTodayMissionPage from './CoopTodayMission';
-import GrowReviewPage from './GrowReviewPage';
-
+import CoopReviewPage from './CoopReviewPage';
+import CoopAskPage from './CoopAskPage';
 
 function CoopTodayMission() {
     return (
@@ -22,15 +22,13 @@ function CoopSelfie() {
   
 function CoopReview() {
     return (
-        <GrowReviewPage/>
+        <CoopReviewPage/>
     );
 }
 
 function CoopAsk() {
     return (
-        <View>
-            <Text>문의사항</Text>
-        </View>
+        <CoopAskPage/>
     );
 }
   

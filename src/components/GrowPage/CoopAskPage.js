@@ -14,7 +14,7 @@ import Button from 'apsl-react-native-button';
 
 const {width, height} = Dimensions.get('window');
 
-class GrowReviewPage extends Component {
+class CoopAskPage extends Component {
   /* flat리스트표 */
   constructor() {
     super();
@@ -115,7 +115,7 @@ class GrowReviewPage extends Component {
                 //onPress={this.onLogin}
                 
             >
-            리뷰 쓰기!
+            문의 하기!
             </Button>
           </View>
           {/* 리스트 */}
@@ -146,7 +146,7 @@ class GrowReviewPage extends Component {
   }
 }
 
-export default GrowReviewPage;
+export default CoopAskPage;
 
 const styles = StyleSheet.create({
     position:{
