@@ -31,7 +31,7 @@ function LogoTitle() {
 
 function Search({navigation}) {
   return (
-    <SearchPage/>
+    <SearchPage {...navigation}/>
   );
 }
 
