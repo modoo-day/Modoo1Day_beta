@@ -16,7 +16,6 @@ const {width, height} = Dimensions.get('window');
 
 const Modu2LifestylePage =()=> {
     return (
-      
         <ScrollView>
             <View style={styles.TopMargin}></View>
             <View style={styles.listContainer}>
@@ -51,23 +50,6 @@ const Modu2LifestylePage =()=> {
               </View>
             </View>
 
-          
-          <View style={styles.listContainer}>
-              <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
-              <View style={styles.listTextContainer}>
-                <View style={styles.listTitleContainer}>
-                  <Text style={styles.listTitle}>물 마시기</Text>
-                </View>
-                <View style={styles.listBottomTextContainer}>
-                  <View style={styles.profileContainer}>
-                    <Image style={styles.profileIcon} source={require('../../assets/icons/profile.png')}/>
-                    <Text style={styles.author}>ㅂㅇㅅ</Text>
-                  </View>
-                  <Text style={styles.participants}>1000000만명 참여</Text>
-                </View>
-              </View>
-            </View>
-
             <View style={styles.listContainer}>
               <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
               <View style={styles.listTextContainer}>
@@ -132,10 +114,23 @@ const Modu2LifestylePage =()=> {
               </View>
             </View>
 
+            <View style={styles.listContainer}>
+              <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
+              <View style={styles.listTextContainer}>
+                <View style={styles.listTitleContainer}>
+                  <Text style={styles.listTitle}>물 마시기</Text>
+                </View>
+                <View style={styles.listBottomTextContainer}>
+                  <View style={styles.profileContainer}>
+                    <Image style={styles.profileIcon} source={require('../../assets/icons/profile.png')}/>
+                    <Text style={styles.author}>ㅂㅇㅅ</Text>
+                  </View>
+                  <Text style={styles.participants}>1000000만명 참여</Text>
+                </View>
+              </View>
+            </View>
         </ScrollView>
-      
     );
-  
 }
 
 
