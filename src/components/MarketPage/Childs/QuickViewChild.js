@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import {View, Image, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Image, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import firestore from '@react-native-firebase/firestore';
 
@@ -60,6 +60,9 @@ const QuickViewChild = (info) => {
           <View style={styles.listTitleContainer}>
             <Text style={styles.listTitle}>{info.title_str}</Text>
           </View>
+          <TouchableOpacity style={styles.listTagContainer}>
+            <Text style={styles.listTag}>#물</Text>
+          </TouchableOpacity>
           <View style={styles.listBottomTextContainer}>
             <View style={styles.profileContainer}>
               <Image
@@ -189,6 +192,15 @@ const styles = StyleSheet.create({
     top: '5%',
     fontFamily: 'neodgm',
     fontSize: 18,
+  },
+  listTagContainer:{
+    //backgroundColor:'pink',
+    bottom:'10%',
+    marginRight:'80%'
+  },
+  listTag:{
+    fontFamily:'neodgm',
+    fontSize:16
   },
   listBottomTextContainer: {
     // backgroundColor:'lightblue',
