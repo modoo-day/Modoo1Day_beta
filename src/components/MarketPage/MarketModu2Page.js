@@ -14,6 +14,7 @@ import Modu2FamilyPage from './Modu2FamilyPage';
 import Modu2BeautyPage from './Modu2BeautyPage';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Modu2HealthPage from './Modu2HealthPage';
+import Modu2LifestylePage from './Modu2LifestylePage';
 
 
 
@@ -23,45 +24,7 @@ const MarketModu2Page =()=> {
     return (
       
         <ScrollView>
-          {/* 광고 배너 */}
-          <Swiper 
-          style={styles.wrapper} 
-          showsButtons={false}
-          height={160}
-        
-          >
-            
-            <View style={styles.slide1}>
-              <View style={styles.b_imageContainer}>
-                <Image
-                  source={require('../../assets/img/night.png')}
-                  style={styles.b_image}
-                />
-              </View>
-              
-            </View>
-
-            <View style={styles.slide2}>
-              <View style={styles.b_imageContainer}>
-                <Image
-                  source={require('../../assets/img/night.png')}
-                  style={styles.b_image}
-                />
-              </View>
-            </View>
-
-            <View style={styles.slide3}>
-              <View style={styles.b_imageContainer}>
-                <Image
-                  source={require('../../assets/img/night.png')}
-                  style={styles.b_image}
-                />
-              </View>
-            </View>
-
-          </Swiper>
-          <ScrollView>
-            
+            <View style={styles.TopMargin}></View>
             <View style={styles.listContainer}>
               <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
               <View style={styles.listTextContainer}>
@@ -94,7 +57,6 @@ const MarketModu2Page =()=> {
               </View>
             </View>
 
-          </ScrollView>
           
           <View style={styles.listContainer}>
               <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
@@ -127,6 +89,55 @@ const MarketModu2Page =()=> {
                 </View>
               </View>
             </View>
+
+            <View style={styles.listContainer}>
+              <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
+              <View style={styles.listTextContainer}>
+                <View style={styles.listTitleContainer}>
+                  <Text style={styles.listTitle}>물 마시기</Text>
+                </View>
+                <View style={styles.listBottomTextContainer}>
+                  <View style={styles.profileContainer}>
+                    <Image style={styles.profileIcon} source={require('../../assets/icons/profile.png')}/>
+                    <Text style={styles.author}>ㅂㅇㅅ</Text>
+                  </View>
+                  <Text style={styles.participants}>1000000만명 참여</Text>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.listContainer}>
+              <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
+              <View style={styles.listTextContainer}>
+                <View style={styles.listTitleContainer}>
+                  <Text style={styles.listTitle}>물 마시기</Text>
+                </View>
+                <View style={styles.listBottomTextContainer}>
+                  <View style={styles.profileContainer}>
+                    <Image style={styles.profileIcon} source={require('../../assets/icons/profile.png')}/>
+                    <Text style={styles.author}>ㅂㅇㅅ</Text>
+                  </View>
+                  <Text style={styles.participants}>1000000만명 참여</Text>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.listContainer}>
+              <Image style={styles.listImage} source={require('../../assets/img/night.png')}/>
+              <View style={styles.listTextContainer}>
+                <View style={styles.listTitleContainer}>
+                  <Text style={styles.listTitle}>물 마시기</Text>
+                </View>
+                <View style={styles.listBottomTextContainer}>
+                  <View style={styles.profileContainer}>
+                    <Image style={styles.profileIcon} source={require('../../assets/icons/profile.png')}/>
+                    <Text style={styles.author}>ㅂㅇㅅ</Text>
+                  </View>
+                  <Text style={styles.participants}>1000000만명 참여</Text>
+                </View>
+              </View>
+            </View>
+
         </ScrollView>
       
     );
@@ -171,6 +182,11 @@ function MarketModu2Route() {
               component={Modu2HealthPage}
               options={{ tabBarLabel: '건강/운동' }}
           />
+          <Tabs.Screen
+              name="라이프스타일"
+              component={Modu2LifestylePage}
+              options={{ tabBarLabel: '라이프스타일' }}
+          />
       </Tabs.Navigator>
   );
 }
@@ -181,6 +197,9 @@ export default MarketModu2Route;
 
 const styles = StyleSheet.create({
   /* 배너 */
+  TopMargin:{
+    height:15 // 퍼센트를 주면 보여지는 게시물 개수에 따라 여백이 달라져서 픽셀값으로 줬어요.
+  },
   wrapper: {
     height:'100%',
   },

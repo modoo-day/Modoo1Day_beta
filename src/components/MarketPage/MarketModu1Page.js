@@ -14,88 +14,7 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 const {width, height} = Dimensions.get('window');
 
 export default class MarketModu1Page extends Component {
-  // /* flat리스트표 */
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     query: null,
-  //     dataSource: [],
-  //     dataBackup: [],
-  //   };
-  // }
-
-  // componentDidMount() {
-  //   var data = [
-  //     {
-  //       id: '1',
-  //       name: 'test',
-  //       author: 'test',
-  //       img: require('../../assets/img/night.png'),
-  //       description:'test'
-     
-  //     },
-  //     {
-  //       id: '2',
-  //       name: 'test',
-  //       author: 'test',
-  //       img: require('../../assets/img/night.png'),
-  //       description:'test'
-  //     },
-  //     {
-  //       id: '3',
-  //       name: 'test',
-  //       author: 'test',
-  //       img: require('../../assets/img/night.png'),
-  //       description:'test'
-  //       },
-  //     {
-  //       id: '4',
-  //       name: 'test',
-  //       author: 'test',
-  //       img: require('../../assets/img/night.png'),
-  //       description:'test'
-  //       },
-  //     {
-  //       id: '5',
-  //       name: 'test',
-  //       author: 'test',
-  //       img: require('../../assets/img/night.png'),
-  //       description:'test'
-  //       },
-  //     {
-  //       id: '6',
-  //       name: 'test',
-  //       author: 'test',
-  //       img: require('../../assets/img/night.png'),
-  //       description:'test'
-  //       },
-  //   ];
-
-  //   this.setState({
-  //     dataBackup: data,
-  //     dataSource: data,
-  //   });
-  // }
-
-  // filterItem = (event) => {
-  //   var query = event.nativeEvent.text;
-  //   this.setState({
-  //     query: query,
-  //   });
-  //   if (query == '') {
-  //     this.setState({
-  //       dataSource: this.state.dataBackup,
-  //     });
-  //   } else {
-  //     var data = this.state.dataBackup;
-  //     query = query.toLowerCase();
-  //     data = data.filter((l) => l.name.toLowerCase().match(query));
-  //     this.setState({
-  //       dataSource: data,
-  //     });
-  //   }
-  // };
-
+  
   render() {
     return (
       
@@ -177,30 +96,7 @@ export default class MarketModu1Page extends Component {
             </View>
 
           </ScrollView>
-          {/* 플랫리스트 */}
-          {/* <FlatList
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            style={styles.listStyle}
-            keyExtractor={(item) => item.id}
-            data={this.state.dataSource}
-            renderItem={({item, index}) => {
-              return (
-                <View
-                  style={styles.listItemContainer}>
-                  <Image
-                    source={item.img}
-                    style={styles.listItemImage}
-                  />
-                  <View>
-                    <Text style={styles.listItemText1}>{item.name}</Text>
-                    <Text style={styles.listItemText2} numberOfLines={4}>{item.description}</Text>
-                    <Text style={styles.listItemText3}>{item.author}</Text>
-                  </View>
-                </View>
-              );
-            }}
-          /> */}
+          
           {/* 신규 콘텐츠 */}
           <View style={styles.category}>
             <Text style={styles.categoryText}>
@@ -242,30 +138,7 @@ export default class MarketModu1Page extends Component {
 
 
 
-          {/* 플랫리스트 */}
-          {/* <FlatList
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            style={styles.listStyle}
-            keyExtractor={(item) => item.id}
-            data={this.state.dataSource}
-            renderItem={({item, index}) => {
-              return (
-                <View
-                  style={styles.listItemContainer}>
-                  <Image
-                    source={item.img}
-                    style={styles.listItemImage}
-                  />
-                  <View>
-                    <Text style={styles.listItemText1}>{item.name}</Text>
-                    <Text style={styles.listItemText2} numberOfLines={4}>{item.description}</Text>
-                    <Text style={styles.listItemText3}>{item.author}</Text>
-                  </View>
-                </View>
-              );
-            }}
-          /> */}
+          
             
         </ScrollView>
       
@@ -364,33 +237,4 @@ const styles = StyleSheet.create({
     fontFamily:'neodgm',
   },
 
-  //플랫리스트 디자인
-  // listStyle:{
-    
-  // },
-  // listItemContainer:{
-  //   width: 105,
-  //   marginLeft: 4,
-  //   alignItems: 'center',
-  //   marginBottom:'10%'
-  // },
-  // listItemImage:{
-  //   height: 80, 
-  //   width: 80, 
-  //   marginBottom: '9%'
-  // },
-  // listItemText1:{
-  //   fontWeight:'bold',
-  //   fontSize:RFPercentage(2.6)
-  // },
-  // listItemText2:{
-  //   fontWeight:'bold',
-  //   fontSize:RFPercentage(2),
-  //   textAlign:'center'
-  // },
-  // listItemText3:{
-  //   fontWeight:'bold',
-  //   fontSize:RFPercentage(2),
-  //   textAlign:'center',
-  // },
 });

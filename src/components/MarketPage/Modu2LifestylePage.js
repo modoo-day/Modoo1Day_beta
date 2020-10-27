@@ -14,7 +14,7 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const {width, height} = Dimensions.get('window');
 
-const Modu2FamilyPage =()=> {
+const Modu2LifestylePage =()=> {
     return (
       
         <ScrollView>
@@ -139,7 +139,7 @@ const Modu2FamilyPage =()=> {
 }
 
 
-export default Modu2FamilyPage;
+export default Modu2LifestylePage;
 
 
 const styles = StyleSheet.create({
