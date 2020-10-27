@@ -11,7 +11,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import MarketModu1Page from './MarketModu1Page';
-import MarketModu2Page from './MarketModu2Page';
+import MarketModu2Route from './MarketModu2Page';
 
 
 const Tabs = createMaterialTopTabNavigator();
@@ -37,7 +37,7 @@ function MarketRoute() {
           />
           <Tabs.Screen
               name="모두 찾기"
-              component={MarketModu2Page}
+              component={MarketModu2Route}
               options={{ tabBarLabel: '모두 찾기' }}
           />
           
