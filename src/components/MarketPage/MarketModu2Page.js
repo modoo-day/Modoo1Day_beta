@@ -150,44 +150,44 @@ const Tabs = createMaterialTopTabNavigator();
 
 function MarketModu2Route() {
   return (
-      <Tabs.Navigator
-          initialRouteName="MarketModu2Route"
-          tabBarOptions={{
-          activeTintColor: 'black',
-          labelStyle: { fontSize: 14, fontFamily:'neodgm',justifyContent: 'center',
-          alignItems: 'center' },
-          indicatorStyle:{backgroundColor:'#fdd835'},
-          // indicatorContainerStyle:{width:'70%', left:'5%'},
-          style: { backgroundColor: 'white'},
-          }}
-      >
-          
-          <Tabs.Screen
-              name="전체"
-              component={MarketModu2Page}
-              options={{ tabBarLabel: '전체' }}
-          />
-          <Tabs.Screen
-              name="가족"
-              component={Modu2FamilyPage}
-              options={{ tabBarLabel: '가족' }}
-          />
-          <Tabs.Screen
-              name="뷰티"
-              component={Modu2BeautyPage}
-              options={{ tabBarLabel: '뷰티' }}
-          />
-          <Tabs.Screen
-              name="건강/운동"
-              component={Modu2HealthPage}
-              options={{ tabBarLabel: '건강/운동' }}
-          />
-          <Tabs.Screen
-              name="라이프스타일"
-              component={Modu2LifestylePage}
-              options={{ tabBarLabel: '라이프스타일' }}
-          />
-      </Tabs.Navigator>
+        <Tabs.Navigator
+            initialRouteName="MarketModu2Route"
+            tabBarOptions={{
+            activeTintColor: 'black',
+            labelStyle: { fontSize: 14, fontFamily:'neodgm',justifyContent: 'center',
+            alignItems: 'center' },
+            indicatorStyle:{backgroundColor:'#fdd835'},
+            // indicatorContainerStyle:{width:'70%', left:'5%'},
+            style: { backgroundColor: 'white'},
+            }}
+        >
+            
+            <Tabs.Screen
+                name="전체"
+                component={MarketModu2Page}
+                options={{ tabBarLabel: '전체' }}
+            />
+            <Tabs.Screen
+                name="가족"
+                component={Modu2FamilyPage}
+                options={{ tabBarLabel: '가족' }}
+            />
+            <Tabs.Screen
+                name="뷰티"
+                component={Modu2BeautyPage}
+                options={{ tabBarLabel: '뷰티' }}
+            />
+            <Tabs.Screen
+                name="건강/운동"
+                component={Modu2HealthPage}
+                options={{ tabBarLabel: '건강/운동' }}
+            />
+            <Tabs.Screen
+                name="라이프스타일"
+                component={Modu2LifestylePage}
+                options={{ tabBarLabel: '라이프스타일' }}
+            />
+        </Tabs.Navigator>
   );
 }
 
