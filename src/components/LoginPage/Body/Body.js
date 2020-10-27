@@ -7,7 +7,6 @@ import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import {TextInput} from 'react-native-paper';
 import Navigations from '../../MarketPage/Navigations';
 import {createStackNavigator} from '@react-navigation/stack';
-import MarketPage from '../../MarketPage/MarketPage';
 
 /*
 state={

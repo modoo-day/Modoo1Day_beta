@@ -7,7 +7,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Navigations from '../MarketPage/Navigations';
-import MarketPage from '../MarketPage/MarketPage';
 import EmailCheck from './SignUp/EmailCheck';
 import PasswordCheck from './SignUp/PasswordCheck';
 
