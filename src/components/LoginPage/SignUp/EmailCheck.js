@@ -12,12 +12,15 @@ function EmailValid({navigation}) {
   /* ------------------ */
   const emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
+  const USR_TB = firestore().collection('USR_TB');
+
   const [isEmail, setisEmail] = useState(false);
   const [email, setEmail] = useState('');
 
   const [wrong, setWrong] = useState('');
   const [finish, setfinish] = useState('계속하기');
 
+  // 이메일 형식 체크
   function checkEmail(text) {
     setEmail(text);
     if (emailReg.test(text)) {
@@ -32,8 +35,8 @@ function EmailValid({navigation}) {
   /* ----------------------- */
   /* Email Format inspection */
   /* ----------------------- */
-  const USR_TB = firestore().collection('USR_TB');
 
+  // 이메일이 기존에 사용 중인지 확인하는 함수
   function inspectEmail() {
     USR_TB.where('email', '==', email)
       .get()
@@ -55,42 +58,26 @@ function EmailValid({navigation}) {
       });
   }
 
-  /* ------------- */
-  /* Sending Email */
-  /* ------------- */
-  const actionCodeSettings = {
-    // Firebase Hosting
-    url: 'https://modoo1daybeta.firebaseapp.com',
-    handleCodeInApp: true, // This must be true.
-    // iOS: {
-    // bundleId: 'com.example.ios',
-    // },
-    android: {
-      packageName: 'com.modoo1day_beta',
-      installApp: true,
-      minimumVersion: '12',
-    },
-    // Firebase Dynamic Link
-    dynamicLinkDomain: 'modoo1daybeta.page.link',
-  };
-
-  async function sendEmail() {
-    await auth()
-      .sendSignInLinkToEmail(email, actionCodeSettings)
-      .then(function () {
-        // 자바스크립트에서 이메일 로그인 정보를
-        // 로컬에 저장해서 계속 쓸 수 있게
-        AsyncStorage.setItem('emailForSignIn', email);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  // Firebase API Server에 Token 발급 요청
+  function reqEmailVerify() {
+    fetch('http://192.168.43.233:8000/reqGenToken/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        reqEmail: 'yallee8@gmail.com',
+      }),
+    }).then((res) => {
+      // Fetch 후 서버에서 결과 받아오면.
+      console.log(res);
+    });
   }
 
   return (
     <>
       <View style={styles.container}>
-
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.h1}>행복은 습관이</Text>
@@ -107,10 +94,7 @@ function EmailValid({navigation}) {
               onChangeText={(text) => checkEmail(text)}
               value={email}
             />
-            <Button
-              onPress={() => inspectEmail()}
-              compact={true}
-              color={'black'}>
+            <Button onPress={reqEmailVerify} compact={true} color={'black'}>
               <Text style={{fontFamily: 'neodgm'}}>이메일인증</Text>
             </Button>
           </View>
@@ -186,3 +170,35 @@ const styles = StyleSheet.create({
 });
 
 export default EmailValid;
+
+/* ------------- */
+/* Sending Email */
+/* ------------- */
+// const actionCodeSettings = {
+//   // Firebase Hosting
+//   url: 'https://modoo1daybeta.firebaseapp.com',
+//   handleCodeInApp: true, // This must be true.
+//   // iOS: {
+//   // bundleId: 'com.example.ios',
+//   // },
+//   android: {
+//     packageName: 'com.modoo1day_beta',
+//     installApp: true,
+//     minimumVersion: '12',
+//   },
+//   // Firebase Dynamic Link
+//   dynamicLinkDomain: 'modoo1daybeta.page.link',
+// };
+
+//   async function sendEmail() {
+//   await auth()
+//     .sendSignInLinkToEmail(email, actionCodeSettings)
+//     .then(function () {
+//       // 자바스크립트에서 이메일 로그인 정보를
+//       // 로컬에 저장해서 계속 쓸 수 있게
+//       AsyncStorage.setItem('emailForSignIn', email);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
