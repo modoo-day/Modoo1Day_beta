@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import { Rating, AirbnbRating } from 'react-native-elements';
 import Button from 'apsl-react-native-button';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
@@ -25,69 +25,75 @@ const ReviewPage = ({navigation}) =>{
                 </Button>
             </View>
             <View style={styles.listContianer}>
-                <View style={styles.postContainer}>
-                    <View style={styles.postTitleContainer}>
-                        <Text style={styles.title}>리뷰 내용</Text>
-                    </View>
-                    <View style={styles.postBottomContainer}>
-                        <Text style={styles.bottomText}>엄에진</Text>
-                        <Text style={styles.bottomText}>2020.10.31</Text>
-                        <View style={styles.ratingContainer}>
-                            <Rating
-                                // count={5}
-                                // defaultRating={5}
-                                // size={5}
-                                showRating={false}
-                                readonly 
-                                startingValue={5}
-                                imageSize={20}
-                            />
+                <TouchableOpacity>
+                    <View style={styles.postContainer}>
+                        <View style={styles.postTitleContainer}>
+                            <Text style={styles.title}>리뷰 내용</Text>
+                        </View>
+                        <View style={styles.postBottomContainer}>
+                            <Text style={styles.bottomText}>엄에진</Text>
+                            <Text style={styles.bottomText}>2020.10.31</Text>
+                            <View style={styles.ratingContainer}>
+                                <Rating
+                                    // count={5}
+                                    // defaultRating={5}
+                                    // size={5}
+                                    showRating={false}
+                                    readonly 
+                                    startingValue={5}
+                                    imageSize={20}
+                                />
+                            </View>
                         </View>
                     </View>
-                </View>
-                <View style={styles.postContainer}>
-                    <View style={styles.postTitleContainer}>
-                        <Text style={styles.title}>리뷰 내용</Text>
-                    </View>
-                    <View style={styles.postBottomContainer}>
-                        <Text style={styles.bottomText}>엄에진</Text>
-                        <Text style={styles.bottomText}>2020.10.31</Text>
-                        <View style={styles.ratingContainer}>
-                            <Rating
-                                // count={5}
-                                // defaultRating={5}
-                                // size={5}
-                                showRating={false}
-                                readonly 
-                                startingValue={5}
-                                imageSize={20}
-                            />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style={styles.postContainer}>
+                        <View style={styles.postTitleContainer}>
+                            <Text style={styles.title}>리뷰 내용</Text>
+                        </View>
+                        <View style={styles.postBottomContainer}>
+                            <Text style={styles.bottomText}>엄에진</Text>
+                            <Text style={styles.bottomText}>2020.10.31</Text>
+                            <View style={styles.ratingContainer}>
+                                <Rating
+                                    // count={5}
+                                    // defaultRating={5}
+                                    // size={5}
+                                    showRating={false}
+                                    readonly 
+                                    startingValue={5}
+                                    imageSize={20}
+                                />
+                            </View>
                         </View>
                     </View>
-                </View>
-                <View style={styles.postContainer}>
-                    <View style={styles.postTitleContainer}>
-                        <Text style={styles.title}>리뷰 내용</Text>
-                    </View>
-                    <View style={styles.postBottomContainer}>
-                        <Text style={styles.bottomText}>엄에진</Text>
-                        <Text style={styles.bottomText}>2020.10.31</Text>
-                        <View style={styles.ratingContainer}>
-                            <Rating
-                                // count={5}
-                                // defaultRating={5}
-                                // size={5}
-                                showRating={false}
-                                readonly 
-                                startingValue={5}
-                                imageSize={20}
-                            />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style={styles.postContainer}>
+                        <View style={styles.postTitleContainer}>
+                            <Text style={styles.title}>리뷰 내용</Text>
+                        </View>
+                        <View style={styles.postBottomContainer}>
+                            <Text style={styles.bottomText}>엄에진</Text>
+                            <Text style={styles.bottomText}>2020.10.31</Text>
+                            <View style={styles.ratingContainer}>
+                                <Rating
+                                    // count={5}
+                                    // defaultRating={5}
+                                    // size={5}
+                                    showRating={false}
+                                    readonly 
+                                    startingValue={5}
+                                    imageSize={20}
+                                />
+                            </View>
                         </View>
                     </View>
-                </View>
+                </TouchableOpacity>
+                
+                
             </View>
-            
-            
         </ScrollView>
 
         
@@ -174,5 +180,6 @@ const styles = StyleSheet.create({
     },
     ratingContainer:{
     
-    }
+    },
+    
 })
