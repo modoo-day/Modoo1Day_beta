@@ -97,7 +97,11 @@ function EmailValid({navigation}) {
               onChangeText={(text) => checkEmail(text)}
               value={email}
             />
-            <Button onPress={reqEmailVerify} compact={true} color={'black'}>
+            <Button
+              onPress={reqEmailVerify}
+              compact={true}
+              color={'black'}
+              disabled={!isEmail}>
               <Text style={{fontFamily: 'neodgm'}}>이메일인증</Text>
             </Button>
           </View>
