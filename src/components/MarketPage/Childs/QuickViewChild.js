@@ -50,15 +50,15 @@ const QuickViewChild = (info) => {
   // 정보를 받아옴.
   else {
     // Firestore에서 글 이미지 URL 불러오기.
-    storage()
-      .refFromURL('gs://')
-      .getDownloadURL()
-      .then((url) => {
-        setImgUrl(url);
-      })
-      .catch((err) => {
-        console.log(error);
-      });
+    // storage()
+    //   .refFromURL('gs://')
+    //   .getDownloadURL()
+    //   .then((url) => {
+    //     setImgUrl(url);
+    //   })
+    //   .catch((err) => {
+    //     console.log(error);
+    //   });
 
     // 유저 정보 불러오기 시작.
     // 유저 정보를 이중으로 참조하는게 더 좋은건가싶다. get()이 두번 불리니까.
