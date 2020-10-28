@@ -5,7 +5,7 @@ import firestore from '@react-native-firebase/firestore';
 
 const ProfilePage = ({navigation}) => {
   const [usrInfo, setUsrInfo] = useState([]);
-  //const [usrRealInfo, setUsrRealInfo] = useState('');
+  // const [usrRealInfo, setUsrRealInfo] = useState('');
 
   const [loading, setLoading] = useState(true);
   const [nottriggered, setNottriggered] = useState(true);
