@@ -23,8 +23,12 @@ const ReviewWritePage = () =>{
                 />
                 <Text style={styles.ratingText}>별점을 선택해주세요!</Text>
             </View>
+            <View style={styles.midLine}></View>
             <View style={styles.bottom}>
-                <TextInput></TextInput>
+                <TextInput
+                    style={styles.input}
+                    multiline={true}
+                ></TextInput>
             </View>
         </View>
     )
@@ -34,7 +38,7 @@ export default ReviewWritePage;
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:'pink',
+       // backgroundColor:'pink',
         alignItems:'center'
     },
     top:{
@@ -55,15 +59,31 @@ const styles = StyleSheet.create({
         marginTop:'2%'
     },
     mid:{
-        marginTop:'6%'
+        marginTop:'6%',
+        //borderBottomWidth:1,
     },
     ratingText:{
         fontFamily:'neodgm',   
         textAlign:'center',
-        marginTop:'6%'
+        marginTop:'6%',
+    },
+    midLine:{
+        height:40,
+        width:'80%',
+       // backgroundColor:'lightblue',
+        borderBottomWidth:1,
     },
     bottom:{
-        backgroundColor:'lightyellow',
-        marginTop:'10%'
+       // backgroundColor:'lightyellow',
+        marginTop:'10%',
+        width:'80%',
+        height:'25%',
+        borderWidth:1,
+        borderRadius:10
     },
+    input:{
+        height:'100%',
+        width:'100%',
+        fontSize:17
+    }
 })
