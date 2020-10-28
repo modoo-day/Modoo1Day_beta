@@ -1,10 +1,20 @@
 import React, {Component, useState} from 'react';
-import {View, Image, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import firestore from '@react-native-firebase/firestore';
+import storage from '@react-native-firebase/storage';
 
 const QuickViewChild = (info) => {
-  const [usrData, setUsrData] = useState([]);
+  const [usrData, setUsrData] = useState({
+    name: '로딩중',
+  });
 
   // 이미지 불러오고 나서 사용할 주소
   const [imgUrl, setImgUrl] = useState('dummy');
@@ -40,8 +50,18 @@ const QuickViewChild = (info) => {
   // 정보를 받아옴.
   else {
     // Firestore에서 글 이미지 URL 불러오기.
+    // storage()
+    //   .refFromURL('gs://')
+    //   .getDownloadURL()
+    //   .then((url) => {
+    //     setImgUrl(url);
+    //   })
+    //   .catch((err) => {
+    //     console.log(error);
+    //   });
 
     // 유저 정보 불러오기 시작.
+    // 유저 정보를 이중으로 참조하는게 더 좋은건가싶다. get()이 두번 불리니까.
     var USR_DOC = info.usr_ref;
     USR_DOC.get()
       .then((snsht) => {
@@ -193,14 +213,14 @@ const styles = StyleSheet.create({
     fontFamily: 'neodgm',
     fontSize: 18,
   },
-  listTagContainer:{
+  listTagContainer: {
     //backgroundColor:'pink',
-    bottom:'10%',
-    marginRight:'80%'
+    bottom: '10%',
+    marginRight: '80%',
   },
-  listTag:{
-    fontFamily:'neodgm',
-    fontSize:16
+  listTag: {
+    fontFamily: 'neodgm',
+    fontSize: 16,
   },
   listBottomTextContainer: {
     // backgroundColor:'lightblue',
