@@ -11,8 +11,8 @@ const App: () => React$Node = () => {
     <>
 
 
-      <Navigations/>
-      {/* <ModuInfoRoute/> */}
+      {/* <Navigations/> */}
+      <ModuInfoRoute/>
       
     </>
   );
