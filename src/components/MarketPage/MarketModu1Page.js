@@ -30,6 +30,7 @@ const MarketModu1Page = () => {
 
   // Data from firestore
   // 평면화를 통한 속도 증가를 위한 노가다 선언
+  // 메인에 표시되는 4가지 항목은 가장 트래픽이 많이 필요한거니까 미리 API서버에 인덱싱해둘까.
   const [hotDataFirst, setHotDataFirst] = useState();
   const [hotDataSecond, setHotDataSecond] = useState();
   const [newDataFirst, setNewDataFirst] = useState();
