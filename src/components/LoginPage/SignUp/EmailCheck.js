@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TextInput} from 'react-native';
+import {StyleSheet, View, Text, TextInput, Alert} from 'react-native';
 import {RFPercentage} from 'react-native-responsive-fontsize';
 import {Button} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
@@ -18,7 +18,6 @@ function EmailValid({navigation}) {
   const [email, setEmail] = useState('');
 
   const [wrong, setWrong] = useState('');
-  const [finish, setfinish] = useState('계속하기');
 
   // 이메일 형식 체크
   function checkEmail(text) {
@@ -69,13 +68,49 @@ function EmailValid({navigation}) {
       body: JSON.stringify({
         reqEmail: email,
       }),
-    }).then((res) => {
-      // Fetch 후 서버에서 결과 받아오면.
-      res.json().then((data) => {
-        console.log(data);
-        setWrong(data.result);
+    })
+      .then((res) => {
+        // Fetch 후 서버에서 결과 받아오면.
+        res.json().then((data) => {
+          setWrong(data.result);
+          if (data.result == 'success') {
+            console.log(data);
+            setWrong('메일이 전송됐습니다. 메일함을 확인하세요.');
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    });
+  }
+
+  // 계속하기 버튼 누르면 검증된 사용자인지 확인.
+  function checkMailVerified() {
+    fetch('http://192.168.43.233:8000/checkMailVerified/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        reqEmail: email,
+      }),
+    })
+      .then((res) => {
+        // Fetch 후 서버에서 결과 받아오면.
+        res.json().then((data) => {
+          console.log(data.resPost);
+          // 검증된 이메일 주소인지 확인.
+          if (data.resPost == 'yes') {
+            Alert.alert('통과됨.');
+          } else {
+            Alert.alert('통과안됨.');
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
@@ -112,11 +147,12 @@ function EmailValid({navigation}) {
           {/* Keep going button */}
           <View style={styles.bodyView}>
             <Button
-              onPress={() =>
-                navigation.navigate('PasswordCheck', {email: email})
-              }
+              onPress={checkMailVerified}
+              // onPress={() =>
+              //   navigation.navigate('PasswordCheck', {email: email})
+              // }
               color={'black'}>
-              <Text style={styles.bodyText}>{finish}</Text>
+              <Text style={styles.bodyText}>계속하기</Text>
             </Button>
           </View>
         </View>
