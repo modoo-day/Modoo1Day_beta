@@ -3,17 +3,16 @@ import React from 'react';
 import {
   
 } from 'react-native';
-import LoginPage from './src/components/LoginPage/EmailLoginPage';
+import ModuInfoRoute from './src/components/MarketPage/ModuInfopages/InfoPage';
 import Navigations from './src/components/MarketPage/Navigations';
-import MarketPage from './src/components/MarketPage/Navigations';
 
 const App: () => React$Node = () => {
   return (
     <>
 
 
-      <Navigations/>
-      
+      {/* <Navigations/> */}
+      <ModuInfoRoute/>
       
     </>
   );
