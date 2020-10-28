@@ -67,11 +67,14 @@ function EmailValid({navigation}) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        reqEmail: 'yallee8@gmail.com',
+        reqEmail: email,
       }),
     }).then((res) => {
       // Fetch 후 서버에서 결과 받아오면.
-      console.log(res);
+      res.json().then((data) => {
+        console.log(data);
+        setWrong(data.result);
+      });
     });
   }
 
