@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import { Rating, AirbnbRating } from 'react-native-elements';
 import Button from 'apsl-react-native-button';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
+import {createStackNavigator} from '@react-navigation/stack';
+import ReviewWritePage from './ReviewWritePage';
 
 
 
 
-const ReviewPage = () =>{
+const ReviewPage = ({navigation}) =>{
     return(
         <ScrollView style={styles.container}>
             <View style={styles.buttonContainer}>
@@ -17,7 +19,10 @@ const ReviewPage = () =>{
                     disabledStyle={{backgroundColor:'white'}}
                     isDisabled={false}
                     isLoading={false}
-                >리뷰 쓰기</Button>
+                    onPress={()=>navigation.navigate('ReviewWritePage')}
+                >
+                리뷰 쓰기
+                </Button>
             </View>
             <View style={styles.listContianer}>
                 <View style={styles.postContainer}>
@@ -249,7 +254,33 @@ const ReviewPage = () =>{
     )    
 }
 
-export default ReviewPage;
+// export default ReviewPage;
+
+const ReviewTabs = createStackNavigator();
+
+export default class ReviewPageRoute extends Component {
+  render() {
+    return (
+      <ReviewTabs.Navigator>
+        <ReviewTabs.Screen 
+            name="ReviewPage" 
+            component={ReviewPage} 
+            options={{headerShown: false}}
+ 
+        />
+        <ReviewTabs.Screen
+          name="ReviewWritePage"
+          component={ReviewWritePage}
+          //options={{headerShown: false}}
+        />
+        
+      </ReviewTabs.Navigator>
+    );
+  }
+}
+
+
+
 
 const styles = StyleSheet.create({
     container:{
