@@ -9,6 +9,7 @@ const App: () => React$Node = () => {
     <>
       <Navigations />
       {/* <ModuInfoRoute/> */}
+
     </>
   );
 };
