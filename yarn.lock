@@ -1535,6 +1535,13 @@ accepts@~1.3.5, accepts@~1.3.7:
     mime-types "~2.1.24"
     negotiator "0.6.2"
 
+accordion-collapse-react-native@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/accordion-collapse-react-native/-/accordion-collapse-react-native-0.4.0.tgz#739a4ef719a108ca822d075b03ab86dde83f3ae5"
+  integrity sha512-bTcxp4TfPslb2/dUfcQbe9Kem2Nqxp8ilaoBAjl9VieOyVRiGxQVHgUeB1pAfAcI9/UONvLVobbJvlCt1/a3GA==
+  dependencies:
+    lodash.get "4.4.2"
+
 acorn-globals@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/acorn-globals/-/acorn-globals-6.0.0.tgz#46cdd39f0f8ff08a876619b55f5ac8a6dc770b45"

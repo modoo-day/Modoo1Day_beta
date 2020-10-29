@@ -19,7 +19,7 @@ const ReviewPage = ({navigation}) =>{
                     disabledStyle={{backgroundColor:'white'}}
                     isDisabled={false}
                     isLoading={false}
-                    onPress={()=>navigation.navigate('ReviewWritePage')}
+                    onPress={()=>navigation.navigate('리뷰 쓰기')}
                 >
                 리뷰 쓰기
                 </Button>
@@ -115,7 +115,7 @@ export default class ReviewPageRoute extends Component {
  
         />
         <ReviewTabs.Screen
-          name="ReviewWritePage"
+          name="리뷰 쓰기"
           component={ReviewWritePage}
           //options={{headerShown: false}}
         />
