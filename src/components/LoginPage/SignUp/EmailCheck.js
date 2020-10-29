@@ -7,10 +7,8 @@ import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-community/async-storage';
 
 function EmailValid({navigation}) {
-  /* ------------------ */
-  /* Email Format Check */
-  /* ------------------ */
-  const emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  // 이메일 주소 확인 정규식 확정
+  const emailReg = /^[A-z|0-9]([A-z|0-9]*)(@)([A-z]*)(\.)([A-z]*)$/;
 
   const USR_TB = firestore().collection('USR_TB');
 
@@ -27,7 +25,7 @@ function EmailValid({navigation}) {
       setWrong('');
     } else {
       setisEmail(false);
-      setWrong('이메일 형식 오류// 정규식 추후 수정필요');
+      setWrong('올바르지 않은 이메일 주소입니다.');
     }
   }
 
@@ -109,7 +107,11 @@ function EmailValid({navigation}) {
         });
       })
       .catch((err) => {
-        console.log(err);
+        if (err.toString() == 'TypeError: Network request failed') {
+          Alert.alert('네트워크 오류입니다.');
+        } else {
+          console.log(err);
+        }
       });
   }
 

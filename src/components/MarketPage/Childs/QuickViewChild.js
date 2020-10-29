@@ -12,6 +12,8 @@ import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 
 const QuickViewChild = (info) => {
+  // Firestore Reference 설정
+
   const [usrData, setUsrData] = useState({
     name: '로딩중',
   });
@@ -19,6 +21,8 @@ const QuickViewChild = (info) => {
   // 이미지 불러오고 나서 사용할 주소
   const [imgUrl, setImgUrl] = useState('dummy');
   const [pfImgUrl, setPfImgUrl] = useState('dummy');
+
+  const [isTriggered, setIsTriggered] = useState(false);
 
   // 로딩중이면 (title의 존재 유무로 확인함.)
   if (info.title_str == undefined) {
@@ -50,20 +54,27 @@ const QuickViewChild = (info) => {
   // 정보를 받아옴.
   else {
     // Firestore에서 글 이미지 URL 불러오기.
-    // storage()
-    //   .refFromURL('gs://')
-    //   .getDownloadURL()
-    //   .then((url) => {
-    //     setImgUrl(url);
-    //   })
-    //   .catch((err) => {
-    //     console.log(error);
-    //   });
+    // TODO: Fire Storage에서 왜 무한 루프로 다 불러오는지 모르겠다?????
+    if (!isTriggered) {
+      setIsTriggered(true);
+      storage()
+        .refFromURL(info.img_url_str)
+        .getDownloadURL()
+        .then((url) => {
+          console.log('********** Fire Storage getDownloadURL 작동 **********');
+          setImgUrl(url);
+        })
+        .catch((err) => {
+          console.log(error);
+        });
+    }
 
     // 유저 정보 불러오기 시작.
     // 유저 정보를 이중으로 참조하는게 더 좋은건가싶다. get()이 두번 불리니까.
     var USR_DOC = info.usr_ref;
     USR_DOC.get()
+
+    // 구현 시작.
       .then((snsht) => {
         setUsrData(snsht._data);
       })
@@ -72,10 +83,7 @@ const QuickViewChild = (info) => {
       });
     return (
       <View style={styles.listContainer}>
-        <Image
-          style={styles.listImage}
-          source={require('../../../assets/img/night.png')}
-        />
+        <Image style={styles.listImage} source={{uri: imgUrl}} />
         <View style={styles.listTextContainer}>
           <View style={styles.listTitleContainer}>
             <Text style={styles.listTitle}>{info.title_str}</Text>
