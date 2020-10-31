@@ -13,8 +13,8 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import SelfiePage from './SelfiePage';
 import ReviewPageRoute from './ReviewPage';
-import AskPage from './AskPage';
 import { NavigationContainer } from '@react-navigation/native';
+import AskPageRoute from './AskPage';
 
 
 
@@ -157,7 +157,7 @@ function ModuInfoRoute() {
                 />
                 <Tabs.Screen
                     name="문의사항"
-                    component={AskPage}
+                    component={AskPageRoute}
                     options={{ tabBarLabel: '문의사항' }}
                 />
             </Tabs.Navigator>
