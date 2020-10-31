@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, TextInput, ScrollView, Image, TouchableOpacity} from 'react-native';
 import { Rating, AirbnbRating } from 'react-native-elements';
 import Button from 'apsl-react-native-button';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 
 
 
-const ReviewWritePage = () =>{
+const AskWritePage = () =>{
     return(
         <ScrollView contentContainerStyle={{maxHeight:'200%'}}>
 
@@ -14,21 +14,22 @@ const ReviewWritePage = () =>{
                 <View style={styles.top}>
                     <Text>
                         <Text style={styles.title}>물 마시기</Text>
-                        <Text style={styles.topText1}>의</Text>
+                        <Text style={styles.topText1}>에</Text>
                     </Text>
-                    <Text style={styles.topText2}>경험이 어땠나요?</Text>
+                    <Text style={styles.topText2}>대해 궁금하신가요?</Text>
                 </View>
                 <View style={styles.mid}>
-                    <AirbnbRating
-                        count={5}
-                        showRating={false}
-                        //reviews={["Terrible", "Bad", "Meh", "OK", "Good", "Hmm...", "Very Good", "Wow", "Amazing", "Unbelievable", "Jesus"]}
-                        defaultRating={5}
-                        size={40}
-                    />
-                    <Text style={styles.ratingText}>별점을 선택해주세요!</Text>
+                    <Text style={styles.midText}>* 답변은 영업일 기준 2~3일 소요됩니다.</Text>
+                    <Text style={styles.midText}>* 해당 게시판의 성격과 다른 글은 사전동의 없이 삭제 될 수 있습니다.</Text>
+                    <View style={styles.titleInputContainer}>
+                        <TextInput
+                            style={styles.titleInput}
+                        ></TextInput>
+                        <TouchableOpacity>
+                            <Image style={styles.locker} source={require('../../../assets/icons/EmailInput.png')} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View style={styles.midLine}></View>
                 <View style={styles.bottom}>
                     <TextInput
                         style={styles.input}
@@ -44,7 +45,7 @@ const ReviewWritePage = () =>{
                             disabledStyle={{backgroundColor:'white'}}
                             isDisabled={false}
                             isLoading={false}
-                            //onPress={()=>navigation.navigate('ReviewWritePage')}
+                            //onPress={()=>navigation.navigate('AskWritePage')}
                         >
                         등록하기
                         </Button>
@@ -53,13 +54,14 @@ const ReviewWritePage = () =>{
         </ScrollView>
     )
 }
-export default ReviewWritePage;
+export default AskWritePage;
 
 const styles = StyleSheet.create({
     container:{
         
        // backgroundColor:'pink',
-        alignItems:'center'
+        alignItems:'center',
+        marginHorizontal:'8%'
     },
     top:{
         marginTop:'7%'
@@ -81,22 +83,47 @@ const styles = StyleSheet.create({
     mid:{
         marginTop:'6%',
         //borderBottomWidth:1,
+        //backgroundColor:'pink',
+        height:'17%',
+
     },
-    ratingText:{
+    titleInputContainer:{
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center',
+        //backgroundColor:'lightblue',
+        borderBottomWidth:1,
+        borderTopWidth:1,
+        marginTop:'5%',
+    },
+    locker:{
+        width:30,
+        height:30,
+    },
+    titleInput:{
+        width:250,
+        fontSize:17,
+        //backgroundColor:'lightyellow',
+        alignSelf:'center',
+        marginRight:'2%'
+    },
+    midText:{
         fontFamily:'neodgm',   
         textAlign:'center',
-        marginTop:'6%',
+        fontSize:11,
+        marginTop:3
     },
     midLine:{
         height:40,
         width:'80%',
        // backgroundColor:'lightblue',
         borderBottomWidth:1,
+        
     },
     bottom:{
        // backgroundColor:'lightyellow',
-        marginTop:'10%',
-        width:'80%',
+        marginTop:'15%',
+        width:'100%',
         height:'25%',
         borderWidth:1,
         borderRadius:10

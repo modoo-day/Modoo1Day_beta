@@ -5,7 +5,7 @@ import Button from 'apsl-react-native-button';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import {createStackNavigator} from '@react-navigation/stack';
 import AskDetailPage from './AskDetailPage';
-
+import AskWritePage from './AskWritePage';
 
 
 const AskPage = ({navigation}) =>{
@@ -18,7 +18,7 @@ const AskPage = ({navigation}) =>{
                     disabledStyle={{backgroundColor:'white'}}
                     isDisabled={false}
                     isLoading={false}
-                   // onPress={()=>navigation.navigate('리뷰 쓰기')}
+                    onPress={()=>navigation.navigate('문의 하기')}
                 >
                 문의 하기
                 </Button>
@@ -94,6 +94,11 @@ export default class AskPageRoute extends Component {
             component={AskPage} 
             options={{headerShown: false}}
  
+        />
+        <AskTabs.Screen
+            name='문의 하기'
+            component={AskWritePage}
+            //options={{headerShown: false}}
         />
         <AskTabs.Screen
             name='문의 상세 보기'
