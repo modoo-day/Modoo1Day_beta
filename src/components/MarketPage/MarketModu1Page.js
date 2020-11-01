@@ -18,6 +18,7 @@ import QuickViewChild from './Childs/QuickViewChild';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
+
 const {width, height} = Dimensions.get('window');
 
 const MarketModu1Page = () => {

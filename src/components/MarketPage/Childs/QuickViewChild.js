@@ -10,8 +10,11 @@ import {
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
+import ModuInfoRoute from '../ModuInfopages/InfoPage';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const QuickViewChild = (info) => {
+
+const QuickViewChild = (info, {navigation}) => {
   // Firestore Reference 설정
 
   const [usrData, setUsrData] = useState({
@@ -83,7 +86,11 @@ const QuickViewChild = (info) => {
       });
     return (
       <View style={styles.listContainer}>
-        <Image style={styles.listImage} source={{uri: imgUrl}} />
+        <TouchableOpacity
+          onPress={()=>navigation.navigate('ModuInfoRoute')}
+        >
+          <Image style={styles.listImage} source={{uri: imgUrl}} />
+        </TouchableOpacity>
         <View style={styles.listTextContainer}>
           <View style={styles.listTitleContainer}>
             <Text style={styles.listTitle}>{info.title_str}</Text>
@@ -112,6 +119,10 @@ const QuickViewChild = (info) => {
     );
   }
 };
+
+
+const QuickView = createStackNavigator();
+
 
 export default QuickViewChild;
 
