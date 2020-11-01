@@ -74,7 +74,7 @@ const QuickViewChild = (info) => {
     var USR_DOC = info.usr_ref;
     USR_DOC.get()
 
-    // 구현 시작.
+      // 구현 시작.
       .then((snsht) => {
         setUsrData(snsht._data);
       })
@@ -89,7 +89,11 @@ const QuickViewChild = (info) => {
             <Text style={styles.listTitle}>{info.title_str}</Text>
           </View>
           <TouchableOpacity style={styles.listTagContainer}>
-            <Text style={styles.listTag}>#물</Text>
+            <Text style={styles.listTag}>
+              {info.interestsArr.map((dt) => {
+                return '#'.concat(dt+' ');
+              })}
+            </Text>
           </TouchableOpacity>
           <View style={styles.listBottomTextContainer}>
             <View style={styles.profileContainer}>

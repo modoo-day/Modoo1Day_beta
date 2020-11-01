@@ -27,6 +27,8 @@ const MarketModu1Page = () => {
 
   // Collection Reference
   const BRD_DUMMY = firestore().collection('BRD_DUMMY');
+  const USR_TB = firestore().collection('USR_TB');
+  const USR_UID_C = firestore().collection('USR_UID_C');
 
   // Data from firestore
   // 평면화를 통한 속도 증가를 위한 노가다 선언
@@ -35,9 +37,12 @@ const MarketModu1Page = () => {
   const [hotDataSecond, setHotDataSecond] = useState();
   const [newDataFirst, setNewDataFirst] = useState();
   const [newDataSecond, setNewDataSecond] = useState();
+  const [recDataFirst, setRecDataFirst] = useState();
+  const [recDataSecond, setRecDataSecond] = useState();
 
   const [modalVisible, setModalVisible] = useState(false);
 
+  // 인기 모두
   const getHots = () => {
     // 유료라서 조심해야되니까 별표 로그
     console.log('********** Firestore GET **********');
@@ -62,6 +67,8 @@ const MarketModu1Page = () => {
         console.log(err);
       });
   };
+
+  // 최신 모두
   const getNews = () => {
     // 유료라서 조심해야되니까 별표 로그
     console.log('********** Firestore GET **********');
@@ -87,11 +94,53 @@ const MarketModu1Page = () => {
       });
   };
 
-  // 첫 실행시 getHot, getNews 실행.
+  // 추천 모두
+  const getRecs = () => {
+    // 유료라서 조심해야되니까 별표 로그
+    console.log('********** Firestore GET **********');
+    // 추천 방식: 게시물마다 태그 몇 개씩 지정.
+    // Firestore 쿼리문에서, Array를 돌아다니면서 태그 해당하는거 가져오기.
+    var user = auth().currentUser;
+    if (user) {
+      // 로그인이 되어있으면 유저 Interest 기반으로 추천.
+      // TODO: 추천 기반의 데이터들을 클라이언트 사이드에서 처리하는게 좋지 않은 것 같다.
+      // API 서버에 요청하면 추천 게시물 REF들을 반환하는걸로? 근데 이것도 속도는 딱히..
+      // 먼저 유저 Interest Array를 받아오자.
+      var interestsArr;
+      USR_UID_C.where('uid', '==', user.uid)
+        .get()
+        .then((snapshot) => {
+          console.log('현재 사용자 uid:', user.uid);
+          // snapshot에서 바로 data를 가져오는 방법.
+          var USR_DATA = snapshot._docs[0]._data.usrRef;
+          USR_DATA.get()
+            .then((snst) => {
+              console.log(snst._data.interestsArr);
+              interestsArr = snst._data.interestsArr;
+              BRD_DUMMY.where(
+                'interestsArr',
+                'array-contains-any',
+                interestsArr,
+              )
+                .limit(2)
+                .get()
+                .then((snst) => {
+                  setRecDataFirst(snst._docs[0]._data);
+                  setRecDataSecond(snst._docs[1]._data);
+                });
+            })
+            .catch(console.err);
+        });
+    } else {
+    }
+  };
+
+  // 첫 실행시 getHot, getNews, getRecs 실행.
   if (isFirst == true) {
     setIsFirst(false);
     getHots();
     getNews();
+    getRecs();
   }
 
   return (
@@ -188,6 +237,13 @@ const MarketModu1Page = () => {
       </View>
       <QuickViewChild {...newDataFirst} />
       <QuickViewChild {...newDataSecond} />
+
+      {/* 추천 콘텐츠 */}
+      <View style={styles.category}>
+        <Text style={styles.categoryText}>추천 모두 🍳</Text>
+      </View>
+      <QuickViewChild {...recDataFirst} />
+      <QuickViewChild {...recDataSecond} />
     </ScrollView>
   );
 };
