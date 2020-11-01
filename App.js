@@ -8,7 +8,7 @@ const App: () => React$Node = () => {
   return (
     <>
       {/* <Navigations /> */}
-      <ModuInfoRoute/>
+      <Navigations/>
 
     </>
   );

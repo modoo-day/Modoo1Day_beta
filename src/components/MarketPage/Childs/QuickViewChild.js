@@ -11,6 +11,8 @@ import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 
+import TagsChild from './TagsChild';
+
 const QuickViewChild = (info) => {
   // Firestore Reference 설정
 
@@ -51,7 +53,7 @@ const QuickViewChild = (info) => {
     );
   }
 
-  // 정보를 받아옴.
+  // 로딩 완료시 Return 정보들
   else {
     // Firestore에서 글 이미지 URL 불러오기.
     // TODO: Fire Storage에서 왜 무한 루프로 다 불러오는지 모르겠다?????
@@ -88,13 +90,9 @@ const QuickViewChild = (info) => {
           <View style={styles.listTitleContainer}>
             <Text style={styles.listTitle}>{info.title_str}</Text>
           </View>
-          <TouchableOpacity style={styles.listTagContainer}>
-            <Text style={styles.listTag}>
-              {info.interestsArr.map((dt) => {
-                return '#'.concat(dt+' ');
-              })}
-            </Text>
-          </TouchableOpacity>
+
+          <TagsChild {...info.interestsArr} />
+
           <View style={styles.listBottomTextContainer}>
             <View style={styles.profileContainer}>
               <Image
@@ -215,18 +213,18 @@ const styles = StyleSheet.create({
   listTextContainer: {
     flex: 1,
     paddingLeft: '5%',
+    alignItems: 'stretch',
   },
   listTitleContainer: {
     flex: 115,
     justifyContent: 'center',
   },
   listTitle: {
-    top: '5%',
+    top: '-10%',
     fontFamily: 'neodgm',
     fontSize: 18,
   },
   listTagContainer: {
-    //backgroundColor:'pink',
     bottom: '10%',
     marginRight: '80%',
   },
