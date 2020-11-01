@@ -7,8 +7,8 @@ import Navigations from './src/components/MarketPage/Navigations';
 const App: () => React$Node = () => {
   return (
     <>
-      <Navigations />
-      {/* <ModuInfoRoute/> */}
+      {/* <Navigations /> */}
+      <ModuInfoRoute/>
 
     </>
   );
