@@ -24,72 +24,69 @@ onLogin = () =>{
 }
 */
 
-const Body = ()=> {
-{
-  //const [id, setId] = useState('');
-  //const [pw, setPw] = useState('');
+const Body = () => {
+  {
+    //const [id, setId] = useState('');
+    //const [pw, setPw] = useState('');
 
-  return (
-    <View style={styles.container}>
-      {/* 아이디 입력창 */}
-      <View style={styles.idContainer}>
-        <TextInput
-          mode='outlined'
-          textContentType="emailAddress"
-        //value={id}
-         // onChangeText={(username) => setId(username)}
-         //  onChangeText={(text) => this.setState({username:text})}
+    return (
+      <View style={styles.container}>
+        {/* 아이디 입력창 */}
+        <View style={styles.idContainer}>
+          <TextInput
+            mode="outlined"
+            textContentType="emailAddress"
+            //value={id}
+            // onChangeText={(username) => setId(username)}
+            //  onChangeText={(text) => this.setState({username:text})}
 
-          placeholder={'아이디'}
-          style={styles.input}
-          theme={{
-            roundness:50,
-            colors:'black'
+            placeholder={'아이디'}
+            style={styles.input}
+            theme={{
+              roundness: 50,
+              colors: 'black',
             }}
-        />
-      </View>
+          />
+        </View>
 
-      {/* 비밀번호 입력창 */}
-      <View style={styles.pwContainer}>
-        <TextInput
-          mode='outlined'
-        //value={pw}
-          //onChangeText={(password) => setPw(password)}
-         // onChangeText={(text) => this.setState({password:text})}
-          placeholder={'비밀번호'}
-          secureTextEntry={true}
-          style={styles.input}
-          theme={{
-            roundness:50,
-            colors:'black'
+        {/* 비밀번호 입력창 */}
+        <View style={styles.pwContainer}>
+          <TextInput
+            mode="outlined"
+            //value={pw}
+            //onChangeText={(password) => setPw(password)}
+            // onChangeText={(text) => this.setState({password:text})}
+            placeholder={'비밀번호'}
+            secureTextEntry={true}
+            style={styles.input}
+            theme={{
+              roundness: 50,
+              colors: 'black',
             }}
-        />
-      </View>
+          />
+        </View>
 
-         {/* <Text style={{color:'red',textAlign:'center'}}>{this.state.errMsg}</Text> */}
-      {/* 시작 버튼 */}
-      <View style={styles.startContainer}>
-        <Button 
-        style={styles.startButton} 
-        textStyle={styles.startText}
-        activeOpacity={0.5}
-        disabledStyle={{backgroundColor:'white'}}
-        isDisabled={false}
-        isLoading={false}
-        //onPress={this.onLogin}
-        
-        >
-          시작하기!
-        </Button>
+        {/* <Text style={{color:'red',textAlign:'center'}}>{this.state.errMsg}</Text> */}
+        {/* 시작 버튼 */}
+        <View style={styles.startContainer}>
+          <Button
+            style={styles.startButton}
+            textStyle={styles.startText}
+            activeOpacity={0.5}
+            disabledStyle={{backgroundColor: 'white'}}
+            isDisabled={false}
+            isLoading={false}
+            //onPress={this.onLogin}
+          >
+            시작하기!
+          </Button>
+        </View>
       </View>
-    </View>
-  );
-}};
-
+    );
+  }
+};
 
 export default Body;
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -117,7 +114,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     height: '35%',
     marginTop: '4%',
-    borderRadius:50
+    borderRadius: 50,
   },
   startText: {
     fontFamily: 'neodgm',

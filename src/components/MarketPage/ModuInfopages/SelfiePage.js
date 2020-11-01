@@ -1,6 +1,9 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {View, Text, Image, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 import ViewMoreText from 'react-native-view-more-text';
+import {createStackNavigator} from '@react-navigation/stack';
+import ReportPage from './ReportPage';
+
 
 function renderViewMore(onPress){
     return(
@@ -14,7 +17,7 @@ function renderViewLess(onPress){
     )
   }
 
-const SelfiePage = () =>{
+const SelfiePage = ({navigation}) =>{
     return(
         <ScrollView contentContainerStyle={styles.container}>
             <Text style={styles.loadingText}>📢 모두 인증 및 피드 개시 중</Text>
@@ -34,7 +37,9 @@ const SelfiePage = () =>{
                         <TouchableOpacity>                            
                             <Image style={styles.bottomIcon} source={require('../../../assets/icons/o.png')}/>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={()=>navigation.navigate('ReportPage')}
+                        >
                             <Image style={styles.bottomIcon} source={require('../../../assets/icons/x.png')}/>
                         </TouchableOpacity>
 
@@ -66,7 +71,35 @@ const SelfiePage = () =>{
     )
 }
 
-export default SelfiePage;
+//export default SelfiePage;
+
+
+const SelfieTabs = createStackNavigator();
+
+export default class SelfiePageRoute extends Component {
+  render() {
+    return (
+      <SelfieTabs.Navigator>
+        <SelfieTabs.Screen 
+            name="SelfiePage" 
+            component={SelfiePage} 
+            options={{headerShown: false}}
+ 
+        />
+        <SelfieTabs.Screen
+          name="ReportPage"
+          component={ReportPage}
+          //options={{headerShown: false}}
+        />
+        
+      </SelfieTabs.Navigator>
+    );
+  }
+}
+
+
+
+
 
 const styles = StyleSheet.create({
     container:{
