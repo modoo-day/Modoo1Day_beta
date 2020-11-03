@@ -12,9 +12,12 @@ import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 import ModuInfoRoute from '../ModuInfopages/InfoPage';
 import {createStackNavigator} from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
 
 
-const QuickViewChild = (info, {navigation}) => {
+const QuickViewChild = (info) => {
+  const navigation = useNavigation();
+
   // Firestore Reference 설정
 
   const [usrData, setUsrData] = useState({

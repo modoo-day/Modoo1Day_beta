@@ -12,6 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import MarketModu1Page from './MarketModu1Page';
 import MarketModu2Route from './MarketModu2Page';
+import ModuInfoRoute from './ModuInfopages/InfoPage';
 
 
 const Tabs = createMaterialTopTabNavigator();
@@ -40,7 +41,11 @@ function MarketRoute() {
               component={MarketModu2Route}
               options={{ tabBarLabel: '모두 찾기' }}
           />
-          
+          <Tabs.Screen
+            name='ModuInfoRoute'
+            component={ModuInfoRoute}
+          />
+
       </Tabs.Navigator>
   );
 }

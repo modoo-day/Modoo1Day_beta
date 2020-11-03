@@ -126,7 +126,6 @@ const Tabs = createMaterialTopTabNavigator();
 
 function ModuInfoRoute() {
   return (
-        <NavigationContainer>
 
             <Tabs.Navigator
                 initialRouteName="ModuInfoRoute"
@@ -161,7 +160,6 @@ function ModuInfoRoute() {
                     options={{ tabBarLabel: '문의사항' }}
                 />
             </Tabs.Navigator>
-        </NavigationContainer>
   );
 }
 
